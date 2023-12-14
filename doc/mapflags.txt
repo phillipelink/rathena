@@ -26,7 +26,7 @@ The format of this file is as follows:
 
 *noreturn
 
-Disables usage of map-warping items on a map:
+Desabilita o uso de itens de teleporte de mapa em um mapa:
  - Butterfly Wing (ID 602)
  - Yellow/Green/Red/Blue Butterfly Wing (IDs 14582-14585)
  - Siege Teleport Scroll (ID 14591)
@@ -39,7 +39,7 @@ player's current map.
 
 *noteleport
 
-Disables all means of teleportation within a map:
+Desabilita todos os meios de teleportação dentro de um mapa:
  - Items Fly Wing (ID 601) and Giant Fly Wing (ID 12212) are disabled.
  - Skills AL_TELEPORT, TK_HIGHJUMP, and SC_DIMENSIONDOOR are disabled.
  - Skills RG_INTIMIDATE, NPC_EXPULSION, and CG_TAROTCARD will not teleport their intended targets.
@@ -63,7 +63,7 @@ Disables warping from a map:
 
 *nowarpto
 
-Disables warping to a map:
+Desabilita o teleporte para um mapa:
  - Atcommands @warp, @go, @load, and @jump are disabled to the 'nowarpto' map.
  - Atcommands @partyrecall, @guildrecall, and @recallall are disabled.
  - Command /memo is disabled.

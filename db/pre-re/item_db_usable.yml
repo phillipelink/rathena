@@ -2165,36 +2165,39 @@ Body:
       NoAuction: true
     Script: |
       itemheal rand(335,415),0;
-  - Id: 11515
-    AegisName: Coconut
-    Name: Coconut
-    Type: Healing
-    Buy: 1500
-    Weight: 120
-    Flags:
-      BuyingStore: true
-    Script: |
-      itemheal rand(300,400),0;
-  - Id: 11516
-    AegisName: Asai_Fruit
-    Name: Asai Fruit
-    Type: Healing
-    Buy: 15
-    Weight: 20
-    Flags:
-      BuyingStore: true
-    Script: |
-      itemheal rand(16,22),0;
-  - Id: 11517
-    AegisName: Puri_Potion
-    Name: Puri Potion
-    Type: Healing
-    Buy: 20
-    Weight: 100
-    Flags:
-      BuyingStore: true
-    Script: |
-      itemheal rand(400,600),0;
+#Encontro com o Desconhecido
+# - Id: 11515
+#    AegisName: Coconut
+#    Name: Coconut
+#    Type: Healing
+#    Buy: 1500
+#    Weight: 120
+#    Flags:
+#      BuyingStore: true
+#    Script: |
+#      itemheal rand(300,400),0;
+#Encontro com o Desconhecido
+#  - Id: 11516
+#    AegisName: Asai_Fruit
+#    Name: Asai Fruit
+#    Type: Healing
+#    Buy: 15
+#    Weight: 20
+#    Flags:
+#      BuyingStore: true
+#    Script: |
+#      itemheal rand(16,22),0;
+#Encontro com o Desconhecido
+#  - Id: 11517
+#    AegisName: Puri_Potion
+#    Name: Puri Potion
+#    Type: Healing
+#    Buy: 20
+#    Weight: 100
+#    Flags:
+#      BuyingStore: true
+#    Script: |
+#      itemheal rand(400,600),0;
   - Id: 11518
     AegisName: N_Blue_Potion
     Name: Blue Potion
@@ -7339,18 +7342,19 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-  - Id: 12414
-    AegisName: Guarana_Candy
-    Name: Guarana Candy
-    Type: Usable
-    Buy: 20
-    Weight: 10
-    Flags:
-      BuyingStore: true
-    Script: |
-      sc_start SC_ASPDPOTION0,1800000,0;
-      sc_start SC_INCREASEAGI,140000,5;
-      skilleffect "AL_INCAGI",0;
+#Encontro com o Desconhecido      
+#  - Id: 12414
+#    AegisName: Guarana_Candy
+#    Name: Guarana Candy
+#    Type: Usable
+#    Buy: 20
+#    Weight: 10
+#    Flags:
+#      BuyingStore: true
+#    Script: |
+#      sc_start SC_ASPDPOTION0,1800000,0;
+#      sc_start SC_INCREASEAGI,140000,5;
+#      skilleffect "AL_INCAGI",0;
   - Id: 12415
     AegisName: Siege_Teleport_Scroll2
     Name: Siege Teleport Scroll Silver

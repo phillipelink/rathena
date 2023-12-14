@@ -30084,18 +30084,19 @@ Body:
     ArmorLevel: 1
     Refineable: true
     View: 323
-  - Id: 5302
-    AegisName: Lotus_Flower_Hat
-    Name: Flower Lily
-    Type: Armor
-    Weight: 100
-    Defense: 1
-    Locations:
-      Head_Top: true
-    ArmorLevel: 1
-    EquipLevelMin: 30
-    Refineable: true
-    View: 324
+#Encontro com o Desconhecido
+#  - Id: 5302
+#    AegisName: Lotus_Flower_Hat
+#    Name: Flower Lily
+#    Type: Armor
+#    Weight: 100
+#    Defense: 1
+#    Locations:
+#      Head_Top: true
+#    ArmorLevel: 1
+#    EquipLevelMin: 30
+#    Refineable: true
+#    View: 324
   - Id: 5303
     AegisName: Flower_Coronet
     Name: Flower Crown

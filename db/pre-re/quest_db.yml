@@ -1510,11 +1510,12 @@ Body:
     Title: Traditional Weapon
   - Id: 5054
     Title: Traditional Weapon
-  - Id: 5055
-    Title: Local Rising - Headless Horse
-    Targets:
-      - Mob: HEADLESS_MULE
-        Count: 15
+#Encontro com o Desconhecido    
+#  - Id: 5055
+#    Title: Local Rising - Headless Horse
+#    Targets:
+#      - Mob: HEADLESS_MULE
+#        Count: 15
   - Id: 5056
     Title: Local Rising - Tamruan
     Targets:

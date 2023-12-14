@@ -2040,16 +2040,16 @@ ACMD_FUNC(go)
 		{ MAP_VEINS,       216, 123 }, // 24=Veins
 		{ MAP_MOSCOVIA,    223, 184 }, // 25=Moscovia
 		{ MAP_MIDCAMP,     180, 240 }, // 26=Midgard Camp
-		{ MAP_MANUK,       282, 138 }, // 27=Manuk
-		{ MAP_SPLENDIDE,   201, 147 }, // 28=Splendide
-		{ MAP_BRASILIS,    182, 239 }, // 29=Brasilis
-		{ MAP_DICASTES,    198, 187 }, // 30=El Dicastes
-		{ MAP_MORA,         44, 151 }, // 31=Mora
-		{ MAP_DEWATA,      200, 180 }, // 32=Dewata
-		{ MAP_MALANGDO,    140, 114 }, // 33=Malangdo Island
-		{ MAP_MALAYA,      242, 211 }, // 34=Malaya Port
-		{ MAP_ECLAGE,      110,  39 }, // 35=Eclage
-		{ MAP_LASAGNA,     193, 182 }, // 36=Lasagna
+		//{ MAP_MANUK,       282, 138 }, // 27=Manuk
+		//{ MAP_SPLENDIDE,   201, 147 }, // 28=Splendide
+		//{ MAP_BRASILIS,    182, 239 }, // 29=Brasilis
+		//{ MAP_DICASTES,    198, 187 }, // 30=El Dicastes
+		//{ MAP_MORA,         44, 151 }, // 31=Mora
+		//{ MAP_DEWATA,      200, 180 }, // 32=Dewata
+		//{ MAP_MALANGDO,    140, 114 }, // 33=Malangdo Island
+		//{ MAP_MALAYA,      242, 211 }, // 34=Malaya Port
+		//{ MAP_ECLAGE,      110,  39 }, // 35=Eclage
+		//{ MAP_LASAGNA,     193, 182 }, // 36=Lasagna
 	};
 
 	nullpo_retr(-1, sd);

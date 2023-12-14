@@ -1,0 +1,19 @@
+
+-	script	Block_Maps	-1,{
+OnPCLoadMapEvent:
+	if(getgmlevel() == 0 || getgmlevel() == 1 || getgroupid() < 2){
+		dispbottom "Você voltou para o SavePoint! O mapa que você tentou entrar não faz parte do episodio.";
+		warp "SavePoint",0,0;
+	}
+end;
+ 
+OnInit:
+setmapflag "manuk",mf_loadevent;
+setmapflag "splendide",mf_loadevent;
+setmapflag "brasilis",mf_loadevent;
+setmapflag "bra_fild01",mf_loadevent;
+setmapflag "bra_dun01",mf_loadevent;
+setmapflag "bra_dun02",mf_loadevent;
+end;
+ 
+}

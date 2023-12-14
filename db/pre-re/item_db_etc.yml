@@ -16837,18 +16837,19 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
-  - Id: 7553
-    AegisName: Lotus_Flower
-    Name: Lotus Flower
-    Type: Etc
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
+#Encontro com o Desconhecido
+#  - Id: 7553
+#    AegisName: Lotus_Flower
+#    Name: Lotus Flower
+#    Type: Etc
+#    Trade:
+#      NoDrop: true
+#      NoTrade: true
+#      NoCart: true
+#      NoStorage: true
+#      NoGuildStorage: true
+#      NoMail: true
+#      NoAuction: true
   - Id: 7554
     AegisName: Striped_Candle
     Name: Striped Candle
