@@ -34,28 +34,28 @@
 
 // Al De Baran
 //============================================================
-aldebaran,113,70,4	script	Forger Munster#alde	48,{
+aldebaran,113,70,4	script	Refinador#alde	48,{
 	mes "[Munster]";
-	mes "My family used to live in Geffen. So I guess it was natural that we studied forging and eventually became Blacksmiths. Then, we finally moved to this town,";
-	mes "Al De Baran.";
+	mes "Minha família morava em Geffen. Então eu achei que era natural aprender a forjar e eventualmente nos tornamos ferreiros. Então nós finalmente nos mudamos para esta cidade,";
+	mes "Aldebaran.";
 	next;
-	if (select("About ^3355FFItem Upgrade^000000:Quit") == 1) {
+	if (select("Sobre ^3355FFForjar Equipamentos^000000:Sair") == 1) {
 		mes "[Munster]";
-		mes "My father was a famous blacksmith in Geffen, and he taught me a lot about forging equipment.";
+		mes "Meu pai era uma ferreiro famoso em Geffen, e ele me ensinou muito sobre forjar equipamentos.";
 		next;
 		mes "[Munster]";
-		mes "One of the fundamentals is that the success probability of upgrading an item depends on the level of the weapon.";
+		mes "Um dos fundamentos é que a probabilidade de sucesso ao refinar o item depende do nível da arma.";
 		next;
 		mes "[Munster]";
-		mes "For level 1 weapons, you may upgrade up to + 7 without the risk of breaking the weapon. Level 2 weapons can be upgraded to +6. Level 3 weapons can be upgraded to +5 safely.";
+		mes "Para armas de nível 1, você pode refinar até +7 sem o risco de quebrar a arma. Armas nível 2 podem ser refinadas até +6. Armas nível 3 podem ser refinadas até +5 com segurança.";
 		next;
 		mes "[Munster]";
-		mes "For level 4 weapons, you can upgrade + 4 without too much risk. As for armors, you can upgrade them to +4. But if the upgrade for the equipment fails, it will be destroyed!";
+		mes "Para armas nível 4, você pode refinar +4 sem risco. Quanto a armaduras, você pode refiná-las até +4. Se o refinamento falhar, o equipamento será destruido!";
 		close;
 	}
 	mes "[Munster]";
-	mes "Hmm...";
-	mes "If you get a chance, try to visit my father's workshop here in Al de Baran. If I may say so, he's a pretty talented Blacksmith.";
+	mes "Hum...";
+	mes "Se puder, visite a loja do meu pai aqui em Aldebaran. Se me permite dizer, ele é bem talentoso como ferreiro.";
 	close;
 }
 
