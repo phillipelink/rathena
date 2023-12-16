@@ -60,90 +60,91 @@ aldebaran,113,70,4	script	Refinador#alde	48,{
 }
 
 aldebaran,64,104,4	script	Smithing Guy#alde	55,{
-	mes "[Quatro]";
-	mes "Have you heard that a famous Blacksmith moved here from Geffen?";
-	next;
-	if (select("Famous Blacksmith?:End Conversation") == 1) {
-		mes "[Quatro]";
-		mes "From what I've heard, he's one of those Blacksmiths that can upgrade your weapons and armor. When you upgrade a weapon, its attack strength is increased.";
-		next;
-		mes "[Quatro]";
-		mes "For each upgrade level, attack strength increases by 2 for level 1 weapons. On level 2 weapons, 3 attack strength is added.";
-		next;
-		mes "[Quatro]";
-		mes "On level 3 weapons, 5 attack strength is added for each level, and for level 4 weapons, 7 attack strength is added for each level.";
-		close;
-	}
-	mes "[Quatro]";
-	mes "This Blacksmith's family lives here, since his wife is sick and weak. Because of her condition, she needs to take medicinal herbs that grow near Al de Baran.";
-	next;
-	mes "[Quatro]";
-	mes "They also have a dutiful son who's always helping out with the family business. I'm sure that kid will grow up to become a good Blacksmith like his father.";
-	close;
+    mes "[Quatro]";
+    mes "Você ouviu falar que um famoso Ferreiro se mudou para cá de Geffen?";
+    next;
+    if (select("Famoso Ferreiro?:Encerrar Conversa") == 1) {
+        mes "[Quatro]";
+        mes "Pelo que ouvi dizer, ele é um daqueles Ferreiros que podem aprimorar suas armas e armaduras. Quando você aprimora uma arma, sua força de ataque aumenta.";
+        next;
+        mes "[Quatro]";
+        mes "Para cada nível de aprimoramento, a força de ataque aumenta em 2 para armas de nível 1. Em armas de nível 2, são adicionados 3 pontos de força de ataque.";
+        next;
+        mes "[Quatro]";
+        mes "Em armas de nível 3, são adicionados 5 pontos de força de ataque para cada nível, e para armas de nível 4, são adicionados 7 pontos de força de ataque para cada nível.";
+        close;
+    }
+    mes "[Quatro]";
+    mes "A família deste Ferreiro mora aqui, já que sua esposa está doente e fraca. Devido à condição dela, ela precisa tomar ervas medicinais que crescem perto de Al de Baran.";
+    next;
+    mes "[Quatro]";
+    mes "Eles também têm um filho dedicado que está sempre ajudando nos negócios da família. Tenho certeza de que esse garoto crescerá para se tornar um bom Ferreiro como seu pai.";
+    close;
 }
 
+
 aldebaran,49,93,4	script	Young Man#alde	83,{
-	mes "[Miller]";
-	mes "Aren't level 4 weapons cool!";
-	mes "I can't believe such powerful";
-	mes "weapons exist!";
-	next;
-	mes "[Miller]";
-	mes "Well, they're rarely seen in the open market, but boss monsters will drop them by a low chance if you happen to be able to kill them.";
-	close;
+    mes "[Miller]";
+    mes "Não são incríveis as armas de nível 4?";
+    mes "Não consigo acreditar que existem armas tão poderosas!";
+    next;
+    mes "[Miller]";
+    mes "Bem, elas raramente aparecem no mercado aberto, mas monstros chefes as deixarão cair com uma baixa chance se você conseguir derrotá-los.";
+    close;
 }
 
 aldebaran,81,61,4	script	Shell Gathering Lady#ald	101,{
-	mes "[Joanne]";
-	mes "I enjoy gathering shells from the sea. It's really fun and relaxing~";
-	next;
-	if (select("Shell Gathering?:End Conversation") == 1) {
-		mes "[Joanne]";
-		mes "When you see bubbles popping up from the sand or muddy puddles, try digging into the ground a bit. You might find some shells underneath the ground!";
-		next;
-		mes "[Joanne]";
-		mes "Have you heard";
-		mes "of Ambernite?";
-		mes "That shell monster";
-		mes "is pretty tough~";
-		next;
-		mes "[Joanne]";
-		mes "It's usually seen at the beach near the west province of Prontera. If you ever try attacking it without being prepared, you might be in trouble.";
-		next;
-		mes "[Joanne]";
-		mes "Ambernite is";
-		mes "pretty strong!";
-		mes "So look out for it!";
-		close;
-	}
-	mes "[Joanne]";
-	mes "Ambernite is";
-	mes "pretty strong!";
-	mes "So look out for it!";
-	close;
+    mes "[Joanne]";
+    mes "Eu gosto de recolher conchas do mar. É realmente divertido e relaxante~";
+    next;
+    if (select("Coleta de Conchas?:Encerrar Conversa") == 1) {
+        mes "[Joanne]";
+        mes "Quando você vê bolhas aparecendo na areia ou poças de lama, tente cavar um pouco no chão. Você pode encontrar algumas conchas embaixo do chão!";
+        next;
+        mes "[Joanne]";
+        mes "Você já ouviu falar";
+        mes "do Ambernite?";
+        mes "Aquele monstro de concha";
+        mes "é bem resistente~";
+        next;
+        mes "[Joanne]";
+        mes "Geralmente é visto na praia perto da província oeste de Prontera. Se você tentar atacá-lo sem estar preparado, pode se dar mal.";
+        next;
+        mes "[Joanne]";
+        mes "Ambernite é";
+        mes "bastante forte!";
+        mes "Então, fique atento!";
+        close;
+    }
+    mes "[Joanne]";
+    mes "Ambernite é";
+    mes "bastante forte!";
+    mes "Então, fique atento!";
+    close;
 }
 
 aldebaran,46,129,4	script	Canal Guy#alde	97,{
-	mes "[Panama]";
-	mes "Al De Baran is known world wide as the City of Canals. The waterways really add a sophisticated, romantic touch to our fair city.";
-	next;
-	switch(select("About the Canals:End Conversation")) {
-	case 1:
-		mes "[Panama]";
-		mes "Well, a canal is an artificial waterway used for travel,";
-		mes "shipping, or irrigation.";
-		next;
-		mes "[Panama]";
-		mes "However, the canals over here are just for show. If we needed to transport anything, we just use the Kafra Corporation Teleport service!";
-		close;
-		break;
-	case 2:
-		mes "[Panama]";
-		mes "I have that you will enjoy your stay in Al De Baran.";
-		close;
-		break;
-	}
+    mes "[Panama]";
+    mes "Al De Baran é conhecida mundialmente como a Cidade dos Canais. Os canais realmente adicionam um toque sofisticado e romântico à nossa bela cidade.";
+    next;
+    switch(select("Sobre os Canais:Encerrar Conversa")) {
+        case 1:
+            mes "[Panama]";
+            mes "Bem, um canal é uma via navegável artificial usada para viagens,";
+            mes "transporte ou irrigação.";
+            next;
+            mes "[Panama]";
+            mes "No entanto, os canais aqui são apenas para mostrar. Se precisarmos transportar algo, apenas usamos o serviço de teleporte da Kafra Corporation!";
+            close;
+            break;
+        case 2:
+            mes "[Panama]";
+            mes "Espero que aproveite sua estadia em Al De Baran.";
+            close;
+            break;
+    }
 }
+
 
 aldebaran,67,154,4	script	Forest Guy#alde	98,{
 	mes "[Isenberg]";

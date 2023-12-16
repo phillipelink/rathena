@@ -118,7 +118,7 @@ ayothaya,189,120,3	script	Young Man#Thang	843,{
 }
 
 
-ayothaya,171,152,5	script	Girl#Lalitha	838,{
+ayothaya,171,152,5	script	Menina#Lalitha	838,{
     	set .@sit, rand(1,5);
     	if (.@sit > 0 && .@sit < 3) {
         mes "[Lalitha]";
@@ -154,7 +154,7 @@ ayothaya,171,152,5	script	Girl#Lalitha	838,{
         mes "Cuide-se e";
         mes "divirta-se em suas viagens!";
         close;
-} else if (.@sit > 2 && .@sit < 6) {
+		} else if (.@sit > 2 && .@sit < 6) {
         mes "[Lalitha]";
         mes "Quando você vai para Leste a partir desta";
         mes "vila, você chegará às ruínas de um antigo santuário. Agora,";
