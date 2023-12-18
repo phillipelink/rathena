@@ -480,22 +480,22 @@ function	script	F_SetKafCode	{
 
 	mes .@npc_name$;
 	if (#kafra_code == 0) {
-		mes "" + .@comp_name$ + " proudly presents you a new service:";
-		mes "Additional storage protection with a password.";
+		mes "" + .@comp_name$ + " tem o orgulho de apresentar a você um novo serviço: ";
+		mes "Proteção adicional de armazenamento com uma senha.";
 		next;
-		if (select( "Set new password -> 5000z", "Cancelar" ) == 1)
+		if (select( "Defina uma nova senha -> 5000z.", "Cancelar" ) == 1)
 			callsub( S_SET, .@npc_name$, .@comp_name$ );
 		close3;
 	}
-	mes "Your storage is protected with a password. What would you do now?";
+	mes "Seu armazenamento está protegido por senha. O que você gostaria de fazer agora?";
 	next;
-	switch( select( "Change old password -> 5000z", "Remove storage password -> 1000z", "Cancelar" ) ) {
+	switch( select( "Alterar Senha Antiga -> 5000z", "Remover Senha do Armazem -> 1000z", "Cancelar" ) ) {
 	case 1:
 		mes .@npc_name$;
-		mes "At first, please enter your ^0000FFold password^000000.";
+		mes "Inicialmente, por favor, digite sua ^0000FFsenha antiga^000000.";
 		.@code = callfunc("F_EntKafCode");
 		if (!.@code || .@code != #kafra_code) {
-			mes "Wrong password. You can't set a new password.";
+			mes "Senha errada. Você não pode definir uma nova senha.";
 			emotion ET_SCRATCH;
 			break;
 		}
@@ -504,29 +504,29 @@ function	script	F_SetKafCode	{
 		break;
 	case 2:
 		mes .@npc_name$;
-		mes "Please, enter your password before its removal.";
+		mes "Antes de remover, por favor, digite sua senha.";
 		.@code = callfunc("F_EntKafCode");
 		if (!.@code) {
-			mes "The password hasn't been removed.";
+			mes "A senha não foi removida.";
 			emotion ET_SCRATCH;
 			break;
 		}
 		next;
 		mes .@npc_name$;
 		if (Zeny < 1000) {
-			mes "You don't have enough zeny.";
+			mes "Você não tem zeny suficiente.";
 			emotion ET_MONEY;
 			break;
 		}
 		Zeny -= 1000;
 		if (.@code == #kafra_code) {
 			#kafra_code = 0;
-			mes "You've successfully cleared your storage password.";
-			mes "Thank you for using " + .@comp_name$ + ".";
+			mes "Você removeu com sucesso a senha do seu armazém.";
+			mes "Obrigado por usar o " + .@comp_name$ + ".";
 			emotion ET_THANKS;
 		} else {
-			mes "Wrong password. We won't return your 1000z.";
-			mes "Please, next time enter correct password.";
+			mes "Senha incorreta. Não devolveremos seus 1000z.";
+			mes "Por favor, da próxima vez, digite a senha correta.";
 			emotion ET_SORRY;
 		}
 		break;
@@ -540,24 +540,24 @@ S_SET:
 	.@comp_name$ = getarg(1);
 
 	mes .@npc_name$;
-	mes "Now enter your ^FF0000new password^000000 to protect your storage from thieves.";
+	mes "Agora, digite sua ^FF0000nova senha^000000 para proteger seu armazém de ladrões.";
 	.@code = callfunc("F_EntKafCode");
 	if (!.@code) {
-		mes "The password hasn't been changed.";
+		mes "A senha não foi alterada.";
 		emotion ET_SCRATCH;
 		return;
 	}
 	next;
 	mes .@npc_name$;
 	if (Zeny < 5000) {
-		mes "You don't have enough zeny.";
+		mes "Você não tem zeny suficiente.";
 		emotion ET_MONEY;
 		return;
 	}
 	Zeny -= 5000;
 	#kafra_code = .@code;
-	mes "You've protected your storage with a secret password.";
-	mes "Thank you for using " + .@comp_name$ + ".";
+	mes "Você protegeu seu armazém com uma senha secreta.";
+	mes "Obrigado por usar " + .@comp_name$ + ".";
 	emotion ET_THANKS;
 	return;
 }
@@ -566,19 +566,19 @@ S_SET:
 // Basic Password Validation Function
 //===================================================
 function	script	F_EntKafCode	{
-	mes "Enter a number 1000~10000000:";
+	mes "Digite um número entre 1000 e 10000000:";
 	@kafcode_try += 1;
 	if (@kafcode_try > 10) {
 		@kafcode_try = 0;
-		logmes "Tried to fit storage password.";
+		logmes "Tentou ajustar a senha de armazenamento.";
 		return 0;
 	}
 	if (input(.@code_) == 1) {
-		mes "You can't use such big password.";
+		mes "Você não pode usar uma senha tão grande.";
 		return 0;
 	}
 	if (.@code_ < 1000) {
-		mes "You shouldn't use such short password.";
+		mes "Você não deve usar uma senha tão curta.";
 		return 0;
 	}
 	return .@code_;
