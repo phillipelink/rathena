@@ -16,7 +16,7 @@
 //= 2.0 Added 4th class [Lemongrass]
 //============================================================
 
-prontera,153,193,6	script	Mestre das Classes	123,{
+prontera,153,193,6	script	Mestra das Classes	650,{
 function Get_Job_Equip;
 // Checks if the Player has the required level.
 // closes if not, returns if yes
@@ -495,7 +495,7 @@ OnInit:
 	.BabySummoner = false;				// Enable Baby Summoner?
 	.LastJob = true;					// Enforce linear class changes?
 	.SkillPointCheck = true;			// Force player to use up all skill points?
-	.Platinum = true;					// Get platinum skills automatically?
+	.Platinum = false;					// Get platinum skills automatically?
 	.GetJobEquip = true;				// Get job equipment (mostly weapons) on job change?
 
 	// Level Requirements

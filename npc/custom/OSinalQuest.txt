@@ -11,154 +11,269 @@
 //============================================================
 
 geffen,128,54,4	script	O Sinal	47,{
-	mes "[^000000O Sinal^000000]";
-	mes "Possui:";
+	
+	if(countitem(743) >= 1 && countitem(2278) >= 1 && countitem(914) >= 100 && countitem(7033) >= 50 && countitem(904) >= 30 && countitem(930) >= 20 && countitem(1038) >= 15 && countitem(1092) >= 10 && countitem(610) >= 2 && countitem(511) >= 10 && countitem(526) >= 10 && countitem(518) >= 20 && countitem(948) >= 30 && countitem(520) >= 1 && countitem(708) >= 1 && countitem(713) >= 1 && countitem(612) >= 5 && countitem(615) >= 2 && countitem(988) >= 1 && countitem(1097) >= 10 && countitem(2203) >= 1 && countitem(907) >= 4 && countitem(953) >= 12 && countitem(7013) >= 375 &&  Zeny >= 2000000)
+	{
+		mes "[^0000FFO Sinal^000000]";
+		mes "Olá ^FF9900" +strcharinfo(0)+ "^000000!";
+		mes "Você possui todos os requisitos para finalizar a quest O Sinal";
+		mes "Deseja finalizar a quest O Sinal?";
+		next;
+		switch(select("Não","Sim, entregar todos os itens necessários!")) 
+		{
+			case 1:
+			mes "[^0000FFO Sinal^000000]";
+			mes "Tudo bem ^FF9900" +strcharinfo(0)+ "^000000 não tem problema, fica para próxima.";
+			mes "Até mais!";
+			close;
+			break;
+			
+			case 2:
+			mes "[^0000FFO Sinal^000000]";
+			mes "Parabéns ^FF9900" +strcharinfo(0)+ "^000000!";
+			mes "Aqui está o seu prêmio ^329A32 Lamento de Lúcifer ^000000!";
+			mes "Agora você pode acessar Geffenia pela Teleportadora ou pela fonte aqui em Geffen!";
+			announce "Parabéns ao jogador [ " +strcharinfo(0)+ " ] que finalizou a quest [ O Sinal ] ",0;
+			delitem 743,1;
+			delitem 2278,1;
+			delitem 914,100;
+			delitem 7033,50;
+			delitem 904,30;
+			delitem 930,20;
+			delitem 1038,15;
+			delitem 1092,10;
+			delitem 610,2;
+			delitem 511,10;
+			delitem 526,10;
+			delitem 518,20;
+			delitem 948,30;
+			delitem 520,1;
+			delitem 708,1;
+			delitem 713,1;
+			delitem 612,5;
+			delitem 615,2;
+			delitem 988,1;
+			delitem 1097,10;
+			delitem 2203,1;
+			delitem 907,4;
+			delitem 953,12;
+			delitem 7013,375;
+			set Zeny, Zeny - 2000000;
+			getitem 7025,1;
+			close;
+				break;
+		
+		}
+	}
+
+	mes "[^0000FFO Sinal^000000]";
+	mes "Requisitos Completos:";
+	if(Zeny >= 2000000){
+		mes "[ ^329A32 2,000,000 / 2,000,000 ^000000 ] Zeny";	
+	}
 	if(countitem(743) >= 1){
 		mes "[ ^329A32"+(countitem(743)) +"/1^000000 ] x <URL>Boneco de Esporo<INFO>https://www.divine-pride.net/database/item/743</INFO></URL>";		
 	}
-		if(countitem(2278) >= 1){
+	if(countitem(2278) >= 1){
 		mes "[ ^329A32"+(countitem(2278)) +"/1^000000 ] x <URL>Máscara Feliz<INFO>https://www.divine-pride.net/database/item/2278</INFO></URL>";		
 	}
-
-
+	if(countitem(914) >= 100){
+		mes "[ ^329A32"+(countitem(914)) +"/100^000000 ] x <URL>Felpa<INFO>https://www.divine-pride.net/database/item/914</INFO></URL>";		
+	}
+	if(countitem(7033) >= 50){
+		mes "[ ^329A32"+(countitem(7033)) +"/50^000000 ]  x <URL>Esporo Venenoso<INFO>https://www.divine-pride.net/database/item/7033</INFO></URL>";		
+	}
+	if(countitem(904) >= 30){
+		mes "[ ^329A32"+(countitem(904)) +"/30^000000 ]  x <URL>Cauda de Escorpião<INFO>https://www.divine-pride.net/database/item/904</INFO></URL>";		
+	}
+	if(countitem(930) >= 20){
+		mes "[ ^329A32"+(countitem(930)) +"/20^000000 ]  x <URL>Bandagem Estragada<INFO>https://www.divine-pride.net/database/item/930</INFO></URL>";		
+	}
+	if(countitem(1038) >= 15){
+		mes "[ ^329A32"+(countitem(1038)) +"/15^000000 ]  x <URL>Pequeno Chifre Maligno<INFO>https://www.divine-pride.net/database/item/1038</INFO></URL>";		
+	}
+	if(countitem(1092) >= 10){
+		mes "[ ^329A32"+(countitem(1092)) +"/10^000000 ]  x <URL>Tubo de Ensaio<INFO>https://www.divine-pride.net/database/item/1092</INFO></URL>";		
+	}
+	if(countitem(610) >= 2){
+		mes "[ ^329A32"+(countitem(610)) +"/2^000000 ]  x <URL>Folha de Yggdrasil<INFO>https://www.divine-pride.net/database/item/610</INFO></URL>";		
+	}
+	if(countitem(511) >= 10){
+		mes "[ ^329A32"+(countitem(511)) +"/10^000000 ]  x <URL>Erva Verde<INFO>https://www.divine-pride.net/database/item/511</INFO></URL>";		
+	}
+	if(countitem(526) >= 10){
+		mes "[ ^329A32"+(countitem(526)) +"/10^000000 ]  x <URL>Geléia Real<INFO>https://www.divine-pride.net/database/item/526</INFO></URL>";		
+	}
+	if(countitem(518) >= 20){
+		mes "[ ^329A32"+(countitem(518)) +"/20^000000 ]  x <URL>Mel<INFO>https://www.divine-pride.net/database/item/518</INFO></URL>";		
+	}
+	if(countitem(948) >= 30){
+		mes "[ ^329A32"+(countitem(948)) +"/30^000000 ]  x <URL>Pata de Urso<INFO>https://www.divine-pride.net/database/item/948</INFO></URL>";		
+	}
+	if(countitem(520) >= 1){
+		mes "[ ^329A32"+(countitem(520)) +"/1^000000 ]  x <URL>Folha de Hinalle<INFO>https://www.divine-pride.net/database/item/520</INFO></URL>";		
+	}
+	if(countitem(708) >= 1){
+		mes "[ ^329A32"+(countitem(708)) +"/1^000000 ]  x <URL>Menta<INFO>https://www.divine-pride.net/database/item/708</INFO></URL>";		
+	}
+	if(countitem(713) >= 1){
+		mes "[ ^329A32"+(countitem(713)) +"/1^000000 ]  x <URL>Garrafa Vazia<INFO>https://www.divine-pride.net/database/item/713</INFO></URL>";		
+	}
+	if(countitem(612) >= 5){
+		mes "[ ^329A32"+(countitem(612)) +"/5^000000 ]  x <URL>Mini-Fornalha<INFO>https://www.divine-pride.net/database/item/612</INFO></URL>";		
+	}
+	if(countitem(615) >= 2){
+		mes "[ ^329A32"+(countitem(615)) +"/2^000000 ]  x <URL>Martelo de Oridecon<INFO>https://www.divine-pride.net/database/item/615</INFO></URL>";		
+	}
+	if(countitem(988) >= 1){
+		mes "[ ^329A32"+(countitem(988)) +"/1^000000 ]  x <URL>Bigorna de Ouro<INFO>https://www.divine-pride.net/database/item/988</INFO></URL>";		
+	}	
+	if(countitem(1097) >= 10){
+		mes "[ ^329A32"+(countitem(1097)) +"/10^000000 ]  x <URL>Página Deteriorada<INFO>https://www.divine-pride.net/database/item/1097</INFO></URL>";		
+	}	
+	if(countitem(2203) >= 1){
+		mes "[ ^329A32"+(countitem(2203)) +"/1^000000 ]  x <URL>Óculos<INFO>https://www.divine-pride.net/database/item/2203</INFO></URL>";		
+	}	
+	if(countitem(907) >= 4){
+		mes "[ ^329A32"+(countitem(907)) +"/4^000000 ]  x <URL>Resina<INFO>https://www.divine-pride.net/database/item/907</INFO></URL>";		
+	}	
+	if(countitem(953) >= 12){
+		mes "[ ^329A32"+(countitem(953)) +"/12^000000 ]  x <URL>Coração de Pedra<INFO>https://www.divine-pride.net/database/item/953</INFO></URL>";		
+	}
+	if(countitem(7013) >= 375){
+		mes "[ ^329A32"+(countitem(7013)) +"/375^000000 ]  x <URL>Coral<INFO>https://www.divine-pride.net/database/item/7013</INFO></URL>";		
+	}
+	
+	
+	
 	mes "--------------------------------------";
 	mes "Faltam:";
-
+		
+		if(Zeny < 2000000)
+		{
+			mes "[ ^FF0000" +Zeny+ " / 2,000,000 ^000000 ] Zeny";	
+		} 
+		
 		if(countitem(743) < 1)
 		{
-			mes "[ ^FF0000 0/"+(1 - countitem(743)) +" ^000000 ] x <URL>Boneco de Esporo<INFO>https://www.divine-pride.net/database/item/743</INFO></URL>";
+			mes "[ ^FF0000" +countitem(743)+"/1 ^000000 ] x <URL>Boneco de Esporo<INFO>https://www.divine-pride.net/database/item/743</INFO></URL>";
 		}
+		
 		if(countitem(2278) < 1)
 		{ 
-			mes "[ ^FF0000 0/"+(1 - countitem(2278)) +" ^000000 ] x <URL>Máscara Feliz<INFO>https://www.divine-pride.net/database/item/2278</INFO></URL>";
+			mes "[ ^FF0000" +countitem(2278)+"/1 ^000000 ] x <URL>Máscara Feliz<INFO>https://www.divine-pride.net/database/item/2278</INFO></URL>";
 		}	
-	if(countitem(914) < 100) mes "^FF0000"+(100 - countitem(914)) +"^000000 Felpa";
-		if(countitem(7033) < 50) mes "^FF0000"+(50 - countitem(7033)) +"^000000 Esporo Venenoso";
-		if(countitem(904) < 30) mes "^FF0000"+(30 - countitem(904)) +"^000000 Cauda de Escorpião";
-		if(countitem(930) < 20) mes "^FF0000"+(20 - countitem(930)) +"^000000 Bandagem Estragada";
-		if(countitem(1038) < 15) mes "^FF0000"+(15 - countitem(1038)) +"^000000 Pequeno Chifre Maligno";
-		if(countitem(1092) < 10) mes "^FF0000"+(10 - countitem(1092)) +"^000000 Tubo de Ensaio";
-		if(countitem(610) < 2) mes "^FF0000"+(2 - countitem(610)) +"^000000 Folha de Yggdrasil";
-		if(countitem(511) < 10) mes "^FF0000"+(10 - countitem(511)) +"^000000 Erva Verde";
-		if(countitem(526) < 10) mes "^FF0000"+(10 - countitem(526)) +"^000000 Geléia Real";
-		if(countitem(518) < 20) mes "^FF0000"+(20 - countitem(518)) +"^000000 Mel";
-		if(countitem(948) < 30) mes "^FF0000"+(30 - countitem(948)) +"^000000 Pata de Urso";
-		if(countitem(520) < 1) mes "^FF0000"+(1 - countitem(520)) +"^000000 Folha de Hinalle";
-		if(countitem(708) < 1) mes "^FF0000"+(1 - countitem(708)) +"^000000 Menta";
-		if(countitem(713) < 1) mes "^FF0000"+(1 - countitem(713)) +"^000000 Garrafa Vazia";
-		if(countitem(612) < 5) mes "^FF0000"+(5 - countitem(612)) +"^000000 Mini-Fornalha";
-		if(countitem(615) < 2) mes "^FF0000"+(2 - countitem(615)) +"^000000 Martelo de Oridecon";
-		if(countitem(988) < 1) mes "^FF0000"+(1 - countitem(988)) +"^000000 Bigorna de Ouro";
-		if(countitem(1097) < 10) mes "^FF0000"+(10 - countitem(1097)) +"^000000 Página Deteriorada";
-		if(countitem(2203) < 1) mes "^FF0000"+(1 - countitem(2203)) +"^000000 Óculos";
-		if(countitem(907) < 4) mes "^FF0000"+(4 - countitem(907)) +"^000000 Resina";
-		if(countitem(953) < 12) mes "^FF0000"+(12 - countitem(953)) +"^000000 Coração de Pedra";
-		if(countitem(7013) < 375) mes "^FF0000"+(375 - countitem(7013)) +"^000000 Coral";
-		if(Zeny < 2000000) mes "^0000FF"+(2000000 - Zeny)+"^000000 Zeny";
-		close;
-	
-	
-	
-	mes "(Exemple)";
-	mes "Hi !";
-	mes "You're here for the Angeling hat, aren't you ?";
-	mes "It's an amazing hat !";
-	next;
-	menu "Item needed ?",L_required,"I have your items !",L_check,"Leave",L_partir;
+		
+		if(countitem(914) < 100)
+		{ 
+			mes "[ ^FF0000"+countitem(914)+"/100 ^000000 ] x <URL>Felpa<INFO>https://www.divine-pride.net/database/item/914</INFO></URL>";
+		}
+		
+		if(countitem(7033) < 50)
+		{ 
+			mes "[ ^FF0000"+countitem(7033)+"/50 ^000000 ] x <URL>Esporo Venenoso<INFO>https://www.divine-pride.net/database/item/7033</INFO></URL>";
+		}
+		
+		if(countitem(904) < 30)
+		{ 
+			mes "[ ^FF0000"+countitem(904)+"/30 ^000000 ] x <URL>Cauda de Escorpião<INFO>https://www.divine-pride.net/database/item/904</INFO></URL>";
+		}
+		
+		if(countitem(930) < 20)
+		{ 
+			mes "[ ^FF0000"+countitem(930)+"/20 ^000000 ] x <URL>Bandagem Estragada<INFO>https://www.divine-pride.net/database/item/930</INFO></URL>";
+		}
 
-	L_required:
-		mes "[^000000O Sinal^000000]";
-		mes "^FF00001^000000 Boneco de Espero"; //743
-		mes "^FF00001^000000 Máscara Feliz"; //2278
-		mes "^FF0000100^000000 Felpa"; //914
-		mes "^FF000050^000000 Esporo Venenoso"; //7033
-		mes "^FF000030^000000 Cauda de Escorpião"; //904
-		mes "^FF000020^000000 Bandagem Estragada"; //930
-		mes "^FF000015^000000 Pequeno Chifre Maligno"; //1038
-		mes "^FF000010^000000 Tubo de Ensaio"; //1092
-		mes "^FF00002^000000 Folha de Yggdrasil"; //610
-		mes "^FF000010^000000 Erva Verde"; //511
-		mes "^FF000010^000000 Geléia Real"; //526
-		mes "^FF000020^000000 Mel"; //518
-		mes "^FF000030^000000 Pata de Urso"; //948
-		mes "^FF00001^000000 Folha de Hinalle"; //520
-		mes "^FF00001^000000 Menta"; //708
-		mes "^FF00001^000000 Garrafa Vazia"; //713
-		mes "^FF00005^000000 Mini-Fornalha"; //612
-		mes "^FF00002^000000 Martelo de Oridecon"; //615
-		mes "^FF00001^000000 Bigorna de Ouro"; //988
-		mes "^FF000010^000000 Página Deteriorada"; //1097
-		mes "^FF00001^000000 Óculos"; //2203
-		mes "^FF00004^000000 Resina"; //907
-		mes "^FF000012^000000 Coração de Pedra"; //953
-		mes "^FF0000375^000000 Coral"; //7013
-		mes "^0000FF2000000^000000 zeny";
-		close;
+		if(countitem(1038) < 15)
+		{ 
+			mes "[ ^FF0000"+countitem(1038)+"/15 ^000000 ] x <URL>Pequeno Chifre Maligno<INFO>https://www.divine-pride.net/database/item/1038</INFO></URL>";
+		}
 
-	L_check:
-		if(countitem(743) < 1) goto L_manque;
-		if(countitem(2278) < 1) goto L_manque;
-		if(countitem(914) < 100) goto L_manque;
-		if(countitem(7033) < 50) goto L_manque;
-		if(countitem(904) < 30) goto L_manque;
-		if(countitem(930) < 20) goto L_manque;
-		if(countitem(1038) < 15) goto L_manque;
-		if(countitem(1092) < 10) goto L_manque;
-		if(countitem(610) < 2) goto L_manque;
-		if(countitem(511) < 10) goto L_manque;
-		if(countitem(526) < 10) goto L_manque;
-		if(countitem(518) < 20) goto L_manque;
-		if(countitem(948) < 30) goto L_manque;
-		if(countitem(520) < 1) goto L_manque;
-		if(countitem(708) < 1) goto L_manque;
-		if(countitem(713) < 1) goto L_manque;
-		if(countitem(612) < 5) goto L_manque;
-		if(countitem(615) < 2) goto L_manque;
-		if(countitem(988) < 1) goto L_manque;
-		if(countitem(1097) < 10) goto L_manque;
-		if(countitem(2203) < 1) goto L_manque;
-		if(countitem(907) < 4) goto L_manque;
-		if(countitem(953) < 12) goto L_manque;
-		if(countitem(7013) < 375) goto L_manque;
-		if(Zeny < 2000000) goto L_manque;
-		mes "[^000000O Sinal^000000]";
-		mes "(Exemple)";
-		mes "Oh, so you did it !";
-		mes "Here, take your Angeling hat !";
-		delitem 743,1;
-		delitem 2278,1;
-		delitem 914,100;
-		delitem 7033,50;
-		delitem 904,30;
-		delitem 930,20;
-		delitem 1038,15;
-		delitem 1092,10;
-		delitem 610,2;
-		delitem 511,10;
-		delitem 526,10;
-		delitem 518,20;
-		delitem 948,30;
-		delitem 520,1;
-		delitem 708,1;
-		delitem 713,1;
-		delitem 612,5;
-		delitem 615,2;
-		delitem 988,1;
-		delitem 1097,10;
-		delitem 2203,1;
-		delitem 907,4;
-		delitem 953,12;
-		delitem 7013,375;
-		set Zeny, Zeny - 2000000;
-		getitem 7025,1;
-		close;
+		if(countitem(1092) < 10)
+		{ 
+			mes "[ ^FF0000"+countitem(1092)+"/10 ^000000 ] x <URL>Tubo de Ensaio<INFO>https://www.divine-pride.net/database/item/1092</INFO></URL>";
+		}
 
-	
+		if(countitem(610) < 2)
+		{ 
+			mes "[ ^FF0000"+countitem(610)+"/2 ^000000 ] x <URL>Folha de Yggdrasil<INFO>https://www.divine-pride.net/database/item/610</INFO></URL>";
+		}
 
-	L_partir:
-		mes "[^000000O Sinal^000000]";
-		mes "Have a nice day.";
-		close;
+		if(countitem(511) < 10)
+		{ 
+			mes "[ ^FF0000"+countitem(511)+"/10 ^000000 ] x <URL>Erva Verde<INFO>https://www.divine-pride.net/database/item/511</INFO></URL>";
+		}
+		
+		if(countitem(526) < 10)
+		{ 
+			mes "[ ^FF0000"+countitem(526)+"/10 ^000000 ] x <URL>Geléia Real<INFO>https://www.divine-pride.net/database/item/526</INFO></URL>";
+		}
+		
+		if(countitem(518) < 20)
+		{ 
+			mes "[ ^FF0000"+countitem(518)+"/20 ^000000 ] x <URL>Mel<INFO>https://www.divine-pride.net/database/item/518</INFO></URL>";
+		}
+		
+		if(countitem(948) < 30)
+		{ 
+			mes "[ ^FF0000"+countitem(948)+"/30 ^000000 ] x <URL>Pata de Urso<INFO>https://www.divine-pride.net/database/item/948</INFO></URL>";
+		}
+		
+		if(countitem(520) < 1)
+		{ 
+			mes "[ ^FF0000"+countitem(520)+"/1 ^000000 ] x <URL>Folha de Hinalle<INFO>https://www.divine-pride.net/database/item/520</INFO></URL>";
+		}
+
+		if(countitem(708) < 1)
+		{ 
+			mes "[ ^FF0000"+countitem(708)+"/1 ^000000 ] x <URL>Menta<INFO>https://www.divine-pride.net/database/item/708</INFO></URL>";
+		}
+		
+		if(countitem(713) < 1)
+		{ 
+			mes "[ ^FF0000"+countitem(713)+"/1 ^000000 ] x <URL>Garrafa Vazia<INFO>https://www.divine-pride.net/database/item/713</INFO></URL>";
+		}
+
+		if(countitem(612) < 5)
+		{ 
+			mes "[ ^FF0000"+countitem(612)+"/5 ^000000 ] x <URL>Mini-Fornalha<INFO>https://www.divine-pride.net/database/item/612</INFO></URL>";
+		}
+		
+		if(countitem(615) < 2)
+		{ 
+			mes "[ ^FF0000"+countitem(615)+"/2 ^000000 ] x <URL>Martelo de Oridecon<INFO>https://www.divine-pride.net/database/item/615</INFO></URL>";
+		}
+		
+		if(countitem(988) < 1)
+		{ 
+			mes "[ ^FF0000"+countitem(988)+"/1 ^000000 ] x <URL>Bigorna de Ouro<INFO>https://www.divine-pride.net/database/item/988</INFO></URL>";
+		}
+
+		if(countitem(1097) < 10)
+		{ 
+			mes "[ ^FF0000"+countitem(1097)+"/10 ^000000 ] x <URL>Página Deteriorada<INFO>https://www.divine-pride.net/database/item/1097</INFO></URL>";
+		}
+		
+		if(countitem(2203) < 1)
+		{ 
+			mes "[ ^FF0000"+countitem(2203)+"/1 ^000000 ] x <URL>Óculos<INFO>https://www.divine-pride.net/database/item/2203</INFO></URL>";
+		}
+
+		if(countitem(907) < 4)
+		{ 
+			mes "[ ^FF0000"+countitem(907)+"/4 ^000000 ] x <URL>Resina<INFO>https://www.divine-pride.net/database/item/907</INFO></URL>";
+		}
+				
+		if(countitem(953) < 12)
+		{ 
+			mes "[ ^FF0000"+countitem(953)+"/12 ^000000 ] x <URL>Coração de Pedra<INFO>https://www.divine-pride.net/database/item/953</INFO></URL>";
+		}
+		
+		if(countitem(7013) < 375)
+		{ 
+			mes "[ ^FF0000"+countitem(7013)+"/375 ^000000 ] x <URL>Coral<INFO>https://www.divine-pride.net/database/item/7013</INFO></URL>";
+		}
+end;
 OnInit:
 		waitingroom "O Sinal (Quest)",0;
 	end;
