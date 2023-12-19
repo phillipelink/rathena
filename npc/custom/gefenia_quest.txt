@@ -1,0 +1,5 @@
+geffen,129,54,4	script	O Sinal	47,{
+	OnInit:
+		waitingroom "O Sinal (Quest)",0;
+	end;
+}

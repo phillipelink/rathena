@@ -14,32 +14,54 @@
 //============================================================
 
 -	script	Curandeira	-1,{
-	.@Price = 20;	// Zeny required for heal
-	.@Buffs = 1;	// Also buff players? (1: yes / 0: no)
-	.@Delay = 5;	// Heal delay, in seconds
 
-	if (@HD > gettimetick(2))
-		end;
-	if (.@Price) {
-		message strcharinfo(0), "Healing costs " + callfunc("F_InsertComma",.@Price) + " Zeny.";
-		if (Zeny < .@Price)
-			end;
-		if (select("^0055FFHeal^000000:^777777Cancel^000000") == 2)
-			end;
-		Zeny -= .@Price;
-	}
-	specialeffect2 EF_HEAL2;
-	percentheal 100,100;
-	if (.@Buffs) {
-		specialeffect2 EF_INCAGILITY;
-		sc_start SC_INCREASEAGI,240000,10;
-		specialeffect2 EF_BLESSING;
-		sc_start SC_BLESSING,240000,10;
-	}
-	if (.@Delay)
-		@HD = gettimetick(2) + .@Delay;
-	end;
 	
+	set .@Price,0;	// Zeny required for heal
+	set .@Buffs,1;	// Also buff players? (1: yes / 0: no)
+	set .@Delay,5;	// Heal delay, in seconds
+
+	if (@HD > gettimetick(2)) 
+	{
+		dispbottom "[ Curandeira ] Nossos serviços tem um tempo de espera de 5 segundos, por favor aguarde.";
+		end;
+	}
+	
+	if( getbrokenid(1) ) 
+	{
+		repairall;
+	}
+	else{
+		dispbottom "[ Curandeira ] Você não tem itens para reparar.";
+	}
+	//Função de Identificar os itens
+//	getinventorylist;
+//	while( .@i < @inventorylist_count ){
+//	if ( !@inventorylist_identify[.@i] ){
+//		delitem2 @inventorylist_id[.@i],1,0,0,0,0,0,0,0;
+//		getitem @inventorylist_id[.@i],1;
+//	}
+//	.@i++;
+//	}
+	
+	if (.@Price) {
+		message strcharinfo(0),"Healing costs "+callfunc("F_InsertComma",.@Price)+" Zeny.";
+		if (Zeny < .@Price) end;
+		if(select("^0055FFHeal^000000:^777777Cancel^000000") == 2) end;
+		set Zeny, Zeny-.@Price;
+	}
+
+	if (.@Buffs) {
+		specialeffect2 EF_INCAGILITY; sc_start SC_INCREASEAGI,240000,10;
+		specialeffect2 EF_BLESSING; sc_start SC_BLESSING,240000,10;
+	}
+	
+		specialeffect2 EF_HEAL2; percentheal 100,100;
+		
+	if (.@Delay) 
+	{
+		set @HD, gettimetick(2)+.@Delay;
+	}
+	end;
 	OnInit:
 		waitingroom "Curandeira",0;
 	end;
@@ -80,10 +102,10 @@ yuno,164,45,4	duplicate(Curandeira)	Curandeira#yuno	91
 
 // Duplicates (Renewal)
 //============================================================
-brasilis,194,221,6	duplicate(Curandeira)	Curandeira#bra	91
-dewata,195,187,4	duplicate(Curandeira)	Curandeira#dew	91
-dicastes01,201,194,4	duplicate(Curandeira)	Curandeira#dic	91
-ecl_in01,45,60,4	duplicate(Curandeira)	Curandeira#ecl	91
-malangdo,132,114,6	duplicate(Curandeira)	Curandeira#mal	91
-malaya,227,204,6	duplicate(Curandeira)	Curandeira#ma	91
-mora,55,152,4	duplicate(Curandeira)	Curandeira#mora	91
+//brasilis,194,221,6	duplicate(Curandeira)	Curandeira#bra	91
+//dewata,195,187,4	duplicate(Curandeira)	Curandeira#dew	91
+//dicastes01,201,194,4	duplicate(Curandeira)	Curandeira#dic	91
+//ecl_in01,45,60,4	duplicate(Curandeira)	Curandeira#ecl	91
+//malangdo,132,114,6	duplicate(Curandeira)	Curandeira#mal	91
+//malaya,227,204,6	duplicate(Curandeira)	Curandeira#ma	91
+//mora,55,152,4	duplicate(Curandeira)	Curandeira#mora	91

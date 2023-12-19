@@ -80,33 +80,33 @@ function	script	F_Kafra	{
 	// Display Kafra Welcome Message
 	switch(.@welcome) {
 	default:// Default message (obsolete)
-	    mes "[funcionária Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Bem-vindo!";
 		mes "A Corporação Kafra";
 		mes "sempre apoiará os";
 		mes "aventureiros de Rune-Midgarts";
 		mes "com seu excelente serviço.";
 		mes " Então, como posso ajudar Você hoje?";
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		break;
 	case 1:// Niflheim specific message
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "^666666W-Bem vindooooo";
 		mes "a Corporação Kafraaaaa^000000";
 		break;
 	case 2:// Guild Castle Kafra message
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Bem vindo. ^ff0000" + getguildname( getcharid(2) ) + "^000000 Membro.";
 		mes "A Kafra Corporation estará com você onde quer que vá.";
 		break;
 	case 3:// Amatsu specific message (obsolete)
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Então, você veio de uma terra distante para estudar nossa cultura, ou está apenas fazendo turismo?";
 		mes "Em qualquer caso, que tal ficar um tempo?";
 		mes "O ar está eternamente carregado com o perfume agradável das flores silvestres.";
 		break;
 	case 4:// Luoyang and Ayothaya specific message (obsolete)
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Com nossas diversas localizações de serviços Kafra,";
 		mes "você nunca está longe de casa.";
 		break;
@@ -157,13 +157,13 @@ function	script	F_Kafra	{
 			if (.@menu_num != 4)// Display Einbroch "No Teleport Service" notice.
 				callfunc "F_KafTele",.@welcome;
 			else {
-				mes "[Funcionária da Kafra]";
+			mes "[^0000FFFuncionária Kafra^000000]";
 				mes "Devido ao ^FF0000Acordo";
 				mes "de transporte limitado^000000,";
 				mes "a Corporação Kafra cannot";
 				mes "não pode fornecer serviços de teleporte na República de Schwarzwald.";
 				next;
-				mes "[Funcionária da Kafra]";
+			mes "[^0000FFFuncionária Kafra^000000]";
 				mes "Pedimos que utilize o Serviço de Dirigível em vez disso.";
 				mes "Agradecemos a compreensão e cooperação.";
 			}
@@ -198,7 +198,7 @@ function	script	F_KafStor	{
 	// Unable to access Guild Storage (Busy)
 	if (.@type == 1) {
 		if (guildopenstorage()) {
-			mes "[Funcionária da Kafra]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 			mes "Sinto muito, mas outro membro da guilda está usando o armazém da guilda neste momento.";
 			mes "Por favor, aguarde até que essa pessoa tenha terminado.";
 			close3;
@@ -208,7 +208,7 @@ function	script	F_KafStor	{
 	}
 	// Unable to access Normal Storage (Insufficient Basic Skills)
 	if (!callfunc("F_CanOpenStorage")) {
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		// Niflheim Specific Message
 		if (getarg(2) == 1) {
 			mes "^666666S-s-ssoooorry,";
@@ -228,7 +228,7 @@ function	script	F_KafStor	{
 			delitem 7059,1;
 		else {
 			if (Zeny < .@fee) {
-				mes "[Funcionária da Kafra]";
+			mes "[^0000FFFuncionária Kafra^000000]";
 				// Niflheim Specific Message
 				if (getarg(2) == 1) {
 					percentheal -50,-50;
@@ -253,13 +253,13 @@ function	script	F_KafStor	{
 		// Niflheim specific Message
 		if (getarg(2) == 1) {
 			percentheal 0,-10;
-			mes "[Funcionária da Kafra]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 			for ( .@i = 0; .@i < 5; .@i++ )
 				mes "^666666Obrigado.. por... usar...^000000";
 		}
 		// Normal message
 		else {
-			mes "[Funcionária da Kafra]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 			mes "Aqui, deixe-me abrir";
 			mes "seu Armazenamento para você.";
 			mes "Obrigado por usar";
@@ -277,7 +277,7 @@ function	script	F_KafStor	{
 // Teleport Function
 //===================================================
 function	script	F_KafTele	{
-	mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 	mes "Por favor escolha";
 	mes "seu destino.";
 	next;
@@ -290,7 +290,7 @@ function	script	F_KafTele	{
 		delitem 7060,1;
 	else {
 		if (Zeny < @wrpP[.@j]) {
-			mes "[Funcionária da Kafra]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 			mes "Sinto muito, mas você não tem";
 			mes "zeny suficiente para o Serviço de Teleporte.";
 			mes "A taxa para teleportar";
@@ -329,7 +329,7 @@ function	script	F_KafTele	{
 function	script	F_KafCart	{
 	// Ensure that the class wanting to Alugue um Carrinho de Mão is a merchant
 	if (BaseClass != Job_Merchant) {
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Peço desculpas, mas o serviço de aluguel de carrinho de mão";
 		if (checkre(0) == true)
 			mes "está disponível apenas para as classes de Mercador.";
@@ -342,14 +342,14 @@ function	script	F_KafCart	{
 	}
 	// Make sure the invoking character does not have a cart already
 	else if (checkcart() == true) {
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Você já tem um Carrinho de Mão equipado.";
 		mes "Infelizmente, não podemos alugar mais de um para cada cliente por vez.";
 		return 1;
 	}
 	// Check if the player has the Pushcart skill
 	else if (getskilllv("MC_PUSHCART") == 0) {
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Você só pode alugar um carrinho depois de aprender a habilidade 'Push Cart'.";
 		return 1;
 	}
@@ -359,7 +359,7 @@ function	script	F_KafCart	{
 		delitem 7061,1;
 	else {
 		.@rental_fee = getarg(1);
-		mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 		mes "A taxa de aluguel do carrinho";
 		mes "é de " + .@rental_fee + " zeny.";
 		mes "Você gostaria de alugar um Carrinho de Mão?";
@@ -367,7 +367,7 @@ function	script	F_KafCart	{
 		if (select("Alugue um Carrinho de Mão.:Cancelar") == 2)
 			return 0;
 		if (Zeny < .@rental_fee) {
-			mes "[Funcionária da Kafra]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 			mes "Sinto muito, mas você não tem dinheiro suficiente";
 			mes "para pagar a taxa de aluguel do Carrinho de Mão,";
 			mes "que é de " + .@rental_fee + " zeny.";
@@ -397,13 +397,13 @@ function	script	F_KafInfo	{
 		.@j = select(.@menu_list$) - 1;
 		switch(.@j) {
 		case 0:// Verificar Pontos de Reserva Especiais.
-			mes "[Funcionária da Kafra]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 			mes "Vamos ver...";
 			mes "" + strcharinfo(0) + "...";
 			mes "Ah, você tem um total de ";
 			mes "" + RESRVPTS + " Pontos de Reserva Especiais.";
 			next;
-			mes "[Funcionária da Kafra]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 			mes "Você pode trocar seus Pontos Especiais de Reserva por recompensas no Escritório";
 			mes "Principal da Kafra em Al De Baran.";
 			mes "Por favor, use nossos serviços convenientes para ver os benefícios de nosso programa de recompensas.";
@@ -412,7 +412,7 @@ function	script	F_KafInfo	{
 			next;
 			break;
 		case 1:// Storage Password Service
-			callfunc("F_SetKafCode","[Funcionária da Kafra]","Serviços Kafra");
+			callfunc("F_SetKafCode","[^0000FFFuncionária Kafra^000000]","Serviços Kafra");
 		case 2:// Funcionária da Kafra Locations
 			for ( .@i = 0; .@i <= 3; .@i++ )
 				viewpoint 1,@viewpX[.@i],@viewpY[.@i],(.@i+1),0xFF00FF;
@@ -433,7 +433,7 @@ function	script	F_KafInfo	{
 //===================================================================
 function	script	F_KafEnd	{
 	.@type = getarg(0);
-	mes "[Funcionária da Kafra]";
+	mes "[^0000FFFuncionária Kafra^000000]";
 	if (getarg(1) == true) {// Salvar
 		mes "Seu Ponto de Ressurgimento";
 		mes "foi salvo aqui";

@@ -33086,6 +33086,39 @@ Body:
     Script: |
       bonus bInt,2;
       skill "PR_MAGNIFICAT", 3;
+  - Id: 5470
+    AegisName: Eyes_Of_Darkness
+    Name: Eye Of Darkness
+    Type: Armor
+    Buy: 20
+    Weight: 100
+    Defense: 1
+    Locations:
+      Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 50
+    View: 467
+    Script: |
+      bonus bDex,1;
+      bonus2 bResEff,Eff_Blind,10000;
+  - Id: 5471
+    AegisName: Hairband_Of_Reginleif
+    Name: Hairband Of Reginleif
+    Type: Armor
+    Buy: 20
+    Weight: 800
+    Defense: 2
+    Locations:
+      Head_Mid: true
+    ArmorLevel: 1
+    EquipLevelMin: 50
+    View: 468
+    Script: |
+      bonus2 bSubEle,Ele_Water,3;
+      bonus2 bSubEle,Ele_Fire,3;
+      bonus2 bSubEle,Ele_Undead,3;
+      bonus2 bSubEle,Ele_Ghost,3;
+      
   - Id: 5476
     AegisName: Hairband_Of_Grandpeco
     Name: Grand Peco Hairband

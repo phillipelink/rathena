@@ -1,106 +1,21 @@
-/*--
--- Estrutura da tabela `item_cash_db`
---
-
-DROP TABLE IF EXISTS `item_cash_db`;
-CREATE TABLE IF NOT EXISTS `item_cash_db` (
-  `tab` smallint(6) NOT NULL,
-  `item_id` smallint(5) UNSIGNED NOT NULL,
-  `price` mediumint(10) UNSIGNED NOT NULL DEFAULT '0',
-  PRIMARY KEY (`tab`,`item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;*/
-
-//Script modificado por bruno05
-// -------Creditos-----
-// -/\-
-// / \Carloskiller, 
-// 
-// // \\
-//**********
-
 prontera,153,164,4	script	Cash Shop	405,{
 	if(getgroupid() >= 99) goto Administrador;
 	end;
 	Administrador:
-	set .npc$,"[^0000CDGerente Cash Shop^000000]";
+	set .npc$,"[^0000CDGerente^000000]";
 	mes .npc$;
 	mes "Olá ^FF4500"+strcharinfo(0)+"^000000!!";
-	mes "Sou responsavel por gerenciar o Cash Shop.";
-	mes "Posso ^E78200Adicionar^000000 e ^C669D4Deletar^000000 itens de sua loja.";
-	mes "Não se esqueça de sempre fazer o Reload após adicionar itens novos.";
+	mes "Sou responsavel por gerenciar o RagnaLinK.";
 	mes "O que você gostaria de fazer ?";
-	set @Menu$,"^FF0000[•]^000000 Adicionar Item.:^8B4513[•]^000000 Remover Itens:^006400[•]^000000 Reload CASH SHOP:";
+	/* set @Menu$,"^FF0000[•]^000000 Adicionar Item.:^8B4513[•]^000000 Remover Itens:^006400[•]^000000 Reload CASH SHOP:"; */
+	set @Menu$,"^006400[•]^000000 Reload Item DB:^8B4513[•]^000000 Reload Script";
 	switch(select(@Menu$)){
 		case 1:
-			mes "[^00AAAAGerente^000000]";
-			mes "Nessa área posso adicionar itens na Loja de CASH.";
-			mes "Vamos ao Trabalho?";
-			next; 
-			AdicionarItem:
-			mes "[^00AAAAGerente^000000]";
-			mes "Insira a Categoria.";
-			mes "[^C65C110^000000] Novo";
-			mes "[^C65C111^000000] Popular";
-			mes "[^C65C112^000000] Limitado";
-			mes "[^C65C113^000000] Aluguel";
-			mes "[^C65C114^000000] Equipamento";
-			mes "[^C65C115^000000] Buff";
-			mes "[^C65C116^000000] Cura";
-			mes "[^C65C117^000000] Outros";
-			mes "[^C65C118^000000] Especiais";
-			input @cat,next;
-			if(@cat >= 9) {	mes "Está Categoria, Não Existe.";next;goto AdicionarItem;}
-			mes "[^00AAAAGerente^000000]";
-			mes "Insira o ID do item.";
-			input @id,next;
-			set @id1,0; set @id2,0;
-			query_sql ("SELECT `tab`,`item_id` FROM `item_cash_db` WHERE `item_id`="+@id,@id1,@id2);
-			if(@id == @id2) { mes "Desculpe este item já está registrado no sistema";next;goto Administrador;}
-			mes "[^00AAAAGerente^000000]";
-			mes "Insira o preço do item. (Cash)";
-			input @qtd,next;
-			mes "[^00AAAAGerente^000000]";
-			mes "Item à adicionar ao Shop:";
-			mes	"^B00306Categoria^000000 - ^030C88Nome^000000 - ^764305Preço:";
-			mes "^B00306"+@cat+"^000000 - ^030C88"+getitemname(@id)+" - ^764305"+@qtd+" Cash's";
-			next;
-			if(select("^85B1F4[•]^000000 Prosseguir","^FF0000[•]^000000 Cancelar")==2) { close; }
-			query_sql ("INSERT INTO `item_cash_db` (tab,item_id,price) VALUES ("+@cat+","+@id+","+@qtd+")");
-			mes "[^00AAAAGerente^000000]";
-			mes "Seu Item foi registrado com sucesso.";
-			mes "Não se esqueça de usar ^13EFF7Reload^000000, para que as modificações tenha efeito.";
-			if(select("^FF0000[•]^000000 Sair.","^85B1F4[•]^000000 Adicionar outro Item")==2) { next;goto AdicionarItem;};
-			next;
-			goto ReloadDB;
-			end;
-		case 2:
-			next;
-			RemoverItem:
-			mes "[^00AAAAGerente^000000]";
-			mes "Digite o ID do item para removelo.";
-			mes	"^B00306Categoria^000000 - ^030C88Nome^000000 - ^764305Item ID^000000:";
-			.num_items = query_sql("SELECT `tab`, `item_id` FROM `item_cash_db` ORDER BY `tab` asc", .tab,.itemid );
-			for( .@i = 0; .@i < .num_items; .@i++ )
-			mes "[^B00306"+.tab[.@i]+"^000000] - [^030C88"+getitemname(.itemid[.@i])+"^000000] - (^764305"+.itemid[.@i]+"^000000)";		
-			input @id;
-			set @id1,0; set @id2,0;
-			query_sql ("SELECT `tab`,`item_id` FROM `item_cash_db` WHERE `item_id`="+@id,@id1,@id2);
-			next;
-			mes "[^00AAAAGerente^000000]";
-			if(!@id2) { mes "Este item não existe na Loja."; next;goto Administrador; }
-			mes "Item à retirar do Shop: ^030C88"+getitemname(@id)+"^000000";
-			mes "ID do Item: ^257491"+@id+"^000000";
-			if(select("^85B1F4[•]^000000 Prosseguir","^FF0000[•]^000000 Cancelar")==2) { close; }
-			query_sql ("DELETE FROM `item_cash_db` WHERE `item_id`="+@id);
-			mes "Item retirado com sucesso.";
-			mes "Deseja Remover outro Item?";
-			if(select("^FF0000[•]^000000 Não Obrigado","^85B1F4[•]^000000 Sim")==2) { next;goto RemoverItem; }
-			close;
-		case 3:
+
 			next;
 			mes "[^00AAAAGerente^000000]";
 			mes "Está função ira recarregar seu banco de dados.";
-			mes "Usando o comando ^13EFF7@reloaditemdb^000000, fazendo seus itens aparecer no Cash Shop.";
+			mes "Usando o comando ^13EFF7@reloaditemdb^000000, fazendo seus itens todos serem recarregados.";
 			ReloadDB:
 			mes "Deseja usar o comando @relaoditemdb agora ?";
 			if(select("^FF0000[•]^000000 Não","^85B1F4[•]^000000 Sim")==1) { mes "Ok sem problemas, até mais.";close; };
@@ -112,7 +27,23 @@ prontera,153,164,4	script	Cash Shop	405,{
 			mes "Tudo pronto, desculpe pela demora.";
 			mes "Não Se esqueça relogar no jogo, para que possa ver o item na loja!";
 			mes "Obrigado por usar meus serviços.";
+			end;
+			
+			case 2:
 
+			next;
+			mes "[^00AAAAGerente^000000]";
+			mes "Está função ira recarregar todos os scripts do servidor.";
+			mes "Usando o comando ^13EFF7@reloadscript^000000, praticamente resetando tudo.";
+			ReloadScript:
+			mes "Deseja usar o comando @reloadscript agora ?";
+			if(select("^FF0000[•]^000000 Não","^85B1F4[•]^000000 Sim")==1) { mes "Ok sem problemas, até mais.";close; };
+			next;
+			mes "Carregando....";
+			mes "Isso pode demorar alguns segundos."," ";
+			sleep2 100;
+			atcommand "@reloadscript";
+			mes "Tudo pronto, desculpe pela demora.";
 			end;
 			close;
 

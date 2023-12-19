@@ -139,6 +139,7 @@ function	Job_Options	{
 
 // Begin of the NPC
 	mes .NPCName$;
+	mes "Olá ^FF9900" +strcharinfo(0)+ "^000000!";
 	Check_Riding();
 	Check_SkillPoints();
 
@@ -480,7 +481,7 @@ function	Get_Job_Equip	{
 
 OnInit:
 	// Initialisation, do not edit these
-	.NPCName$ = "[^0055FFMestre das Classes^000000]";
+	.NPCName$ = "[^0055FFMestra das Classes^000000]";
 	
 	// Settings
 	.FourthClass = false;				// Enable fourth classes?
@@ -516,6 +517,8 @@ OnInit:
 		.BabyExpanded = false;
 		.BabySummoner = false;
 	}
+
+	waitingroom "Mestra das Classes",0;
 	end;
 }
 
