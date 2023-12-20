@@ -22105,3 +22105,86 @@ Body:
       Third_Upper: true
       Third_Baby: true
     EquipLevelMin: 1
+  - Id: 42011
+    AegisName: TicketPremium_1
+    Name: Ticket Premium 1 Dia
+    Type: Usable
+    Buy: 1
+    Weight: 1
+    Script: |
+      vip_time 1440;
+      mes "^FF7F00[ Central VIP ]^000000";
+      mes "Foi adicionado 1 dia de VIP na sua conta .";
+      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
+      close;     
+  - Id: 42012
+    AegisName: TicketPremium_3
+    Name: Ticket Premium 3 Dias
+    Type: Usable
+    Buy: 1
+    Weight: 1
+    Script: |
+      vip_time 4320;
+      mes "^FF7F00[ Central VIP ]^000000";
+      mes "Foi adicionado 3 dias de VIP na sua conta.";
+      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
+      close;
+  - Id: 42013
+    AegisName: TicketPremium_7
+    Name: Ticket Premium 7 Dias
+    Type: Usable
+    Buy: 1
+    Weight: 1
+    Script: |
+      vip_time 10080;
+      mes "^FF7F00[ Central VIP ]^000000";
+      mes "Foi adicionado 7 dias de VIP na sua conta.";
+      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
+      close;
+  - Id: 42014
+    AegisName: TicketPremium_14
+    Name: Ticket Premium 14 Dias
+    Type: Usable
+    Buy: 1
+    Weight: 1
+    Script: |
+      vip_time 43200;
+      mes "^FF7F00[ Central VIP ]^000000";
+      mes "Foi adicionado 14 dias de VIP na sua conta.";
+      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
+      close;
+  - Id: 42015
+    AegisName: TicketPremium_30
+    Name: Ticket Premium 30 Dias
+    Type: Usable
+    Buy: 1
+    Weight: 1
+    Script: |
+      vip_time 86400;
+      mes "^FF7F00[ Central VIP ]^000000";
+      mes "Foi adicionado 30 dias de VIP na sua conta.";
+      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
+      close;
+  - Id: 12622
+    AegisName: Boarding_Halter
+    Name: Reins Of Mount
+    Type: Usable
+    Flags:
+      NoConsume: true
+    Delay:
+      Duration: 3000
+      Status: All_Riding_Reuse_Limit
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      setmounting();
+    UnEquipScript: |
+      if (ismounting())
+         setmounting();
