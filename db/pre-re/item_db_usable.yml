@@ -22106,7 +22106,7 @@ Body:
       Third_Baby: true
     EquipLevelMin: 1
   - Id: 42011
-    AegisName: TicketPremium_1
+    AegisName: TICKETPREMIUM
     Name: Ticket Premium 1 Dia
     Type: Usable
     Buy: 1

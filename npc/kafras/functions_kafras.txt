@@ -80,33 +80,26 @@ function	script	F_Kafra	{
 	// Display Kafra Welcome Message
 	switch(.@welcome) {
 	default:// Default message (obsolete)
-	mes "[^0000FFFuncionária Kafra^000000]";
-		mes "Bem-vindo!";
-		mes "A Corporação Kafra";
-		mes "sempre apoiará os";
-		mes "aventureiros de Rune-Midgarts";
-		mes "com seu excelente serviço.";
-		mes " Então, como posso ajudar Você hoje?";
-	mes "[^0000FFFuncionária Kafra^000000]";
+		
 		break;
 	case 1:// Niflheim specific message
-	mes "[^0000FFFuncionária Kafra^000000]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 		mes "^666666W-Bem vindooooo";
 		mes "a Corporação Kafraaaaa^000000";
 		break;
 	case 2:// Guild Castle Kafra message
-	mes "[^0000FFFuncionária Kafra^000000]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Bem vindo. ^ff0000" + getguildname( getcharid(2) ) + "^000000 Membro.";
 		mes "A Kafra Corporation estará com você onde quer que vá.";
 		break;
 	case 3:// Amatsu specific message (obsolete)
-	mes "[^0000FFFuncionária Kafra^000000]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Então, você veio de uma terra distante para estudar nossa cultura, ou está apenas fazendo turismo?";
 		mes "Em qualquer caso, que tal ficar um tempo?";
 		mes "O ar está eternamente carregado com o perfume agradável das flores silvestres.";
 		break;
 	case 4:// Luoyang and Ayothaya specific message (obsolete)
-	mes "[^0000FFFuncionária Kafra^000000]";
+		mes "[^0000FFFuncionária Kafra^000000]";
 		mes "Com nossas diversas localizações de serviços Kafra,";
 		mes "você nunca está longe de casa.";
 		break;

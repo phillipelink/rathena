@@ -1,3 +1,5 @@
+
+/*
 prontera,155,180,4	script	Central VIP	4_F_KAFRA1,{
 OnTalk:
 	mes .npc$;
@@ -76,7 +78,7 @@ OnInit:
 	setarray .cord,130,161;											// Coordenada X e Y;
 	end;
 }
-
+*/
 
 
 
