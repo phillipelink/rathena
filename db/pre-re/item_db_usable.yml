@@ -1200,6 +1200,7 @@ Body:
       Container: true
     Script: |
       getrandgroupitem(IG_CardAlbum,1);
+      callfunc "OCAannounce";
   - Id: 617
     AegisName: Old_Violet_Box
     Name: Old Purple Box
@@ -4854,7 +4855,47 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      callfunc "F_CashReset";
+      mes "[ ^0000FFNeuralizador^000000 ]";
+      mes "O que você deseja resetar?";
+      switch(select("- Habilidades","- Atruibutos")){
+        case 1:
+            next;
+            mes "[ ^0000FFNeuralizador^000000 ]";
+            mes "Você tem certeza que deseja resetar as suas ^FF0000Habilidades^000000?";
+                switch(select("- Sim","- Não")){
+        next;
+        case 1:
+            callfunc "F_CashReset";
+            mes "[ Neuralizador^000000 ]";
+            mes "Suas habilidades foram resetadas com sucesso!";
+            end;
+        case 2:
+            mes "[ ^0000FFNeuralizador^000000 ]";
+            mes "Sem problemas, use quando tiver certeza.";
+            end;
+        }
+      
+      case 2:
+            next;
+            mes "[ ^0000FFNeuralizador^000000 ]";
+            mes "Você tem certeza que deseja resetar as seus ^FF0000Atributos^000000?";
+                switch(select("- Sim","- Não")){
+      next;
+      case 1:
+        callfunc "F_CashResetAtributos";
+        mes "[ ^0000FFNeuralizador^000000 ]";
+        mes "Seus atributos foram resetados com sucesso!";
+        close;
+        break;
+        
+        case 2:
+        mes "[ ^0000FFNeuralizador^000000 ]";
+        mes "Sem problemas, use quando tiver certeza.";
+        close;
+        break;
+      }
+      end;
+      }
   - Id: 12214
     AegisName: Convex_Mirror
     Name: Convex Mirror
@@ -22105,66 +22146,6 @@ Body:
       Third_Upper: true
       Third_Baby: true
     EquipLevelMin: 1
-  - Id: 42011
-    AegisName: TICKETPREMIUM
-    Name: Ticket Premium 1 Dia
-    Type: Usable
-    Buy: 1
-    Weight: 1
-    Script: |
-      vip_time 1440;
-      mes "^FF7F00[ Central VIP ]^000000";
-      mes "Foi adicionado 1 dia de VIP na sua conta .";
-      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
-      close;     
-  - Id: 42012
-    AegisName: TicketPremium_3
-    Name: Ticket Premium 3 Dias
-    Type: Usable
-    Buy: 1
-    Weight: 1
-    Script: |
-      vip_time 4320;
-      mes "^FF7F00[ Central VIP ]^000000";
-      mes "Foi adicionado 3 dias de VIP na sua conta.";
-      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
-      close;
-  - Id: 42013
-    AegisName: TicketPremium_7
-    Name: Ticket Premium 7 Dias
-    Type: Usable
-    Buy: 1
-    Weight: 1
-    Script: |
-      vip_time 10080;
-      mes "^FF7F00[ Central VIP ]^000000";
-      mes "Foi adicionado 7 dias de VIP na sua conta.";
-      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
-      close;
-  - Id: 42014
-    AegisName: TicketPremium_14
-    Name: Ticket Premium 14 Dias
-    Type: Usable
-    Buy: 1
-    Weight: 1
-    Script: |
-      vip_time 43200;
-      mes "^FF7F00[ Central VIP ]^000000";
-      mes "Foi adicionado 14 dias de VIP na sua conta.";
-      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
-      close;
-  - Id: 42015
-    AegisName: TicketPremium_30
-    Name: Ticket Premium 30 Dias
-    Type: Usable
-    Buy: 1
-    Weight: 1
-    Script: |
-      vip_time 86400;
-      mes "^FF7F00[ Central VIP ]^000000";
-      mes "Foi adicionado 30 dias de VIP na sua conta.";
-      mes "^FF0000 Relogue para que o VIP seja Ativado ou Extendido^000000 !";
-      close;
   - Id: 12622
     AegisName: Boarding_Halter
     Name: Reins Of Mount
@@ -22188,3 +22169,4 @@ Body:
     UnEquipScript: |
       if (ismounting())
          setmounting();
+  

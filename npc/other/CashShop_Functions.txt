@@ -71,6 +71,17 @@ function	script	F_CashReset	{
 	return;
 }
 
+// Reset Atributos
+//============================================================ 
+
+function	script	F_CashResetAtributos	{
+	if (Class != Job_Novice && Weight == 0 && !checkriding() && !checkfalcon() && !checkcart() && !ismounting() && !checkdragon()) {
+		ResetStatus;
+		if (countitem(12213)) delitem 12213,1;
+	}
+	return;
+}
+
 // Dungeon Teleport Scroll
 //============================================================ 
 // - Warp player to the selected dungeon.

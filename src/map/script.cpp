@@ -184,6 +184,9 @@ static bool script_rid2bl_(struct script_state *st, uint8 loc, struct block_list
 	}
 }
 
+
+
+
 #define script_accid2sd(loc,sd) script_accid2sd_(st,(loc),&(sd),__FUNCTION__)
 #define script_charid2sd(loc,sd) script_charid2sd_(st,(loc),&(sd),__FUNCTION__)
 #define script_nick2sd(loc,sd) script_nick2sd_(st,(loc),&(sd),__FUNCTION__)
@@ -2261,6 +2264,8 @@ static void add_buildin_func(void)
 		}
 	}
 }
+
+
 
 /**
  * String comparison with a char array to a script constant
@@ -13197,6 +13202,25 @@ static int buildin_addrid_sub(struct block_list *bl,va_list ap)
 		if(sd->status.account_id != st->rid)
 			run_script(st->script,st->pos,sd->status.account_id,st->oid);
 	return 0;
+}
+
+/*
+* fakeIcon
+* fakeIcon(CHAR_ID,ICON_ID,TIME,STATE)
+*/
+BUILDIN_FUNC(fakeIcon)
+{
+	TBL_PC* sd = map_charid2sd(script_getnum(st, 2));
+	int icon = script_getnum(st, 3);
+	int time = script_getnum(st, 4);
+	bool state = (script_getnum(st, 5) == 1);
+
+	if (sd == NULL)
+		return SCRIPT_CMD_FAILURE;
+
+	clif_status_change(&sd->bl, icon, state, time, 0, 0, 0);
+
+	return SCRIPT_CMD_SUCCESS;
 }
 
 BUILDIN_FUNC(addrid)
@@ -27034,7 +27058,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(menu,"sl*"),
 	BUILDIN_DEF(select,"s*"), //for future jA script compatibility
 	BUILDIN_DEF(prompt,"s*"),
-	//
+	BUILDIN_DEF(fakeIcon,"iiii"),
 	BUILDIN_DEF(goto,"l"),
 	BUILDIN_DEF(callsub,"l*"),
 	BUILDIN_DEF(callfunc,"s*"),

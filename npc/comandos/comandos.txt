@@ -1,0 +1,161 @@
+-	script	command#freebies	-1,{
+OnInit:
+	// This part binds "freebies" as atcommand. 
+	bindatcmd("freebies",strnpcinfo(0)+"::OnCommand");
+	end;
+
+OnCommand:
+	// This part tells your players that he got his freebies
+	if(GetFree) 
+	{ 
+		mes "You have received your rewards";
+		close; 
+	} 
+	else 
+	{
+		// This part if players didnt get his freebies yet
+		mes "Welcome! Here are your freebies";
+		
+		teste:
+		set GetFree,1; // To avoid abuse, Set GetFree variable to 1
+		getitem 501,1; // Items received by the player in this case, 1 red potion (ItemID 501) you can add more by adding getitem <ITEMID>,<AMOUNT>; below
+		end;
+    }	
+}
+
+-	script	command#govip	-1,{
+	
+OnInit:
+	bindatcmd("govip",strnpcinfo(0)+"::OnCommand");
+	end;
+	
+OnCommand:
+
+		if (vip_status(1)) 
+		{
+			warp "prontera",154,172; // change map and coords to your VIP Room.
+		}
+		else 
+		{
+			mes "[ ^0000FFSistema VIP^000000 ]";
+			mes "^FF0000Você não é VIP!^000000"; 
+			mes "Faça agora mesmo sua doação!"; 
+			mes "Compre seu Ticket VIP na loja de Cash e receba vários benéficios.";
+			close;
+		}
+		end;
+	}
+	
+-	script	command#votos	-1,{
+OnCommand:	
+	function getPoints;
+
+	set .@n$, 			"[ ^329A32Votos RagnaLinK^000000 ]";
+	set .@settings, 	1;		// 0 = item, 1 = shop
+	set .@itemReward, 	501;	// if settings is set to item
+	set .@convertRate, 	2;		// 2 Vote Points for 1 Red Potion
+	set .vp, 			getPoints(getcharid(3));
+	
+	mes .@n$;
+	mes "Troque seus pontos de votos por itens incríveis.";
+	mes "Adiquira pontos vontando em:";
+	mes "<URL>Site do RagnaLinK<INFO>https://www.ragnalink.com.br</INFO></URL>";
+	mes "";
+	mes "^0000FFVocê possui "+ .vp +" ponto(s) de voto^000000.";
+	close2;	
+	callshop "votepoints_shop",1;	
+	npcshopattach "votepoints_shop";
+	
+	end;
+	
+	L_Goodbye:
+		mes .@n$;
+		mes "Goodbye, then.";
+		close;
+	
+	L_Convert:
+		if (.vp < .@convertRate)
+			goto L_VotePointsTooLow;
+		mes .@n$;
+		mes "How much Vote Points would you like to convert?";
+		next;
+		menu "All", L_ConvertAll, "Input Amount", L_ConvertAmount;
+	
+	L_ConvertAmount:
+		input .@convert;
+		
+		if (.@convert > .vp)
+			goto L_VotePointsTooLow;
+		
+		set .vp, ((.vp - .@convert) + (.@convert % .@convertRate));
+		set .@convert, (.@convert / .@convertRate);
+		getitem .@itemReward, .@convert;
+		query_sql("UPDATE cp_createlog SET votepoints = "+ .vp +" WHERE account_id = "+ getcharid(3));
+		
+		mes .@n$;
+		mes "You have received "+ .@convert +"x "+ getitemname(.@itemReward) +".";
+		mes "Your current Vote Points is "+ .vp;
+		close;
+		
+	L_ConvertAll:
+		set .@convert, (.vp / .@convertRate);
+		set .vp, (.vp % .@convertRate);
+		getitem .@itemReward, .@convert;
+		query_sql("UPDATE cp_createlog SET votepoints = "+ .vp +" WHERE account_id = "+ getcharid(3));
+		
+		mes .@n$;
+		mes "You have received "+ .@convert +"x "+ getitemname(.@itemReward) +".";
+		mes "Your current Vote Points is "+ .vp;
+		close;
+	
+	L_VotePointsTooLow:
+		mes .@n$;
+		mes "Your Vote Points is too low. Come back when you have the minimum amount of Vote Points.";
+		close;
+	
+	function getPoints {
+		set .@account_id, getarg(0);
+		
+		set .@count, query_sql("SELECT votepoints FROM cp_createlog WHERE account_id = "+ .@account_id, .@votepoints);
+		
+		return .@count ? .@votepoints : 0;
+	}
+	
+	OnBuyItem:
+		set .@cost,0;
+		for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1)
+			for(set .@j,0; .@j<getarraysize(.itemShop); set .@j,.@j+2)
+				if (@bought_nameid[.@i] == .itemShop[.@j]) {
+					set .@cost, .@cost+(.itemShop[.@j+1]*@bought_quantity[.@i]);
+					break;
+				}
+		mes .@n$;
+		if (.@cost > .vp) mes "You don't have enough Vote Points.";
+		else {
+			for(set .@i,0; .@i<getarraysize(@bought_nameid); set .@i,.@i+1) {
+				getitem @bought_nameid[.@i], @bought_quantity[.@i];
+				dispbottom "Purchased "+@bought_quantity[.@i]+"x "+getitemname(@bought_nameid[.@i])+".";
+			}
+			set .vp, .vp - .@cost;
+			query_sql("UPDATE cp_createlog SET votepoints = votepoints - "+ .@cost +" WHERE account_id = "+ getcharid(3));
+			mes .@n$;
+			mes "Deal completed.";
+			mes "You now have ^ff0000"+ .vp +"^000000 Vote Points.";
+		}
+		set .@cost,0;
+		deletearray @bought_nameid[0], getarraysize(@bought_nameid);
+		deletearray @bought_quantity[0], getarraysize(@bought_quantity);
+		close;
+	
+	OnInit:
+		bindatcmd("votos",strnpcinfo(0)+"::OnCommand");
+
+		setarray .itemShop[0],	501,2,607,5; // <ITEM_ID>,<PRICE>,...
+		
+		npcshopdelitem "votepoints_shop",512;
+		for(set .@i, 0; .@i < getarraysize(.itemShop); set .@i, .@i+2)
+			npcshopadditem "votepoints_shop", .itemShop[.@i], .itemShop[.@i+1];
+	end;
+}
+
+-	shop	votepoints_shop	-1,512:-1

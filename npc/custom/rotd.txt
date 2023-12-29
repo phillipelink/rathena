@@ -139,3 +139,27 @@ if ( getmonsterinfo( killedrid,MOB_RACE ) == .today_rotd ) {
 }
 end;
 }
+
+
+prontera,150,150,5	Script	FakeIcon	90,{
+
+    mes "[Fake Icon Stats]";
+    mes "Hey.";
+    switch(select("Receive Fake Icon 1 with 5 seconds (display only)","Receive Icon 2 for 10 seconds (display only)","Disable Icon 1 and 2"))
+    {
+        case 1:
+            fakeIcon(getcharid(0),1,5000,1);
+            break;
+            
+        case 2:
+            fakeIcon(getcharid(0),2,10000,1);
+            break;
+            
+        case 3:
+            fakeIcon(getcharid(0),1,0,0);
+            fakeIcon(getcharid(0),2,0,0);
+
+            break;
+    }
+    close;
+}

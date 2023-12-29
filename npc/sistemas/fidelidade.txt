@@ -1,0 +1,92 @@
+-	script	Fidelidade	-1,{
+	
+	OnPCLoginEvent:
+	//Valor em milisegundos
+    addtimer 60000,"Fidelidade::OnTime";
+    end;
+	OnTime:
+    if(query_sql("SELECT login.account_id FROM login LEFT JOIN `char` ON login.account_id=`char`.account_id WHERE login.last_ip=(SELECT last_ip FROM login WHERE account_id="+getcharid(3)+") AND `char`.online=1", .@account_id) > 2){ end; }
+    if(checkvending() || #fidelidade == 30000){ end; }
+    set #fidelidade,#fidelidade + 1;
+    if(#fidelidadeon == 0){ dispbottom "[ Sistema Fidelidade ] : Você recebeu 1 Ponto de Fidelidade. Use @fidelidade."; }
+    addtimer 60000,"Fidelidade::OnTime";
+    end;
+	OnInit:
+    bindatcmd "fidelidade","Fidelidade::OnFIDELIDADE";
+    setarray .ItList[0],12208,150,12210,180,12213,10000;
+    npcshopdelitem "DynShop02",501;
+    for(set .n,0;.n<getarraysize(.ItList);set .n,.n+2)
+    npcshopadditem "DynShop02",.ItList[.n],.ItList[(.n+1)];
+    end;
+	
+	OnBuyItem:
+
+    for(set @n,0;@n<getarraysize(@bought_nameid);set @n,@n+1)
+        for(set @a,0;@a<getarraysize(.ItList);set @a,@a+2)
+            if(@bought_nameid[@n]==.ItList[@a])
+			{
+                set @PriceT,.ItList[@a+1]*@bought_quantity[@n];
+				
+				if(#fidelidade)
+				{ 
+					if(#fidelidade<@PriceT)
+					{
+						dispbottom "[ Loja de Fidelidade ] Você não tem pontos suficientes para comprar este item.";
+						end; 
+					}
+				}
+				else
+				{ if(fidelidade<@PriceT)
+					end; 
+				}
+				
+				getitem @bought_nameid[@n],@bought_quantity[@n];
+				if(#fidelidade) 
+				{
+					set #fidelidade,#fidelidade-@PriceT; 
+				} 
+				else 
+				{ 
+					set fidelidade,fidelidade-@PriceT;
+				}
+            }
+    end;
+	
+	OnFIDELIDADE:
+    mes "[^0000FF Sistema de Fidelidade ^000000]";
+    mes "A cada minuto conectado você recebe ^0000ff1 Ponto^000000 e juntando poderá troca-los por itens em ^FF9900Trocas da Fidelidade^000000.";
+    mes "^F7F7F7-^000000";
+    mes "Você tem ^0000ff"+#fidelidade+" Pontos de Fidelidade^000000";
+    switch(select("- Trocar Pontos de Fidelidade",(#fidelidadeon==1?"-^329A32 Ligar Mensagens ^000000":"-^ff0000 Desligar Mensagens ^000000"))){
+		 
+			case 1:
+            close2;
+            callshop "DynShop02",1;
+            npcshopattach "DynShop02";
+            end;
+
+	        case 2:
+            next;
+			if(#fidelidadeon == 0)
+			{ 	
+
+				mes "[^0000FFSistema de Fidelidade^000000]";
+				mes "";
+				mes "^ff0000 As mensagens foram desligadas ^000000."; 
+				set #fidelidadeon,1; 
+				close; 
+			} 
+			else 
+			{ 
+
+				mes "[^0000FFSistema de Fidelidade^000000]";
+				mes "";
+				mes "^329A32 As mensagens foram ligadas ^000000."; 
+				set #fidelidadeon,0; 
+				close; 
+			}
+		}
+	}
+	
+-	shop	DynShop02	-1,501:-1
+	
