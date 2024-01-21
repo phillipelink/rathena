@@ -394,3 +394,317 @@ hero_dun1,86,193,6	script	Plagiador	747,{
 		end;
 
 }
+
+hero_dun1,91,199,5	script	Torpedo Global	490,{
+    doevent "broadcast_main::OnTalk";
+	end;
+	OnInit:
+		waitingroom "Torpedo Global",0;
+	end;
+
+}
+ 
+-	script	broadcast_main	-1,{
+        
+			
+	OnInit:
+	.zeny = 10000;
+	.broadcast_delay_second = 180;
+	.log_limit = 3;
+	end;
+		
+    OnTalk:
+        .@size = query_sql("SELECT `id`,`message`,`time`,`repeat` FROM `e_broadcast` WHERE `cid` = "+getcharid(0)+" ORDER BY `id` DESC LIMIT "+.log_limit, .@id, .@message$, .@time, .@repeat);
+		mes "[^0000FFAnunciador Global^000000]";
+		mes "Olá ^FF9900"+strcharinfo(0)+ "^000000!";
+		mes "Você gostaria de transmitir um torpedo para todos os jogadores?";
+        next;
+        switch (select(
+            " - Enviar Torpedo Global",
+            (.@size ? " - Historico de Mensagens" : ""),
+            " - Cancelar"
+        )) {
+            case 2:
+				mes "[^0000FFAnunciador Global^000000]";
+                for (.@i = 0; .@i < .@size; .@i++) {
+                    mes (.@i + 1 )+". "+.@message$[.@i];
+                    .@menu$ = .@menu$ + "Enviar Torpedo Global Recente # "+(.@i + 1) + ":";
+                }
+                .@i = select(.@menu$) - 1;
+                if (.@repeat[.@i]) {
+                    mes "Este Torpedo Global não pode ser usada para repetir agora.";
+                    close;
+                }
+                .@broadcast_message$ = .@message$[.@i];
+            case 1:
+                if (.@broadcast_message$ == "") {
+					mes "[^0000FFAnunciador Global^000000]";
+                    mes "Digite seu torpedo global:";
+                    input .@broadcast_message$;
+                }
+                next;
+				mes "[^0000FFAnunciador Global^000000]";
+                mes "Confirma o envio da mensagem?";
+                mes "^777777"+.@broadcast_message$+"^000000";
+                mes " ";
+                if (.zeny) {
+                    mes "Zeny: "+F_InsertComma(.zeny)+"z";
+                    next;
+                }
+                if (select("Confirmar", "Cancelar") == 1) {
+                    .@gettimetick = gettimetick(2);
+                    if (.zeny > 0 && Zeny <= .zeny) {
+						mes "[^0000FFAnunciador Global^000000]";
+                        mes "Você não tem dinheiro suficiente!";
+                    }
+                   else if (.broadcast_delay_second > 0 && .@gettimetick < (.@time + .broadcast_delay_second)) {
+						mes "[^0000FFAnunciador Global^000000]";
+                        mes "Você não pode enviar um torpedo global pelos próximos "+((.@time + .broadcast_delay_second) - .@gettimetick)+" segundo(s)";
+                    }
+                    else {
+                         announce "<"+strcharinfo(0)+">: "+.@broadcast_message$, bc_all;
+                        query_sql("INSERT INTO `e_broadcast` (`aid`,`cid`,`name`,`message`,`time`,`repeat`) VALUES ( "+getcharid(3)+","+getcharid(0)+",'"+escape_sql(strcharinfo(0))+"','"+escape_sql(.@broadcast_message$)+"', "+.@gettimetick+","+(.@repeat[.@i] > 0)+")");
+                        if (.@id[.@i] > 0) {
+                            query_sql("UPDATE `e_broadcast` SET `repeat` = 1 WHERE `id` = "+.@id[.@i]+" LIMIT 1");
+                        }
+                        mes "Feito.";
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+        close;
+}
+
+
+
+
+/* npc/other/Global_Functions.txt#L589
+function	script	F_InsertComma	{
+	set .@str$, getarg(0);
+	for (set .@i,getstrlen(.@str$)-3; .@i>0; set .@i,.@i-3)
+		set .@str$, insertchar(.@str$,",",.@i);
+	return .@str$;
+}
+*/
+
+-	script	Stylist	-1,{
+OnTalk:
+	if (.ignore_secure_npctimeout)
+		ignoretimeout 1;
+	mes "[^0055FF ::: Estilista ::: ^000000]";
+	mes "Eu posso mudar sua aparência.";
+	if (.cost_size){
+		mes " ";
+		mes "^777777[ VALOR DOS SERVIÇOS ]^000000";
+		for(.@i = 0; .@i < .menu_size; .@i++)
+			if (.npc_mode & (1 << .@i))
+				if (.cost[.@i])
+					mes "^0055FF"+.menu_name$[.@i]+" : ^777777"+F_InsertComma(.cost[.@i])+" "+.currency_name$[.@i]+"^000000";
+				else
+					mes "^0055FF"+.menu_name$[.@i]+" : ^777777Free of Charge^000000";
+	}
+	next;
+	@style = (select(.npc_menu$) - 1);
+	@style_value = getlook(.look_type[@style]);
+	deletearray .@blacklist;
+	switch(@style){
+		case 0: .@blacklist$ = ","+getd(".blacklist_hairstyle_"+Sex+"$")+","; break;
+		case 1: .@blacklist$ = ","+getd(".blacklist_haircolor_"+Sex+"$")+","; break;
+		case 2: .@blacklist$ = ","+getd(".blacklist_cloth_"+Sex+"$")+","; break;
+		default: break;
+	}
+
+	.@style_number = .min_style[@style];
+
+	addtimer 1000,strnpcinfo(0)+"::OnPCLogoutEvent";
+	do{
+		message strcharinfo(0),"Atual "+.menu_name$[@style]+" Estilo : #"+.@style_number;
+		.@removed = 0;
+		if (compare(.@blacklist$,","+.@style_number+",")){
+			message strcharinfo(0),"[ REMOVIDO ] "+.menu_name$[@style]+" : "+.@style_number+"th";
+			.@removed = 1;
+		} else {
+			setlook .look_type[@style],.@style_number;
+		}
+		
+		.@next = .@style_number + 1;
+		.@prev = .@style_number - 1;
+		if (.@next > .max_style[@style]) .@next = .min_style[@style];
+		if (.@prev < .min_style[@style]) .@prev = .max_style[@style];
+		
+		@select = prompt(
+			((.@backward)?"Voltar":"Avançar")+" - [ ^777777"+((.@backward)? .@prev:.@next)+"th "+.menu_name$[@style]+"^000000 ]",
+			((!.@backward)?"Voltar":"Avançar")+" - [ ^777777"+((!.@backward)? .@prev:.@next)+"th "+.menu_name$[@style]+"^000000 ]",
+			""+.menu_name$[@style]+" Aleatória",
+			"Digitar "+.menu_name$[@style],
+			(.@removed)?"":"^0055FFOkay, Eu quero esse(a) "+.menu_name$[@style]+"^000000");
+
+		if (@select == 2) .@backward = !.@backward;
+		
+		switch(@select){
+			case 1:	
+			case 2:
+				.@style_number = ((.@backward)? .@prev:.@next);
+				break;
+			case 3:
+				.@style_number = rand(.min_style[@style], .max_style[@style]);
+				break;
+			case 4:
+				message strcharinfo(0),"Disponível "+.menu_name$[@style]+" : "+.min_style[@style]+" ~ "+.max_style[@style]+".";
+				input .@style_number,.min_style[@style],.max_style[@style];
+				break;
+			case 5:
+				.@atoi_currency = atoi(.currency$[@style]);
+				if (@style_value == .@style_number){
+					message strcharinfo(0),"Mas isso é o seu atual "+.menu_name$[@style]+".";
+					break;
+				} 
+				else if (.@atoi_currency){
+					if (countitem(.@atoi_currency) >= .cost[@style]){
+						.@success = 1;
+						delitem .@atoi_currency,.cost[@style];
+					}
+				} 
+				else {
+					if (getd(""+.currency$[@style]) >= .cost[@style]){
+						.@success = 1;
+						setd(""+.currency$[@style]),(getd(""+.currency$[@style]) - .cost[@style]);
+					}
+				}
+				if (.@success){
+					message strcharinfo(0),"Desfrute do seu novíssimo "+.menu_name$[@style]+" !!";
+					@style_value = .@style_number;
+				} 
+				else {
+					mes "Você não tem o suficiente "+.currency_name$[@style]+" para mudar esse "+.menu_name$[@style]+".";
+					mes "Valor : ^777777"+F_InsertComma(.cost[@style])+" "+.currency_name$[@style]+"^000000";
+					close2;
+				}
+
+			default:
+				setlook .look_type[@style],@style_value;
+				break;
+		}
+	} while (@select != 5 && @select != 255);
+	mes "Volte depois! ^^";
+	@select = 0;
+	if (.ignore_secure_npctimeout)
+		ignoretimeout 0;
+	close2;
+	deltimer strnpcinfo(0)+"::OnPCLogoutEvent";
+
+OnPCLogoutEvent:
+	if (@select)
+		setlook .look_type[@style],@style_value;
+	end;
+	
+OnInit:
+	// NPC Mode (Bitmask)
+	//	1 - Enable Hairstyle
+	//	2 - Enable Hair Color
+	//	4 - Enable Cloth Color
+	.npc_mode = 7;
+	
+	// ignore SECURE_NPCTIMEOUT
+	.ignore_secure_npctimeout = 1;
+	
+	// Menu Name
+	setarray .menu_name$,
+		"Estilo do Cabelo",
+		"Cor do Cabelo",
+		"Cor da Roupa";
+	
+	// Payment Currency + Cost
+	// Can be ITEM ID or Any Variable.
+	setarray .currency$,
+		"Zeny",	//	Hairstyle - Ex. need Zeny
+		"Zeny",	//	Hair Color - Ex. need Zeny
+		"Zeny";	//	Cloth Color - Ex. need Zeny
+		
+	setarray .cost,
+		10000,	//	Hairstyle (10,000 Zeny)
+		10000,	//	Hair Color (10,000 Zeny)
+		10000;	//	Cloth Color (10,000 Zeny)
+		
+	// Blacklisted Style for each style and each gender.
+	// --- Female ---
+	.blacklist_hairstyle_0$ = "2,4,6";
+	.blacklist_haircolor_0$ = "1,3,5";
+	.blacklist_cloth_0$ = "1,2,3";
+	// --- Male ---
+	.blacklist_hairstyle_1$ = "3,5,7";
+	.blacklist_haircolor_1$ = "2,4,6";
+	.blacklist_cloth_1$ = "4,5,6";
+
+	// Dont edit
+	setarray .min_style,getbattleflag("min_hair_style"),getbattleflag("min_hair_color"),getbattleflag("min_cloth_color");
+	setarray .max_style,getbattleflag("max_hair_style"),getbattleflag("max_hair_color"),getbattleflag("max_cloth_color");
+	.menu_size = getarraysize(.menu_name$);
+	.cost_size = getarraysize(.cost);
+	setarray .look_type,LOOK_HAIR,LOOK_HAIR_COLOR,LOOK_CLOTHES_COLOR;
+	for(.npc_menu$ = ""; .@i < .menu_size; .@i++)
+		.npc_menu$ = .npc_menu$ + ((.npc_mode & (1 << .@i))? .menu_name$[.@i]:"") +":";
+	for(.@i = 0; .@i < .cost_size; .@i++){
+		.@atoi = atoi(.currency$[.@i]);
+		.currency_name$[.@i] = ((!.@atoi || getitemname(.@atoi) == "null")? .currency$[.@i]:getitemname(.@atoi));
+	}
+	end;
+
+}
+
+
+// NPC Lists
+hero_dun1,102,200,5	script	Estilista#main	878,{
+	doevent "Stylist::OnTalk";
+	end;
+	
+	OnInit:
+		waitingroom "Estilista",0;
+		end;
+}
+
+
+
+
+hero_dun1,133,202,4	script	Refinador de Minérios	58,{
+	
+	mes "[^0055FF ::: Refinador de Minérios ::: ^000000]";
+	mes "Você deseja refinar seus minérios de Oridecon ou de Elunium?";
+	next;
+	switch(select(" - Oridecon: - Elunium")){
+
+		case 1:
+		
+		if(countitem(756) < 5){
+			mes "[^0055FF ::: Refinador de Minérios ::: ^000000]";
+			mes "Você não tem minérios suficientes para serem transformados em Elunium.";
+			close;
+		}
+		else
+		{
+		.@count = (countitem(756) / 5);
+		delitem 756, (.@count * 5);
+		getitem 984, .@count;
+		end;
+		}
+
+		case 2:
+		if(countitem(757) < 5){
+			mes "[^0055FF ::: Refinador de Minérios ::: ^000000]";
+			mes "Você não tem minérios suficientes para serem transformados em Oridecon.";
+			close;
+		}
+		else
+		{
+		.@count = (countitem(757) / 5); 
+		delitem 757, (.@count * 5);
+		getitem 985, .@count;
+		end;
+		}
+	}
+		OnInit:
+	waitingroom "Minérios",0;
+	end;
+}
