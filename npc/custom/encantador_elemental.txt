@@ -1,0 +1,205 @@
+ // eAthena Script / Rathena Script
+// Created: Rosemount
+// Current Version: 1.0
+// Tested : Latest Version Rathena
+// Description: This script allows all characters changed element weapon.Only one element is allowed.More than one element automatically buff reset.
+ 
+hero_dun1,97,193,5	script	Encantador Elemental	834,{
+//set .Item,501;
+//set .Hm,1;
+set .zenycost,20000; 
+
+mes "[^0000FFEncantador Elemental^000000]";
+mes "Olá ^FF9900"+strcharinfo(0)+ "^000000!";
+mes "Meus serviços de encantamento custam ^FF3300" + .zenycost + "^000000 zenys.";
+mes "Você deseja encantar sua arma por ^0000FF 30 minutos ^000000 com que elemento?";
+next;
+switch(select("~ ^990000Earth/Terremoto^000000:~ ^99FF00Wind/Ventania^000000:~ ^0033FFWater/Geada^000000:~ ^FF3300Fire/Chamas^000000:~ Sair")) {
+
+case 1:
+if( zeny < zenycost) goto L_NoZeny;
+if ( getstatus (37) || getstatus (99) || getstatus (98) || getstatus (97) || getstatus (146) || getstatus (144))
+	{ 
+		mes "[^0000FFEncantador Elemental^000000]";
+		mes "Sua arma já possui um encantamento, deseja prosseguir assim mesmo?";
+		next;
+	  switch(select(" - Sim : - Não "))
+	  {
+		  case 1:
+		 sc_end 37; 
+		 sc_end 99;
+		 sc_end 98;
+		 sc_end 97;
+		 set Zeny, Zeny - .zenycost;
+		 sc_start 99,1800000,1;
+		 mes "[^0000FFEncantador Elemental^000000]";
+		 mes "Pronto sua arma foi encantanda com a propriedade ^990000Earth/Terremoto^000000!";
+		 close;
+		 end;
+		 
+		 case 2:
+		 end;
+	  } 
+	}
+		
+	  sc_end 37; 
+	  sc_end 99;
+	  sc_end 98;
+	  sc_end 97;
+	  set Zeny, Zeny - .zenycost;
+	  sc_start 99,1800000,1;
+      mes "[^0000FFEncantador Elemental^000000]";
+	  mes "Pronto sua arma foi encantanda com a propriedade ^990000Earth/Terremoto^000000!";
+	  close;
+
+case 2: 
+if( zeny < zenycost) goto L_NoZeny;
+if ( getstatus (37) || getstatus (99) || getstatus (98) || getstatus (97) || getstatus (146) || getstatus (144))
+{ 
+		mes "[^0000FFEncantador Elemental^000000]";
+		mes "Sua arma já possui um encantamento, deseja prosseguir assim mesmo?";
+		next;
+	  switch(select(" - Sim : - Não "))
+	  {
+		  case 1:
+		 sc_end 37; 
+		 sc_end 99;
+		 sc_end 98;
+		 sc_end 97;
+		 set Zeny, Zeny - .zenycost;
+		 sc_start 98,1800000,1;
+		 mes "[^0000FFEncantador Elemental^000000]";
+		 mes "Pronto sua arma foi encantanda com a propriedade ^99FF00Wind/Ventania^000000!";
+		 close;
+		 end;
+		 
+		 case 2:
+		 end;
+	  }      
+	}
+	  sc_end 37; 
+	  sc_end 99;
+	  sc_end 98;
+	  sc_end 97;
+	  set Zeny, Zeny - .zenycost;
+	  sc_start 98,1800000,1;
+	  mes "[^0000FFEncantador Elemental^000000]";
+	  mes "Pronto sua arma foi encantanda com a propriedade ^99FF00Wind/Ventania^000000!";
+	  close;
+ 
+case 3: 
+if( zeny < zenycost) goto L_NoZeny;
+if ( getstatus (37) || getstatus (99) || getstatus (98) || getstatus (97) || getstatus (146) || getstatus (144))
+{
+		mes "[^0000FFEncantador Elemental^000000]";
+		mes "Sua arma já possui um encantamento, deseja prosseguir assim mesmo?";
+		next;
+	  switch(select(" - Sim : - Não "))
+	  {
+		  case 1:
+		 sc_end 37; 
+		 sc_end 99;
+		 sc_end 98;
+		 sc_end 97;
+		 set Zeny, Zeny - .zenycost;
+		 sc_start 97,1800000,1;
+		 mes "[^0000FFEncantador Elemental^000000]";
+		 mes "Pronto sua arma foi encantanda com a propriedade ^0033FFWater/Geada^000000!";
+		 close;
+		 end;
+		 
+		 case 2:
+		 end;
+	  } 
+}
+	  sc_end 37; 
+	  sc_end 99;
+	  sc_end 98;
+	  sc_end 97;
+	  set Zeny, Zeny - .zenycost;
+	  sc_start 97,1800000,1;
+      mes "[^0000FFEncantador Elemental^000000]";
+	  mes "Pronto sua arma foi encantanda com a propriedade ^0033FFWater/Geada^000000!";
+	  close;
+
+case 4: 
+if( zeny < zenycost) goto L_NoZeny;
+if ( getstatus (37) || getstatus (99) || getstatus (98) || getstatus (97) || getstatus (146) || getstatus (144))
+	{
+		mes "[^0000FFEncantador Elemental^000000]";
+		mes "Sua arma já possui um encantamento, deseja prosseguir assim mesmo?";
+		next;
+	  switch(select(" - Sim : - Não "))
+	  {
+		  case 1:
+		 sc_end 37; 
+		 sc_end 99;
+		 sc_end 98;
+		 sc_end 97;
+		 set Zeny, Zeny - .zenycost;
+		 sc_start 96,1800000,1;
+		 mes "[^0000FFEncantador Elemental^000000]";
+		 mes "Pronto sua arma foi encantanda com a propriedade ^FF3300Fire/Chamas^000000!";
+		 close;
+		 end;
+		 
+		 case 2:
+		 end;
+	  } 
+}
+	 
+	  sc_end 37; 
+	  sc_end 99;
+	  sc_end 98;
+	  sc_end 97;
+	  set Zeny, Zeny - .zenycost;
+	  sc_start 96,1800000,1;
+	  mes "[^0000FFEncantador Elemental^000000]";
+	  mes "Pronto sua arma foi encantanda com a propriedade ^FF3300Fire/Chamas^000000!";
+	  close;
+
+//case 5: 
+//if( countitem(.Item)< .Hm) goto L_NoZeny;
+//if ( getstatus (37) || getstatus (99) || getstatus (98) || getstatus (97) || getstatus (146) || getstatus (144)) goto L_remove;
+//set Zeny, Zeny - .zenycost;
+//sc_start 146,760000,1;
+//end;
+ 
+//case 6: 
+//if( countitem(.Item)< .Hm) goto L_NoZeny;
+//if ( getstatus (37) || getstatus (99) || getstatus (98) || getstatus (97) || getstatus (146) || getstatus (144)) goto L_remove; 
+//set Zeny, Zeny - .zenycost;
+//sc_start 144,760000,1;
+//end;
+ 
+//case 7: 
+//if( countitem(.Item)< .Hm) goto L_NoZeny;
+//if ( getstatus (37) || getstatus (99) || getstatus (98) || getstatus (97) || getstatus (146) || getstatus (144)) goto L_remove;
+//set Zeny, Zeny - .zenycost;
+//sc_start 37,760000,1;
+//end;
+ 
+case 5: 
+end;
+ 
+L_NoZeny:
+mes "[^0000FFEncantador Elemental^000000]";
+mes "Você não tem dinheiro suficiente para encantar sua arma.";
+close;
+ 
+ 
+L_remove:
+sc_end 37; 
+sc_end 99;
+sc_end 98;
+sc_end 97;
+//sc_end 146;
+//sc_end 144;
+//sleep2 1000;
+goto L_menu;
+}
+
+	OnInit:
+	waitingroom "Encantador Elemental",0;
+	end;
+}

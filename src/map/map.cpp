@@ -1974,6 +1974,13 @@ void map_reqnickdb(map_session_data * sd, int charid)
 
 	nullpo_retv(sd);
 
+	// Costume item edit
+	if (battle_config.reserved_costume_id && battle_config.reserved_costume_id == charid)
+	{
+		clif_solved_charname(sd->fd, charid, "Costume");
+		return;
+	} //end
+	
 	tsd = map_charid2sd(charid);
 	if( tsd )
 	{

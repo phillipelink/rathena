@@ -1,4 +1,4 @@
-prontera,164,174,3	script	Raça do Dia	556,{
+prontera,173,179,3	script	Raça do Dia	556,{
 set .@gmlevel,getgmlevel();
 
 do{

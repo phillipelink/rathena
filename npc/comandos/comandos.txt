@@ -33,7 +33,7 @@ OnCommand:
 
 		if (vip_status(1)) 
 		{
-			warp "prontera",154,172; // change map and coords to your VIP Room.
+			warp "hero_dun1",109,174; // change map and coords to your VIP Room.
 		}
 		else 
 		{

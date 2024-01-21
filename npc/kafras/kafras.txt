@@ -338,7 +338,7 @@ prontera,146,89,6	script	Funcionária Kafra::kaf_prontera5	117,{
 	end;
 }
 
-prontera,144,191,6	script	Funcionária Kafra::kaf_prontera6	117,{
+prontera,165,198,4	script	Funcionária Kafra::kaf_prontera6	117,{
 	cutin "kafra_01",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";

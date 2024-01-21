@@ -14,20 +14,21 @@
 //= 1.2a Added 'disable_items' command. [Euphy]
 //============================================================
 
-prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
+hero_dun1,126,200,4	script	Removedora de Cartas#eAcustom	863,{
 
 	set .zenycost,200000;    // base cost of the card remover services (in Zeny)
 	set .percardcost,25000;  // cost per card of the card remover services (in Zeny)
-	set .faildestroy,1;      // should the card remover have a chance of failure that destroys items? (1=yes, 0=no)
+	set .faildestroy,0;      // should the card remover have a chance of failure that destroys items? (1=yes, 0=no)
 
 	disable_items;
-	mes "[Wise Old Woman]";
-	mes "Good day, young one. I have the power to remove cards that you have compounded onto your equipment. Does this idea please you?";
+	mes "[^0000FFSábia Mulher Idosa^000000]";
+    mes "Bom dia, jovem. Eu tenho o poder de remover cartas que você compôs em seus equipamentos. Deseja remover alguma carta dos seus equipamentos?";
+
 	next;
-	switch(select("Yes, it does.:What do you charge?:No thanks.")) {
+	switch(select(" - Sim.: - Quanto você cobra?: - Não, obrigado.")) {
 	case 1:
-		mes "[Wise Old Woman]";
-		mes "Very well. Which item shall I examine for you?";
+		mes "[^0000FFSábia Mulher Idosa^000000]";
+		mes "Muito bem. Qual equipamento devo examinar para você?";
 		next;
 
 		setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
@@ -38,55 +39,42 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		}
 		set .@part, .@indices[ select(.@menu$) ];
 		if(!getequipisequiped(.@part)) {
-			mes "[Wise Old Woman]";
-			mes "Young one... Your not wearing anything there that I can remove cards from.";
+		mes "[^0000FFSábia Mulher Idosa^000000]";
+			mes "Jovem... você Não está usando nada que eu possa remover cartas.";
 			close;
 		}
 		if(getequipcardcnt(.@part) == 0) {
-			mes "[Wise Old Woman]";
-			mes "Young one... There are no cards compounded on this item. I can do nothing with it, I'm afraid.";
+		mes "[^0000FFSábia Mulher Idosa^000000]";
+			mes "Jovem... Não há cartas compostas neste item. Eu Não posso fazer nada.";
 			close;
 		}
 		set .@cardcount,getequipcardcnt(.@part);
 		
 		if (!checkweight(1202,(.@cardcount+1))) { 
-			mes "^3355FFJust a minute!";
-			mes "I can't offer any of my";
-			mes "services to you because";
-			mes "you're carrying too much";
-			mes "stuff. Put your extra items in";
-			mes "Kafra Storage and come again~";
+			mes "^3355FFSó um minuto!";
+			mes "Não posso te oferecer nenhum dos meus";
+			mes "serviços porque";
+			mes "você está carregando muitas";
+			mes "coisas. Coloque seus itens extras no Armazém e volte novamente~";
 			close;
 		}
-		mes "[Wise Old Woman]";
-		mes "This item has " + .@cardcount + " cards compounded on it. To perform my magic, I will need " + (.zenycost+(.@cardcount * .percardcost)) + " zeny, a ^0000FFStar Crumb^000000, and a ^0000FFYellow Gemstone^000000.";
+	mes "[^0000FFSábia Mulher Idosa^000000]";
+		mes "Este item tem " + .@cardcount + " cartas compostas nele. Para realizar minha magia, eu vou precisar de ^FF0000 " + (.zenycost + (.@cardcount * .percardcost)) + " ^000000 zeny, um ^0000FFFragmento Estelar^000000 e uma ^0000FFGema Amarela^000000.";
+
 		next;
-		if(select("Very well. Do it.:Never mind.") == 2) {
-			mes "[Wise Old Woman]";
-			mes "Very well. Return at once if you seek my services.";
+		if(select("Muito bem. Faça isso.:Não se preocupe.") == 2) {
+		mes "[^0000FFSábia Mulher Idosa^000000]";
+			mes "Muito bem. Retorne imediatamente se precisar dos meus serviços.";
 			close;
 		}
 		if((zeny < (.zenycost+(.@cardcount * .percardcost))) || (countitem(1000) < 1) || (countitem(715) < 1)) {
-			mes "[Wise Old Woman]";
-			mes "You do not have all the items I require to work my magic, child. Come again when you do.";
+		mes "[^0000FFSábia Mulher Idosa^000000]";
+			mes "você Não possui todos os itens necessários para eu realizar minha magia. Volte quando tiver todos eles.";
 			close;
 		}
-		mes "[Wise Old Woman]";
-		mes "Before I begin, I must warn you--I may fail. If I do, I may destroy the cards, the item, or both. I do not give refunds. That being said, which is more important to you: The cards, or the item?";
-		next;
-		switch(select("I changed my mind about this.:The item.:The cards.")) {
-		case 1:
-			mes "[Wise Old Woman]";
-			mes "Very well. Return at once if you seek my services.";
-			close;
-		case 2:
-			set .@failtype,1;
-			break;
-		case 3:
-			set .@failtype,2;
-		}
-		mes "[Wise Old Woman]";
-		mes "Very well. I shall begin.";
+
+	mes "[^0000FFSábia Mulher Idosa^000000]";
+		mes "Muito bem. Eu vou começar!";
 		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
 		delitem 1000,1; //Star_Crumb
 		delitem 715,1; //Yellow_Gemstone
@@ -101,7 +89,7 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 			if(.@failchance < 2) {
 				next;
 				failedremovecards .@part,0;
-				mes "[Wise Old Woman]";
+			mes "[^0000FFSábia Mulher Idosa^000000]";
 				mes "The process was a total failure. I am afraid the item and the cards were destroyed.";
 				close;
 			}
@@ -110,7 +98,7 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 				if (.@failtype == 1) {
 					next;
 					failedremovecards .@part,1;
-					mes "[Wise Old Woman]";
+				mes "[^0000FFSábia Mulher Idosa^000000]";
 					mes "While I have managed to remove the cards from the item, they were destroyed in the process. The item, however, is okay.";
 					close;
 				}
@@ -118,7 +106,7 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 				if (.@failtype == 2) {
 					next;
 					failedremovecards .@part,2;
-					mes "[Wise Old Woman]";
+				mes "[^0000FFSábia Mulher Idosa^000000]";
 					mes "Most unfortunate. I succeeded at removing the cards, but the item itself was destroyed in the process.";
 					close;
 				}
@@ -128,22 +116,27 @@ prt_in,28,73,4	script	Wise Old Woman#eAcustom	78,{
 		if(.@failchance < 10) {
 			next;
 			failedremovecards .@part,3;
-			mes "[Wise Old Woman]";
-			mes "I have failed to remove the cards. Luckily, however, both the item and the cards are still okay.";
+		mes "[^0000FFSábia Mulher Idosa^000000]";
+			mes "Falhei em remover as cartas. Felizmente, no entanto, tanto o item quanto as cartas ainda estão intactos.";
 			close;
 		}
 		next;
 		successremovecards .@part;
-		mes "[Wise Old Woman]";
-		mes "The process was a success. Here are your cards and your item. Farewell.";
+	mes "[^0000FFSábia Mulher Idosa^000000]";
+		mes "O processo foi um sucesso. Aqui estão suas cartas e seu item.";
+		mes "Até a próxima!";
 		close;
 	case 2:
-		mes "[Wise Old Woman]";
-		mes "I charge a flat fee of "+callfunc("F_InsertComma",.zenycost)+" zeny, plus "+callfunc("F_InsertComma",.percardcost)+" zeny for each card I remove from the item. In addition, I need a star crumb and a yellow gemstone to work my magic.";
+	mes "[^0000FFSábia Mulher Idosa^000000]";
+		mes "Eu cobro uma taxa fixa de ^FF0000 "+callfunc("F_InsertComma",.zenycost)+" ^000000 zeny, mais ^FF0000 "+callfunc("F_InsertComma",.percardcost)+" ^000000 zeny para cada carta que eu remover do item. Além disso, eu preciso de um ^FF0000 Fragmento Estelar e uma Gema Amarela ^000000 para realizar minha magia.";
 		close;
 	case 3:
-		mes "[Wise Old Woman]";
-		mes "Very well. Return at once if you seek my services.";
+	mes "[^0000FFSábia Mulher Idosa^000000]";
+		mes "Muito bem. Volte imediatamente se precisar dos meus serviços.";
 		close;
 	}
+	
+	OnInit:
+	waitingroom "Removedora de Cartas",0;
+	end;
 }

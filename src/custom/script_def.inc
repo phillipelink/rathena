@@ -9,3 +9,7 @@
  **/
 
 //BUILDIN_DEF(example,""),
+
+
+
+BUILDIN_DEF(getskillname,"v"),

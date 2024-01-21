@@ -1379,7 +1379,8 @@ ACMD_FUNC(healap)
 ACMD_FUNC(item)
 {
 	char item_name[100];
-	int number = 0, bound = BOUND_NONE;
+	//int number = 0, bound = BOUND_NONE;
+	int number = 0, bound = BOUND_NONE, costume = 0; // Costume item edit
 	char flag = 0;
 	char *itemlist;
 
@@ -1423,6 +1424,27 @@ ACMD_FUNC(item)
 			clif_displaymessage(fd, msg_txt(sd,19)); // Invalid item ID or name.
 			return -1;
 		}
+
+		if (!strcmpi(command + 1, "costumeitem"))
+			{
+				if (!battle_config.reserved_costume_id)
+				{
+					clif_displaymessage(fd, "Costume convertion is disable. Set a value for reserved_cosutme_id on your battle.conf file.");
+					return -1;
+				}
+				/*if (item_data->equip & EQP_HEAD_LOW) &&
+					!(item_data->equip & EQP_HEAD_MID) &&
+					!(item_data->equip & EQP_HEAD_TOP) &&
+					!(item_data->equip & EQP_COSTUME_HEAD_LOW) &&
+					!(item_data->equip & EQP_COSTUME_HEAD_MID) &&
+					!(item_data->equip & EQP_COSTUME_HEAD_TOP))
+				{
+					clif_displaymessage(fd, "You cannot costume this item. Costume only works for headgears.");
+					return -1;
+				}*/
+				costume = 1;
+			}
+		
 
 		items.push_back( item );
 		itemlist = strtok(NULL, ":"); //next itemline
@@ -11202,6 +11224,7 @@ void atcommand_basecommands(void) {
 		ACMD_DEFR(channel,ATCMD_NOSCRIPT),
 		ACMD_DEF(fontcolor),
 		ACMD_DEF(langtype),
+		ACMD_DEF2("costumeitem", item), // Costume item edit
 #ifdef VIP_ENABLE
 		ACMD_DEF(vip),
 		ACMD_DEF(showrate),

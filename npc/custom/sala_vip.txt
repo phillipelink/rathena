@@ -1,0 +1,396 @@
+hero_dun1,112,172,3	script	Segurança VIP	100,{
+	
+	.@Delay = 3;	// delay in seconds
+	
+	if (@HD > gettimetick(2)) 
+	{
+		end;
+	}
+	npctalk "Você não pode passar daqui!";
+	
+	if (.@Delay) 
+	{
+		set @HD, gettimetick(2)+.@Delay;
+	}
+	
+	OnInit:
+		setcell "hero_dun1",105,172,112,172,cell_walkable,0;
+	end;
+}
+
+hero_dun1,139,199,3	script	Segurança VIP::seguranca_vip2	100,{
+	
+	.@Delay = 3;	// delay in seconds
+	
+	if (@HD > gettimetick(2)) 
+	{
+		end;
+	}
+	npctalk "Você não pode passar daqui!";
+	
+	if (.@Delay) 
+	{
+		set @HD, gettimetick(2)+.@Delay;
+	}
+	OnInit:
+		setcell "hero_dun1",139,199,139,192,cell_walkable,0;
+	end;
+}
+
+prontera,146,174,6	script	Recepcionista [VIP]	989,{
+	mes "[^0000FFRecepcionista VIP^000000]";
+	mes "Olá Senhor(a) ^FF9900" +strcharinfo(0)+ "^000000!";
+	mes "Deseja ir para a melhor sala do ^0000FFRagnaLinK^000000?";
+	next;
+	switch(select(" - Sim, leve-me agora! : - Não, obrigado!")){
+	case 1:
+	
+		if(vip_status(1))
+			{
+				warp "hero_dun1",109,174;
+				close;
+			}
+			else
+			{
+				mes "[^0000FFRecepcionista VIP^000000]";
+				mes "[ ^FF9900" +strcharinfo(0)+ "^000000 ] você não é VIP!";
+				mes "Não perca mais tempo, compre o seu VIP em nossa loja, e obtenha diversos benefícios.";
+				close;
+			}
+
+	case 2:
+		close;
+	break;
+	
+	OnInit:
+		setcell "hero_dun1",139,199,139,192,cell_walkable,0;
+		waitingroom "Acesso [VIP]",0;
+	end;
+
+	}
+}
+
+hero_dun1,108,200,0	warp	salavip_saida	1,1,prontera,149,174
+
+
+hero_dun1,120,194,4	script	Utilidades VIP	900,{
+	mes "[Utilidades VIP]";
+	mes "Escolha uma opção:";
+	switch(select(" - Comprar Utilidades: - Comprar Flechas/Munições")) {
+		case 1:
+            close2;
+            callshop "UtilidadesVIP",1;
+            npcshopattach "UtilidadesVIP";
+            end;
+
+		case 2:
+			close2;
+            callshop "UtilidadesVIPFlechas",1;
+            npcshopattach "UtilidadesVIPFlechas";
+            end;
+		
+	}
+	OnInit:
+	waitingroom "Utilidades [VIP]",0;
+	end;
+}
+
+
+
+-	shop	UtilidadesVIP	-1,611:40,506:40,501:50,502:200,503:550,504:1200,525:500,601:60,602:300,1065:100,645:800,656:1500,657:3000,610:4000,715:600,716:600,717:600,1750:1,1751:3,1756:3,1752:3,1755:3,1754:3,1771:50
+-	shop	UtilidadesVIPFlechas	-1,13200:-1,13201:-1,13202:-1,1750:-1, 1751:-1, 1752:-1, 1753:-1, 1754:-1, 1755:-1, 1756:-1, 1757:-1, 1758:-1, 1759:-1, 1760:-1, 1761:-1, 1762:-1, 1763:-1, 1764:-1, 1765:-1, 1766:-1, 1767:-1, 1768:-1, 1769:-1,1770:-1,1772:-1,13250:-1,13251:-1,13252:-1,13253:-1,13254:-1,7521:-1,7522:-1,7523:-1,7524:-1,13255:-1,13256:-1,13257:-1,13258:-1,13259:-1
+
+
+
+hero_dun1,131,194,4	script	Loja de Alquimia	754,{
+	mes "[Alquimista]";
+	mes "Escolha uma opção:";
+	switch(select(" - Loja de Alquimista")) {
+		case 1:
+		close2;
+		callshop "LojaAlquimia",1;
+		npcshopattach "LojaAlquimia";
+		end;
+
+		
+	}
+	OnInit:
+	waitingroom "Loja de Alquimia",0;
+	end;
+}
+
+-	shop	LojaAlquimia	-1,7143:-1,7141:-1,7140:-1,7134:-1,1092:-1,1093:-1,7133:-1,7132:-1,7131:-1,7130:-1,7129:-1,7128:-1,7127:-1,7144:-1
+
+
+
+//===== rAthena Script =======================================
+//= Plagiarism NPC
+//===== By: ==================================================
+//= Easycore
+//===== Last Updated: ========================================
+//= 20210905
+//===== Description: ========================================= 
+//= Simple Plagiarism Skill
+//= Require 'getskillname' script command:
+//=    https://rathena.org/board/files/file/4307-script-command-getskillname/
+//============================================================
+
+
+
+
+
+/* hero_dun1,92,188,6	script	Precisa dos Visuais#cs_0	646,{
+	mes "[^0000FFPrincesa dos Visuais^000000]";
+	mes "Olá ^FF9900"+strcharinfo(0)+ "^000000!";
+	mes "Aqui você pode converter seus itens de cabeça em visuais!";
+	next;
+	mes "[^0000FFPrincesa dos Visuais^000000]";
+	mes "^ff0000Alerta!";
+	mes "-------------------";
+	mes "Lembre-se, cartas, refinamentos serão perdidos...^000000";
+	next;
+	switch(select(" - Eu quero converter!: - Não, obrigado!"))
+	{
+	case 1:
+		
+		setarray .@Position$[1],"Top","Mid","Low";
+		setarray .@Position[1],EQI_HEAD_TOP , EQI_HEAD_MID,EQI_HEAD_LOW;
+		set .@Menu$,"";
+		for( set .@i, 1; .@i < 5; set .@i, .@i + 1 )
+		{
+			if( getequipisequiped(.@Position[.@i]) )
+			set .@Menu$, .@Menu$ + .@Position$[.@i] + "-" + "[" + getequipname(.@Position[.@i]) + "]";
+			set .@Menu$, .@Menu$ + ":";
+		}
+		set .@Part, .@Position[ select(.@Menu$) ];
+		if( !getequipisequiped(.@Part) )
+		{
+			mes "[ " + strnpcinfo(1) + " ]";
+			mes "Você não tem nada equipado que possa ser transformado em visual...";
+			close;
+		}
+		mes "[^0000FFPrincesa dos Visuais^000000]";
+		mes "Você deseja transformar em visual o equipamento: ^ff0000" + getitemname(getequipid(.@Part)) + "^000000?";
+		next;
+		if( select("Sim, Prosseguir:Não, Obrigado.") == 2 )
+		{
+			mes "[^0000FFPrincesa dos Visuais^000000]";
+			mes "Precisa de um tempo para pensar, né?";
+			mes "Tudo bem, eu entendo.";
+			close;
+		}
+		//if (Zeny<1000000) { mes "You didn't bring enough money!"; close; }
+		//if (Countitem(971)<30) { mes "You didn't bring enough Detrimindexta!"; close; }
+		if (Countitem(617)<1) 
+		{ 
+			mes "[^0000FFPrincesa dos Visuais^000000]";
+			mes "Você não possui o Ticket de Visual! Compre agora mesmo na nossa loja de Cash."; 
+			close; 
+		}
+		//Zeny = Zeny - 1000000;
+		//delitem 971,30;
+		delitem 5124,1;
+		costume .@Part; // Convert the Headgear
+		mes "[^0000FFPrincesa dos Visuais^000000]";
+		mes "Pronto, seu equipamento foi transformado em visual.";
+		mes "Até mais!";
+		close;
+		
+	case 2:
+		close;
+		
+	}
+
+	OnInit:
+	waitingroom "Transformar Visual",0;
+	end;
+} */
+
+
+// -------------------------------------------------------------------------------
+// 	Script Name : Headgear to Costume converter >> Costume to Headgear converter
+// -------------------------------------------------------------------------------
+// Description :
+// - Allows a user to convert the equipped headgear (on Top, Mid or Low) into a
+//   costume item. It will remove any card and refine of the Item.
+// - Allows a user to restore the equipped costume headgear (on Top, Mid or Low)
+//     into its original form. It will not return any card or refine of the item.
+// -------------------------------------------------------------------------------
+-	script	Costume Clown	-1,{
+	mes "[^0000FFPalhaço dos Visuais^000000]";
+	mes "Aqui você pode converter seus equipamentos de cabeça em um Equipamento de Cabeça Visual ou restaurá-los à sua forma original.";
+	switch(select("Eu quero converter.:Eu quero restaurar.:Não, obrigado.")) {
+	case 1:
+			next;
+			mes "[^0000FFPalhaço dos Visuais^000000]";
+			mes "Por favor, selecione o que deseja converter.";
+			mes "^ff0000Alerta!";
+			mes "-------------------";
+			mes "Lembre-se, cartas, refinamentos serão perdidos...^000000";
+			next;
+				setarray .@Position$[1],"Top","Mid","Low";
+				setarray .@Position[1],EQI_HEAD_TOP , EQI_HEAD_MID,EQI_HEAD_LOW;
+				set .@Menu$,"";
+			for( set .@i, 1; .@i < 5; set .@i, .@i + 1 )
+			{
+				if( getequipisequiped(.@Position[.@i]) )
+				set .@Menu$, .@Menu$ + .@Position$[.@i] + "-" + "[" + getequipname(.@Position[.@i]) + "]";
+				set .@Menu$, .@Menu$ + ":";
+			}
+			set .@Part, .@Position[ select(.@Menu$) ];
+			if( !getequipisequiped(.@Part) )
+			{
+				mes "[^0000FFPalhaço dos Visuais^000000]";
+				mes "Você não tem nada equipado que possa ser transformado em visual...";
+				close;
+			}
+			mes "[^0000FFPalhaço dos Visuais^000000]";
+			mes "Você deseja transformar em visual o equipamento: ^ff0000" + getitemname(getequipid(.@Part)) + "^000000?";
+			next;
+			if( select("Sim, Prosseguir:Não, Obrigado.") == 2 )
+			{
+				mes "[^0000FFPalhaço dos Visuais^000000]";
+				mes "Precisa de um tempo para pensar, né?";
+				mes "Tudo bem, eu entendo.";
+				close;
+			}
+			if (Countitem(617)<1) 
+			{ 
+			mes "[^0000FFPrincesa dos Visuais^000000]";
+			mes "Você não possui o Ticket de Visual! Compre agora mesmo na nossa loja de Cash."; 
+			close; 
+			}
+
+			costume .@Part; // Convert the Headgear
+			delitem 617,1;
+			mes "[^0000FFPalhaço dos Visuais^000000]";
+			mes "Pronto, seu equipamento foi transformado em visual.";
+			mes "Até mais!";
+			close;
+	case 2:
+			next;
+			mes "[^0000FFPalhaço dos Visuais^000000]";
+			mes "Por favor, selecione o que deseja restaurar.";
+			mes "^ff0000Alerta!";
+			mes "-------------------";
+			mes "Lembre-se, eu só vou restaurá-lo sem refinamento e sem cartas.^000000";
+			next;
+				setarray .@Position$[1],"Top","Mid","Low";
+				setarray .@Position[1],     13,    12,   11;
+				set .@Menu$,"";
+			for( set .@i, 1; .@i < 5; set .@i, .@i + 1 )
+			{
+				if( getequipisequiped(.@Position[.@i]) )
+				set .@Menu$, .@Menu$ + .@Position$[.@i] + "-" + "[" + getequipname(.@Position[.@i]) + "]";
+				set .@Menu$, .@Menu$ + ":";
+			}
+			set .@Part, .@Position[ select(.@Menu$) ];
+			if( !getequipisequiped(.@Part) )
+			{
+				mes "[^0000FFPalhaço dos Visuais^000000]";
+				mes "Você não tem nenhum visual equipado...";
+				close;
+			}
+			mes "[^0000FFPalhaço dos Visuais^000000]";
+			mes "Você deseja restaurar o visual:  ^ff0000" + getitemname(getequipid(.@Part)) + "^000000?";
+			next;
+				if( select("Sim, Prosseguir:Não, Obrigado.") == 2 )
+			{
+				mes "[^0000FFPalhaço dos Visuais^000000]";
+				mes "Precisa de um tempo para pensar, né?";
+				mes "Tudo bem, eu entendo.";
+				close;
+			}
+			if (Countitem(617)<1) 
+			{ 
+			mes "[^0000FFPrincesa dos Visuais^000000]";
+			mes "Você não possui o Ticket de Visual! Compre agora mesmo na nossa loja de Cash."; 
+			close; 
+			}
+			a = getequipid(.@Part);
+			delitem 617,1;			
+			delitem a,1;
+			getitem a,1;
+			
+				mes "[^0000FFPalhaço dos Visuais^000000]";
+				mes "Feito, aproveite seu equipamento de cabeça restaurado.";
+			close;
+	case 3:
+			mes "[^0000FFPalhaço dos Visuais^000000]";
+			mes "Muito bem. Retorne imediatamente se precisar dos meus serviços.";
+			close;
+	}
+	OnInit:
+	waitingroom "Transformar Visual",0;
+	end;
+}
+// --------------------------------------------------------------------------
+// Use duplicates to put your npc on different cities
+// --------------------------------------------------------------------------
+hero_dun1,92,188,6	duplicate(Costume Clown)	Palhaço dos Visuais#1	715
+
+
+
+//===== rAthena Script =======================================
+//= Plagiarism NPC
+//===== By: ==================================================
+//= Easycore
+//===== Last Updated: ========================================
+//= 20210905
+//===== Description: ========================================= 
+//= Simple Plagiarism Skill
+//= Require 'getskillname' script command:
+//=    https://rathena.org/board/files/file/4307-script-command-getskillname/
+//============================================================
+
+hero_dun1,86,193,6	script	Plagiador	747,{
+	mes "[ ^FF0000Plagiador^000000 ]";
+	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
+		mes "Você não possui a Habilidade de Plágio.";
+		close;
+	}
+	mes "Heya ^FFA500"+strcharinfo(0)+"^000000!";
+	mes "Qual Habilidade Você Deseja Copiar?";
+	/* if (.zeny)
+		mes "My service costs ^FF0000"+.zeny+" Zeny^000000."; */
+	if (select("~ Proceed","Cancel") == 2) close;
+	/* if (.zeny > 0 && Zeny < .zeny) {
+		message(strcharinfo(0),"Not enough Zeny.");
+		close;
+	} */
+	.@menu$ = "";
+	.@f = getarraysize(.SkillID);
+	for(.@i = 0; .@i < .@f; .@i++)
+		.@menu$ += getskillname(.SkillID[.@i])+(.@i==.@f?"":":");
+	.@s = select(.@menu$) - 1;
+	close2;
+/* 	if (.zeny > 0 && Zeny < .zeny)
+		end;
+	if (.zeny > 0)
+		Zeny -= .zeny; */
+	npcskill .SkillID[.@s],.SkillLV[.@s],20,200;
+	sleep2 1500;
+	unitwarp getnpcid(0),.map$,.x,.y;
+	end;
+
+	OnInit:
+		//Default NPC Data Values
+		setunitdata(getnpcid(0),UNPC_DEX,300);
+		setunitdata(getnpcid(0),UNPC_ATKMIN,100);
+		setunitdata(getnpcid(0),UNPC_ATKMAX,200);
+		getmapxy(.map$,.x,.y,BL_NPC);
+
+		//Configuration
+		//Zeny required? Set 0 to disable it
+		.zeny = 25000;
+		//Must Plagiarism skil be learned? (1. Yes | 0. No)
+		.plag_skill = 1;
+		//Skill ID Array
+		setarray .SkillID[0],263,13, 7,14,19,20,21,83,84,85,86,89,90,91,421,534,536,537,540,542;
+		//Skill LV Array
+		setarray .SkillLV[0], 10,10,10,10,10,10,10,10,10,10,10,10,10,5,   7, 10,  5, 10, 19,  5;
+
+		waitingroom "Plagiador",0;
+		end;
+
+}

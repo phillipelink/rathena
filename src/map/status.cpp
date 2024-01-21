@@ -3749,7 +3749,7 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 		current_equip_combo_pos = 0;
 		if (index < 0)
 			continue;
-		if (i == EQI_AMMO)
+		if ((i == EQI_AMMO) || (i == EQI_COSTUME_HEAD_TOP) || (i == EQI_COSTUME_HEAD_MID) || (i == EQI_COSTUME_HEAD_LOW) || (i == EQI_COSTUME_GARMENT)) // Costume item edit
 			continue;
 		if (pc_is_same_equip_index((enum equip_index)i, sd->equip_index, index))
 			continue;
