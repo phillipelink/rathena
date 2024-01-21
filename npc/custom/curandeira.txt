@@ -107,6 +107,8 @@ umbala,96,159,3	duplicate(Curandeira)	Curandeira#umb	91
 veins,225,125,4	duplicate(Curandeira)	Curandeira#ve	91
 xmas,155,135,4	duplicate(Curandeira)	Curandeira#xmas	91
 yuno,148,187,4	duplicate(Curandeira)	Curandeira#yuno	91
+//SALA VIP
+hero_dun1,117,188,4	duplicate(Curandeira)	Curandeira#VIP	91
 
 // Duplicates (Renewal)
 //============================================================

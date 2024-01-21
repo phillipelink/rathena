@@ -1433,6 +1433,7 @@ umbala,99,156,3	duplicate(Teletransporte)	Teletransporte#umb	612
 veins,223,122,4	duplicate(Teletransporte)	Teletransporte#ve	612
 xmas,150,136,6	duplicate(Teletransporte)	Teletransporte#xmas	612
 yuno,143,187,4	duplicate(Teletransporte)	Teletransporte#yuno	612
+hero_dun1,102,188,6	duplicate(Teletransporte)	Teletransporte#VIP	612
 
 // --------------------------------------------------
 //	Duplicates (Renewal):

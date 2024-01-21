@@ -1,39 +1,48 @@
-hero_dun1,112,172,3	script	Segurança VIP	100,{
+hero_dun1,112,172,3	script	Segurança VIP::seguranca_vip1	100,{
 	
 	.@Delay = 3;	// delay in seconds
+	
 	
 	if (@HD > gettimetick(2)) 
 	{
 		end;
 	}
 	npctalk "Você não pode passar daqui!";
+	end;
 	
 	if (.@Delay) 
 	{
 		set @HD, gettimetick(2)+.@Delay;
+		end;
 	}
 	
 	OnInit:
 		setcell "hero_dun1",105,172,112,172,cell_walkable,0;
+		waitingroom "Segurança [VIP]",0;
 	end;
 }
 
 hero_dun1,139,199,3	script	Segurança VIP::seguranca_vip2	100,{
 	
 	.@Delay = 3;	// delay in seconds
-	
+
+
 	if (@HD > gettimetick(2)) 
 	{
 		end;
 	}
 	npctalk "Você não pode passar daqui!";
+	end;
 	
 	if (.@Delay) 
 	{
 		set @HD, gettimetick(2)+.@Delay;
+		end;
 	}
 	OnInit:
+		
 		setcell "hero_dun1",139,199,139,192,cell_walkable,0;
+		waitingroom "Segurança [VIP]",0;
 	end;
 }
 
@@ -395,7 +404,7 @@ hero_dun1,86,193,6	script	Plagiador	747,{
 
 }
 
-hero_dun1,91,199,5	script	Torpedo Global	490,{
+hero_dun1,91,199,5	script	Torpedo Global	888,{
     doevent "broadcast_main::OnTalk";
 	end;
 	OnInit:
@@ -706,5 +715,40 @@ hero_dun1,133,202,4	script	Refinador de Minérios	58,{
 	}
 		OnInit:
 	waitingroom "Minérios",0;
+	end;
+}
+
+
+
+hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
+	cutin "kafra_01",2;
+	mes "[^0000FFFuncionária Kafra^000000]";
+	if(gettime(DT_HOUR) < 12){
+		mes "Bom dia ^00994C"+strcharinfo(0)+"^000000!";
+	}
+	else if(gettime(DT_HOUR) < 18){
+		mes "Boa tarde ^00994C"+strcharinfo(0)+"^000000!";
+	}
+	else if(gettime(DT_HOUR) >= 18){
+		mes "Boa Noite ^00994C"+strcharinfo(0)+"^000000!";
+	}
+	mes "^606060Vencimento do VIP^000000: ^0066CC" + gettimestr("%d-%m-%Y",21,vip_status(VIP_STATUS_EXPIRE))+"^000000";
+	mes "^606060Ponto de Retorno^000000: ^0066CC" + getsavepoint(strcharinfo(0))+"^000000";
+	mes "^606060Seu IP^000000: ^0066CC" + getcharip()+"^000000";
+	mes "Em que posso ajuda-lo(a)?";
+	next;
+	switch(select("Abrir Armazém:Sair")){
+		
+		case 1:
+		callfunc "F_KafStor",2,0,0;
+		end;
+		
+		case 2:
+		end;
+	}
+
+	end;
+	OnInit:
+		waitingroom "Kafra [VIP]",0;
 	end;
 }
