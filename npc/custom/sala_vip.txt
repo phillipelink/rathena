@@ -723,6 +723,7 @@ hero_dun1,133,202,4	script	Refinador de Minérios	58,{
 hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 	cutin "kafra_01",2;
 	mes "[^0000FFFuncionária Kafra^000000]";
+	mes getcharid(3);
 	if(gettime(DT_HOUR) < 12){
 		mes "Bom dia ^00994C"+strcharinfo(0)+"^000000!";
 	}
@@ -733,7 +734,7 @@ hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 		mes "Boa Noite ^00994C"+strcharinfo(0)+"^000000!";
 	}
 	mes "^606060Vencimento do VIP^000000: ^0066CC" + gettimestr("%d-%m-%Y",21,vip_status(VIP_STATUS_EXPIRE))+"^000000";
-	mes "^606060Ponto de Retorno^000000: ^0066CC" + getsavepoint(strcharinfo(0))+"^000000";
+	mes "^606060Ponto de Retorno^000000: ^0066CC" + getsavepoint(strcharinfo(0)) + "^000000";
 	mes "^606060Seu IP^000000: ^0066CC" + getcharip()+"^000000";
 	mes "Em que posso ajuda-lo(a)?";
 	next;

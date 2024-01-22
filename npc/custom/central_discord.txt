@@ -1,6 +1,6 @@
 prontera,142,181,5	script	Central Discord	495,{
    
-	mes "[^FF0000 Central Discord ^000000]";
+	mes "[^0055FF ::: Central Discord ::: ^000000]";
 	mes "Olá ^FF9900" +strcharinfo(0)+ "^000000!";
 	mes "Bem vindo a nossa central de comunicação.";
 	mes "Aqui você pode pedir ajuda, dar sugestões, etc.";
