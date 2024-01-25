@@ -85,15 +85,17 @@ OnInit:
 -	script	TempoRestanteVip	-1,{
 
 OnPCLoginEvent:
+
+	dispbottom "============RagnaLinK============";
+	dispbottom "  --> " + #CASHPOINTS +"x Cash Points";
+	dispbottom "  --> " + #fidelidade +"x Pontos de Fidelidade";
+	dispbottom "  --> " + #mvp +"x Pontos MVP";
+	dispbottom "  --> " + #evento +"x Pontos de Evento";
+	
+	dispbottom "===============================";
 	if(vip_status(1))
 	{		
-		dispbottom "[ Central VIP ] Obrigado por ser um jogador vip e ajudar a comunidade do RagnaLinK!";
 		dispbottom "[ Central VIP ] Faltam " + Time2Str(vip_status(VIP_STATUS_REMAINING) + gettimetick(2));
-		dispbottom "[ Central VIP ] Tenha um bom jogo!";
 	}
-	else
-	{
-		dispbottom "[ Central VIP ] Aproveite para se tornar um jogador VIP e ajudar a comunidade do RagnaLinK!";
-		dispbottom "[ Central VIP ] Tenha um bom jogo!";
-	}
+
 } 
