@@ -4,12 +4,76 @@ prontera,148,186,6	script	Doação	10380,{
 	mes "^009900Lembrando que a cada 1,00 Real você ganha 1000 CashPoints^000000.";
 	mes "Escolha uma das opções abaixo:";
 	next;
-	switch(select(" ^009900[>>]^000000 Doação Mercado Pago: ^009900[>>]^000000 Doação Pix: ^FF0000[<<]^000000 Sair "))
+	switch(select(" ^009900[•]^000000 Doação Pix: ^009900[•]^000000 Doação Mercado Pago: ^009900[•]^000000 Consultar Doações : ^FF0000[•]^000000 Sair "))
 	{
-		case 1:
-		switch(select(" ^009900[>>]^000000 Concluir Doação: ^FF0000[<<]^000000 Sair"))
-		{
+
 			case 1:
+			mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+			mes "Preencha as informações da transação nos campos a seguir:";
+			mes "Obs: ^FF0000Informamos que em caso de confirmação falsa a conta será punida sem aviso prévio^000000.";
+			next;
+			mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+			mes "Metodo Selecionado: ^009900 Pix ^000000.";
+			mes "Insira o valor da doação:";
+			mes "Ex: 20";
+			mes "Ex: 10";
+			next;
+			input .@valordadoacao;
+			next;
+			
+			// if(.@valordadoacao < 10)
+			// {
+				// mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+				// mes "^FF0000 Atenção!! O valor minimo para doar é de R$10,00^000000.";
+				// close;
+			// }
+			
+			.@possible_char$ = "1234567890"
+
+			+ "QWERTYUIOP"
+
+			+ "ASDFGHJKL"
+
+			+ "ZXCVBNM";
+
+			.@size = getstrlen( .@possible_char$ );
+
+			for ( .@i = 0; .@i < 10; .@i++ )
+			.@string$ = .@string$ + charat( .@possible_char$, rand( .@size ) );
+			
+			mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+			mes "^0000FFConfirme os Dados Abaixo^000000:";
+			mes "Metodo Selecionado: ^009900 Pix ^000000";
+			mes "Código Transação: ^009900"+.@string$+"^000000";
+			mes "Valor: R$^009900"+.@valordadoacao+",00^000000";
+
+			switch(select(" ^009900[•]^000000 Confirmar Doação: ^FF0000[•]^000000 Cancelar"))
+			{
+				case 1:
+				query_sql("INSERT INTO `pagamentos` (`account_id`,`data`,`valor`,`metodo_pagamento`,`char_id`,`status`,`url_pagamento`,`id_pagamento_mercado_pago`,`id_transacao`) VALUES ( "+getcharid(3)+",'"+gettimestr("%d-%m-%Y %H:%M",21)+"',"+.@valordadoacao+",'Pix','"+getcharid(0)+"','Pendente','','','"+.@string$+"')");
+				next;
+				mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+				mes "^FF0000Aguarde...Estamos gerando o link de pagamento^000000.";
+				sleep2 2000;
+				mes "^009900Finalizando^000000...";
+				sleep2 3000;
+				mes "^4C0099Link gerado com sucesso, clique em next para visualiza-lo.^000000";
+				next;
+				mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+				.@query_select_pagamentos = query_sql("select url_pagamento from `pagamentos` where id_transacao = '"+.@string$+"'  ORDER BY data DESC LIMIT 1", .@url_pagamento$);
+				//mes .@url_pagamento$[0];
+				mes "Efetue o pagamento clicando no link abaixo, e aguarde a aprovação.";
+				mes "<URL>LinK QRCode<INFO>"+ .@url_pagamento$[0] +"</INFO></URL>";
+				mes "^FF0000Nosso sistema é automático, assim que for aprovado, os cashs serão creditados em sua conta^000000.";				
+				mes "Obrigado por ajudar a comunidade do RagnaLinK com a sua doação!";
+				end;
+				
+				case 2:
+				end;
+			}
+
+
+		case 2:		
 			mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
 			mes "Preencha as informações da transação nos campos a seguir:";
 			mes "Obs: ^FF0000Informamos que em caso de confirmação falsa a conta será punida sem aviso prévio^000000.";
@@ -23,12 +87,12 @@ prontera,148,186,6	script	Doação	10380,{
 			input .@valordadoacao;
 			next;
 			
-			if(.@valordadoacao < 10)
-			{
-				mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
-				mes "^FF0000 Atenção!! O valor minimo para doar é de R$10,00^000000.";
-				close;
-			}
+			// if(.@valordadoacao < 10)
+			// {
+				// mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+				// mes "^FF0000 Atenção!! O valor minimo para doar é de R$10,00^000000.";
+				// close;
+			// }
 			
 			.@possible_char$ = "1234567890"
 
@@ -41,58 +105,55 @@ prontera,148,186,6	script	Doação	10380,{
 			.@size = getstrlen( .@possible_char$ );
 
 			for ( .@i = 0; .@i < 10; .@i++ )
-
 			.@string$ = .@string$ + charat( .@possible_char$, rand( .@size ) );
 			
 			mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
-			mes "Confirme os Dados:";
-			mes "Código Transação = "+.@string$;
-			mes "Valor: "+.@valordadoacao+"";
+			mes "^0000FFConfirme os Dados Abaixo^000000:";
+			mes "Metodo Selecionado: ^009900 Mercado Pago ^000000";
+			mes "Código Transação: ^009900"+.@string$+"^000000";
+			mes "Valor: R$^009900"+.@valordadoacao+",00^000000";
 
-			switch(select(" - Confirmar Doação: - Cancelar"))
+			switch(select(" ^009900[•]^000000 Confirmar Doação: ^FF0000[•]^000000 Cancelar"))
 			{
 				case 1:
-				query_sql("INSERT INTO `pagamentos` (`account_id`,`data`,`valor`,`metodo_pagamento`,`char_id`,`status`,`url_pagamento`,`id_pagamento_mercado_pago`,`id_transacao`) VALUES ( "+getcharid(3)+",'"+gettimestr("%d-%m-%Y %H:%M",21)+"',"+.@valordadoacao+",'MercadoPago','"+getcharid(0)+"','Pendente','','','"+.@string$+"')");
+				query_sql("INSERT INTO `pagamentos` (`account_id`,`data`,`valor`,`metodo_pagamento`,`char_id`,`status`,`url_pagamento`,`id_pagamento_mercado_pago`,`id_transacao`) VALUES ( "+getcharid(3)+",'"+gettimestr("%d-%m-%Y %H:%M",21)+"',"+.@valordadoacao+",'Mercado Pago','"+getcharid(0)+"','Pendente','','','"+.@string$+"')");
 				next;
 				mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
-				mes "Aguarde...Estamos gerando o link de pagamento.";
+				mes "^FF0000Aguarde...Estamos gerando o link de pagamento^000000.";
 				sleep2 2000;
-				mes "Finalizando...";
+				mes "^009900Finalizando^000000...";
 				sleep2 3000;
-				mes "Link gerado com sucesso, clique em next para visualiza-lo.";
+				mes "^4C0099Link gerado com sucesso, clique em next para visualiza-lo.^000000";
 				next;
 				mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
 				.@query_select_pagamentos = query_sql("select url_pagamento from `pagamentos` where id_transacao = '"+.@string$+"'  ORDER BY data DESC LIMIT 1", .@url_pagamento$);
 				//mes .@url_pagamento$[0];
-				.@linkqrcode = .@url_pagamento$[0];
-				mes .@linkqrcode;
+				mes "Efetue o pagamento clicando no link abaixo, e aguarde a aprovação.";
 				mes "<URL>LinK QRCode<INFO>"+ .@url_pagamento$[0] +"</INFO></URL>";
+				mes "^FF0000Nosso sistema é automático, assim que for aprovado, os cashs serão creditados em sua conta^000000.";				
+				mes "Obrigado por ajudar a comunidade do RagnaLinK com a sua doação!";
 				end;
 				
 				case 2:
 				end;
 			}
-
-
-			
-			case 2:
-			end;
-				
-		}
-
-
-		case 2:		
-			mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
-			mes "Preencha as informações da transação nos campos a seguir:";
-			mes "Obs: ^FF0000Informamos que em caso de confirmação falsa a conta será punida sem aviso prévio^000000.";
-			next;
-			mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
-			mes "Metodo Selecionado: ^009900 PIX ^000000.";
-			mes "Insira o valor da doação:";
-			mes "Ex: 20";
-			mes "Ex: 10";
 			
 		case 3:
+		mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
+		mes "^00CCCCHistórico de Transações^000000";
+		.@contador = 1;
+		.@query_select_list_pagamentos = query_sql("select id_transacao,valor,status,url_pagamento,metodo_pagamento from `pagamentos` where account_id = '"+getcharid(3)+"'  ORDER BY data DESC LIMIT 5", .@id_transacao$, .@valor$, .@status$, .@idpagamento$, .@metodo_pagamento$);
+			for (.@i = 0; .@i < .@query_select_list_pagamentos; .@i++) {
+				mes .@contador++ + ". Id:" + .@id_transacao$[.@i];
+				mes "Status: ^FF8000"  + .@status$[.@i] + "^000000";
+				mes "Valor: R$^006600" + .@valor$[.@i] + ",00^000000";
+				mes "Metodo Pagamento: ^007700" + .@metodo_pagamento$[.@i] + "^000000";
+				mes "<URL>LinK de Pagamento<INFO>"+ .@idpagamento$[.@i] +"</INFO></URL>";
+				mes "-------------------------";
+			}
+		end;
+		
+		case 4:
 		end;
 	}
 	OnInit:
