@@ -1,0 +1,497 @@
+new_1-1,52,115,3	script	Placa	835,{
+
+	npctalk "Placa: Siga sempre em frente!";
+	end;
+
+}
+
+
+new_1-1,67,113,3	script	Bem-Vindo	802,3,3,{
+	if (roclass(eaclass()&EAJ_NOVICE) != BaseClass) 
+	{
+		mes "[Wisp]";
+		mes "Você não é mais um aprendiz!";
+		end;
+	}
+
+	if(nov_1st_cos == 0){
+		mes "[Wisp]";
+		mes "Hey!";
+		mes "Seja bem-vindo ao ^0000FFRagnaLink^000000";
+		mes "O mais novo e completo servidor de Ragnarok.";
+		next;
+		mes "[Wisp]";
+		mes "Você sabe que nosso possui diversas mecânicas novas, certo?";
+		mes "Apesar de estarmos no episódio 13, o ^0000FFRagnaLink^000000 conta com várias mudanças e novidades.";
+		next;
+		mes "[Wisp]";
+		mes "Ao longo do campo de treinamento essas mecânicas serão apresentadas,";
+		mes "Então fique tranquilo e siga em frente!";
+		set nov_1st_cos,1;
+		getexp 1,0;
+		next;
+		mes "[Wisp]";
+		mes "Para ter visões mais detalhadas visite nossa Wiki no link abaixo:";
+		mes "<URL>RagnaLinK Wiki<INFO>http://ragnalink.com.br/wiki</INFO></URL>";
+		mes "Lá você terá todas as informações que precisa.";
+		next;
+		mes "[Wisp]";
+		mes "Agora vá em frente boa sorte!";
+		close;
+	}
+	else if (nov_1st_cos >= 1){	
+		mes "[Wisp]";
+		mes "Hey!";
+		mes "Seja bem-vindo ao ^0000FFRagnaLink^000000";
+		mes "O mais novo e completo servidor de Ragnarok.";
+		next;
+		mes "[Wisp]";
+		mes "Você sabe que nosso possui diversas mecânicas novas, certo?";
+		mes "Apesar de estarmos no episódio 13, o ^0000FFRagnaLink^000000 conta com várias mudanças e novidades.";
+		next;
+		mes "[Wisp]";
+		mes "Ao longo do campo de treinamento essas mecânicas serão apresentadas,";
+		mes "Então fique tranquilo e siga em frente!";
+		next;
+		mes "[Wisp]";
+		mes "Para ter visões mais detalhadas visite nossa Wiki no link abaixo:";
+		mes "<URL>RagnaLinK Wiki<INFO>http://ragnalink.com.br/wiki</INFO></URL>";
+		mes "Lá você terá todas as informações que precisa.";
+		next;
+		mes "[Wisp]";
+		mes "Agora vá em frente boa sorte!";
+		close;
+	}
+}
+
+
+new_1-2,100,29,4	script	Recepcionista	874,{
+	
+	if (roclass(eaclass()&EAJ_NOVICE) != BaseClass) 
+	{
+		mes "[Recepcionista]";
+		mes "Você não é mais um aprendiz!";
+		end;
+	}
+	
+	if(nov_1st_cos == 1)
+	{
+		mes "[Recepcionista]";
+		mes "Olá ^0000FF" +strcharinfo(0)+ "^000000!";
+		mes "Como vai você?";
+		next;
+		mes "[Recepcionista]";
+		mes "Seja bem vindo ao nosso campo de treinamento personalizado.";
+		mes "Você ira notar uma diferença absurda!";
+		next;
+		mes "[Recepcionista]";
+		mes "Basicamente, resolvemos encurtar as coisas por aqui.";
+		mes "Você ira receber todos";
+		mes "^0000FFos Itens Iniciais, Habilidades de Platina, Pocões e Tickets^000000.";
+		next;
+		callfunc "F_GetPlatinumSkills";
+		getitem 569,400; //Novice_Potion
+		getitem 1243,1; //Novice_Knife
+		getitem 2414,1; //Novice_Boots
+		getitem 2510,1; //Novice_Hood
+		getitem 2352,1; //Novice_Plate
+		getitem 2112,1; //Novice_Guard
+		getitem 601,20; //Wing_Of_Fly
+		getitem 602,2; //Wing_Of_Butterfly
+		getitem 7059,5; //Cargo_Free_Ticket
+		getitem 7060,5; //Warp_Free_Ticket
+		getitem 5055,1; // hat egg
+		set nov_1st_cos,2;
+		getexp 9,10;
+		mes "[Recepcionista]";
+		mes "E será levado diretamente para nosso Campo de Monstros, ok?";
+		mes "Então se prepare!";
+		mes "Vamos lá!!";
+		next;
+		savepoint "new_zone03",85,65,1,1;
+		warp "new_zone03",85,71;
+	}
+	else if(nov_1st_cos >= 2)
+	{
+		mes "[Recepcionista]";
+		mes "Você de novo por aqui? Te mandarei de volta para o Campo de Monstros, ok?";
+		mes "Então se prepare!";
+		mes "Vamos lá!!";
+		next;
+		warp "new_zone03",85,71;	
+	}
+
+}	
+
+	
+	
+				
+
+
+
+new_zone04,100,21,4	script	Chaos	683,{
+	
+	if (roclass(eaclass()&EAJ_NOVICE) != BaseClass) 
+	{
+		mes "[Chaos]";
+		mes "Você não é mais um aprendiz!";
+		end;
+	}
+	
+function	Check_SkillPoints	{
+	if (.SkillPointCheck && SkillPoint) {
+		mes "[Chaos]";
+		mes "^FF0000Por favor, use todos os seus pontos de habilidade antes de prosseguir^000000.";
+		close;
+	}
+	return;
+}
+
+function	Check_Riding	{
+	// Note: Why we should always check for Riding:
+	// Mounts are considered as another class, which
+	// would make this NPC bigger just to handle with
+	// those special cases.
+	if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
+		mes "Por favor, remova o(a) " +
+			((checkfalcon()) ? "Falcão" : "") +
+			((checkcart()) ? "Carrinho" : "") +
+			((checkriding()) ? "Peco-Peco" : "") +
+			((ismounting()) ? "Montaria" : "") +
+			" Antes de prosseguir.";
+		close;
+	}
+	return;
+}
+
+	if(nov_1st_cos == 2 && JobLevel == 10)
+	{
+		Check_SkillPoints();
+		Check_Riding();
+				
+		mes "[Chaos]";
+		mes "Meus Cumprimentos, Aventureiro!";
+		mes "Vejo que você já esta forte o suficiente para sair daqui!";
+		next;
+		mes "[Chaos]";
+		mes "Pegue suas poucas coisas e me acompanhe até o ^0000FFParaíso de Asgard^000000!.";
+		next;
+		mes "[Chaos]";
+		mes "Não precisa se assustar, quando você chegar vai poder descansar bastante no ^0000FFParaíso de Asgard^000000!";
+		mes "E entender como ele funciona.";
+		next;
+		mes "[Chaos]";
+		mes "Mas antes, eu preciso que você escolha uma classe para seguir e ser fiel a ela!";
+		mes "Acredito que já tenha algo em mente, certo?";
+		next;
+		switch(select("Espadachim:Mago:Arqueiro:Noviço:Mercador:Gatuno:Super Aprendiz:Justiceiro:Ninja:Taekwon:Ir apenas de Aprendiz"))
+		{
+			case 1:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Espadachim^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 1;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+				
+			case 2:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Mago^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 2;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 3:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Arqueiro^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 3;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 4:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Noviço^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 4;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 5:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Mercador^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 5;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 6:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Gatuno^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 6;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 7:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Super Aprendiz^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 23;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 8:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Justiceiro^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 24;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 9:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Ninja^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 25;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 10:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Taekwon^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					Job_Change 4046;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+			case 11:
+				mes "[Chaos]";
+				mes "Você tem certeza que quer se tornar um ^FF0000Ir apenas de Aprendiz^000000?";
+				switch(select("Sim:Não"))
+				{
+					case 1:
+					mes "[Chaos]";
+					mes "Muito bem vindo e boa sorte em sua jornada!";
+					set nov_1st_cos,3;
+					savepoint "moc_para01",30,15,1,1;
+					warp "moc_para01",137,183;
+					end;
+					case 2:
+					end;
+				}
+		}
+	}
+	else if(nov_1st_cos == 2 && JobLevel < 10)
+	{
+		mes "[Chaos]";
+		mes "Você ainda não aprendeu totalmente suas ^0000FFHabilidades Básicas^000000!";
+		mes "Você precisa chegar ao ^0000FFLevel 10 de Classe^000000!";
+		next;
+		mes "[Chaos]";
+		mes "Volte aqui quando estiver mais forte!";
+		close;
+		
+	}
+	else if(nov_1st_cos == 3)
+	{
+		mes "[Chaos]";
+		mes "Não consigo mais te ajudar, vá em frente e conquiste novos objetivos!";
+		mes "Até mais e boa sorte em sua jornada!";
+		close;
+		
+	}
+	else
+	{
+		mes "[Chaos]";
+		mes "Se você não fez o passo a passo do inicio, eu não posso te ajudar!";
+		mes "Até mais!";
+		close;
+	}
+
+
+
+OnInit:
+
+.SkillPointCheck = true;
+end;
+}
+
+
+
+//Mobs Campo de Trenamento - Inicio
+new_zone03,99,20,21,21	monster	Creamy	1018,10,1000,1000
+new_zone03,50,30,21,21	monster	Creamy	1018,10,1000,1000
+new_zone03,130,90,21,21	monster	Creamy	1018,10,1000,1000
+new_zone03,20,80,21,21	monster	Creamy	1018,10,1000,1000
+new_zone03,10,30,21,21	monster	Creamy	1018,10,1000,1000
+new_zone03,87,61,21,21	monster	Creamy	1018,10,1000,1000
+new_zone03,95,162,21,21	monster	Creamy	1018,10,1000,1000
+
+
+new_zone03,99,20,21,21	monster	Poporing	1031,10,1000,1000
+new_zone03,50,30,21,21	monster	Poporing	1031,10,1000,1000
+new_zone03,130,90,21,21	monster	Poporing	1031,10,1000,1000
+new_zone03,20,80,21,21	monster	Poporing	1031,10,1000,1000
+new_zone03,10,30,21,21	monster	Poporing	1031,10,1000,1000
+new_zone03,19,20,21,21	monster	Poporing	1031,10,1000,1000
+new_zone03,87,61,21,21	monster	Poporing	1031,10,1000,1000
+new_zone03,95,162,21,21	monster	Poporing	1031,10,1000,1000
+
+new_zone03,99,20,21,21	monster	Fabre	1007,10,1000,1000
+new_zone03,50,30,21,21	monster	Fabre	1007,10,1000,1000
+new_zone03,130,90,21,21	monster	Fabre	1007,10,1000,1000
+new_zone03,20,80,21,21	monster	Fabre	1007,10,1000,1000
+new_zone03,10,30,21,21	monster	Fabre	1007,10,1000,1000
+new_zone03,19,20,21,21	monster	Fabre	1007,10,1000,1000
+new_zone03,87,61,21,21	monster	Fabre	1007,10,1000,1000
+new_zone03,95,162,21,21	monster	Fabre	1007,10,1000,1000
+
+new_zone03,99,20,21,21	monster	Lunatic	1063,10,1000,1000
+new_zone03,50,30,21,21	monster	Lunatic	1063,10,1000,1000
+new_zone03,130,90,21,21	monster	Lunatic	1063,10,1000,1000
+new_zone03,20,80,21,21	monster	Lunatic	1063,10,1000,1000
+new_zone03,10,30,21,21	monster	Lunatic	1063,10,1000,1000
+new_zone03,19,20,21,21	monster	Lunatic	1063,10,1000,1000
+new_zone03,87,61,21,21	monster	Lunatic	1063,10,1000,1000
+new_zone03,95,162,21,21	monster	Lunatic	1063,10,1000,1000
+
+new_zone03,99,20,21,21	monster	Poring	1002,10,1000,1000
+new_zone03,50,30,21,21	monster	Poring	1002,10,1000,1000
+new_zone03,130,90,21,21	monster	Poring	1002,10,1000,1000
+new_zone03,20,80,21,21	monster	Poring	1002,10,1000,1000
+new_zone03,10,30,21,21	monster	Poring	1002,10,1000,1000
+new_zone03,19,20,21,21	monster	Poring	1002,10,1000,1000
+new_zone03,87,61,21,21	monster	Poring	1002,10,1000,1000
+new_zone03,95,162,21,21	monster	Poring	1002,10,1000,1000
+
+
+new_zone03,99,20,21,21	monster	Condor	1009,10,1000,1000
+new_zone03,50,30,21,21	monster	Condor	1009,10,1000,1000
+new_zone03,130,90,21,21	monster	Condor	1009,10,1000,1000
+new_zone03,20,80,21,21	monster	Condor	1009,10,1000,1000
+new_zone03,10,30,21,21	monster	Condor	1009,10,1000,1000
+new_zone03,19,20,21,21	monster	Condor	1009,10,1000,1000
+new_zone03,87,61,21,21	monster	Condor	1009,10,1000,1000
+new_zone03,95,162,21,21	monster	Condor	1009,10,1000,1000
+
+new_zone03,99,20,21,21	monster	Salgueiro	1010,10,1000,1000
+new_zone03,50,30,21,21	monster	Salgueiro	1010,10,1000,1000
+new_zone03,130,90,21,21	monster	Salgueiro	1010,10,1000,1000
+new_zone03,20,80,21,21	monster	Salgueiro	1010,10,1000,1000
+new_zone03,10,30,21,21	monster	Salgueiro	1010,10,1000,1000
+new_zone03,19,20,21,21	monster	Salgueiro	1010,10,1000,1000
+new_zone03,87,61,21,21	monster	Salgueiro	1010,10,1000,1000
+new_zone03,95,162,21,21	monster	Salgueiro	1010,10,1000,1000
+
+new_zone03,99,20,21,21	monster	Esporo	1014,10,1000,1000
+new_zone03,50,30,21,21	monster	Esporo	1014,10,1000,1000
+new_zone03,130,90,21,21	monster	Esporo	1014,10,1000,1000
+new_zone03,20,80,21,21	monster	Esporo	1014,10,1000,1000
+new_zone03,10,30,21,21	monster	Esporo	1014,10,1000,1000
+new_zone03,19,20,21,21	monster	Esporo	1014,10,1000,1000
+new_zone03,87,61,21,21	monster	Esporo	1014,10,1000,1000
+new_zone03,95,162,21,21	monster	Esporo	1014,10,1000,1000
+
+// Mobs Campo de Treinamento - Fim
+
+
+// Warps
+
+new_zone03,96,175,0	warp	novicewarp	1,1,new_zone04,100,13
+new_zone04,99,8,0	warp	novicewarp2	1,1,new_zone03,96,171
+
+
+//============================================================
+// MapFlags
+//============================================================
+
+new_1-1	mapflag	nowarp
+new_1-2	mapflag	nowarp
+new_zone03	mapflag	nowarp
+new_zone04	mapflag	nowarp
+
+new_1-1	mapflag	nowarpto
+sec_pri	mapflag	nowarpto

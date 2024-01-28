@@ -109,6 +109,8 @@ xmas,155,135,4	duplicate(Curandeira)	Curandeira#xmas	91
 yuno,148,187,4	duplicate(Curandeira)	Curandeira#yuno	91
 //SALA VIP
 hero_dun1,117,188,4	duplicate(Curandeira)	Curandeira#VIP	91
+//campo de treinamento
+new_zone03,92,66,4	duplicate(Curandeira)	Curandeira#Camp	91
 
 // Duplicates (Renewal)
 //============================================================

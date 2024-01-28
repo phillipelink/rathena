@@ -99,9 +99,7 @@ hero_dun1,120,194,4	script	Utilidades VIP	900,{
             end;
 		
 	}
-	OnInit:
-	waitingroom "Utilidades [VIP]",0;
-	end;
+
 }
 
 
