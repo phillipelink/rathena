@@ -1,0 +1,53 @@
+// -	script	Bloqueador_de_Comandos	-1,{	
+	
+	// OnAtcommand:
+   // if( strcharinfo(3) == "new_1-1" ) end;
+   // mes "Entrou aq";
+   // atcommand "@commands";
+   // end;
+   
+// }
+
+-	script	atcmd_example	-1,{
+	OnInit:
+	bindatcmd("govip","atcmd_example::OnAtcommand");
+	end;
+	OnAtcommand:
+	if( strcharinfo(3) == "new_1-1" )
+	{
+		specialeffect2 121;	
+		dispbottom "[Guardas] Não é permitido o uso de comandos para sair do Campo de Treinamento!";
+		end;
+	}
+	else if(strcharinfo(3) == "new_1-2"){
+		specialeffect2 121;	
+		dispbottom "[Guardas] Não é permitido o uso de comandos para sair do Campo de Treinamento!";
+		end;
+	}
+	else if(strcharinfo(3) == "new_zone03"){
+		specialeffect2 121;	
+		dispbottom "[Guardas] Não é permitido o uso de comandos para sair do Campo de Treinamento!";
+		end;
+	}
+	else if(strcharinfo(3) == "new_zone04"){
+		specialeffect2 121;	
+		dispbottom "[Guardas] Não é permitido o uso de comandos para sair do Campo de Treinamento!";
+		end;
+	}
+	else
+	{
+		if (vip_status(1)) 
+		{
+			warp "hero_dun1",109,174; // change map and coords to your VIP Room.
+		}
+		else 
+		{
+			mes "[ ^0000FFSistema VIP^000000 ]";
+			mes "^FF0000Você não é VIP!^000000"; 
+			mes "Faça agora mesmo sua doação!"; 
+			mes "Compre seu Ticket VIP na loja de Cash e receba vários benéficios.";
+			close;
+		}
+		end;
+	}
+}

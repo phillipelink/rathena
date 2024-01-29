@@ -721,7 +721,6 @@ hero_dun1,133,202,4	script	Refinador de Minérios	58,{
 hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 	cutin "kafra_01",2;
 	mes "[^0000FFFuncionária Kafra^000000]";
-	mes getcharid(3);
 	if(gettime(DT_HOUR) < 12){
 		mes "Bom dia ^00994C"+strcharinfo(0)+"^000000!";
 	}
@@ -750,4 +749,15 @@ hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 	OnInit:
 		waitingroom "Kafra [VIP]",0;
 	end;
+}
+
+-	script	Vip_Icon	-,{
+
+OnPCLoginEvent:
+	if(vip_status(1)) {
+		//Time2Str(vip_status(VIP_STATUS_REMAINING) + gettimetick(2))
+		set .@a, vip_status(2) - gettimetick(2);
+		bonus_script "{}",.@a,8,0,EFST_VIPSTATE;
+		end;
+	}
 }

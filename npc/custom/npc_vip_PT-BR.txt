@@ -93,9 +93,9 @@ OnPCLoginEvent:
 	dispbottom "  --> " + #evento +"x Pontos de Evento";
 	
 	dispbottom "===============================";
-	if(vip_status(1))
-	{		
-		dispbottom "[ Central VIP ] Faltam " + Time2Str(vip_status(VIP_STATUS_REMAINING) + gettimetick(2));
-	}
+	// if(vip_status(1))
+	// {		
+		// dispbottom "[ Central VIP ] Faltam " + Time2Str(vip_status(VIP_STATUS_REMAINING) + gettimetick(2));
+	// }
 
 } 

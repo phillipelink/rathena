@@ -1,27 +1,27 @@
--	script	command#freebies	-1,{
-OnInit:
-	// This part binds "freebies" as atcommand. 
-	bindatcmd("freebies",strnpcinfo(0)+"::OnCommand");
-	end;
+// -	script	command#freebies	-1,{
+// OnInit:
+	//This part binds "freebies" as atcommand. 
+	// bindatcmd("freebies",strnpcinfo(0)+"::OnCommand");
+	// end;
 
-OnCommand:
-	// This part tells your players that he got his freebies
-	if(GetFree) 
-	{ 
-		mes "You have received your rewards";
-		close; 
-	} 
-	else 
-	{
-		// This part if players didnt get his freebies yet
-		mes "Welcome! Here are your freebies";
+// OnCommand:
+	//This part tells your players that he got his freebies
+	// if(GetFree) 
+	// { 
+		// mes "You have received your rewards";
+		// close; 
+	// } 
+	// else 
+	// {
+		//This part if players didnt get his freebies yet
+		// mes "Welcome! Here are your freebies";
 		
-		teste:
-		set GetFree,1; // To avoid abuse, Set GetFree variable to 1
-		getitem 501,1; // Items received by the player in this case, 1 red potion (ItemID 501) you can add more by adding getitem <ITEMID>,<AMOUNT>; below
-		end;
-    }	
-}
+		// teste:
+		// set GetFree,1; // To avoid abuse, Set GetFree variable to 1
+		// getitem 501,1; // Items received by the player in this case, 1 red potion (ItemID 501) you can add more by adding getitem <ITEMID>,<AMOUNT>; below
+		// end;
+    // }	
+// }
 
 -	script	command#govip	-1,{
 	

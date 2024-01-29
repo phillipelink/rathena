@@ -38,43 +38,31 @@
 //new_4-1,66,114,4	duplicate(Bulletin Board#nv)	Bulletin Board#nv4	111
 //new_5-1,66,114,4	duplicate(Bulletin Board#nv)	Bulletin Board#nv5	111
 
-new_1-1,144,116,2	script	Guard#nv1	105,{
-	mes "[Training Grounds Guard]";
-	mes "Welcome to the Training Grounds.";
-	mes "You are now in the outer court yard. Please go inside the castle to begin your training.";
+new_1-1,144,116,2	script	Guarda#nv1	105,{
+	mes "[Guarda]";
+	mes "Seja bem vindo ao Campo de Treinamento!";
+	mes "Basta prestar atenção em todas as informações que você ficará bem!";
+	mes "Boa Sorte!";
 	close;
 }
 
-new_2-1,144,116,2	duplicate(Guard#nv1)	Guard#nv2-1	105
-new_3-1,144,116,2	duplicate(Guard#nv1)	Guard#nv3-1	105
-new_4-1,144,116,2	duplicate(Guard#nv1)	Guard#nv4-1	105
-new_5-1,144,116,2	duplicate(Guard#nv1)	Guard#nv5-1	105
+new_2-1,144,116,2	duplicate(Guarda#nv1)	Guarda#nv2-1	105
+new_3-1,144,116,2	duplicate(Guarda#nv1)	Guarda#nv3-1	105
+new_4-1,144,116,2	duplicate(Guarda#nv1)	Guarda#nv4-1	105
+new_5-1,144,116,2	duplicate(Guarda#nv1)	Guarda#nv5-1	105
 
-new_1-1,144,107,2	script	Guard#nv2	105,{
-	mes "[Training Grounds Guard]";
-	if(rand(2)) {
-		mes "Come in!";
-		mes "I would like";
-		mes "to welcome you to";
-		mes "the Training Grounds!";
-		next;
-		mes "[Training Grounds Guard]";
-		mes "In here, you can prepare";
-		mes "yourself for your future";
-		mes "adventures throughout the";
-		mes "Ragnarok world!";
-	}
-	else {
-		mes "Go, Novice, go!";
-		mes "Fight, and grow stronger! Look towards a brighter tomorrow!";
-	}
+new_1-1,144,107,2	script	Guarda#nv2	105,{
+	mes "[Guarda]";
+	mes "Seja bem vindo ao Campo de Treinamento!";
+	mes "Basta prestar atenção em todas as informações que você ficará bem!";
+	mes "Boa Sorte!";
 	close;
 }
 
-new_2-1,144,107,2	duplicate(Guard#nv2)	Guard#nv2-2	105
-new_3-1,144,107,2	duplicate(Guard#nv2)	Guard#nv3-2	105
-new_4-1,144,107,2	duplicate(Guard#nv2)	Guard#nv4-2	105
-new_5-1,144,107,2	duplicate(Guard#nv2)	Guard#nv5-2	105
+new_2-1,144,107,2	duplicate(Guarda#nv2)	Guarda#nv2-2	105
+new_3-1,144,107,2	duplicate(Guarda#nv2)	Guarda#nv3-2	105
+new_4-1,144,107,2	duplicate(Guarda#nv2)	Guarda#nv4-2	105
+new_5-1,144,107,2	duplicate(Guarda#nv2)	Guarda#nv5-2	105
 
 
 // Receptionist

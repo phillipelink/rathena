@@ -1852,6 +1852,7 @@
 	export_constant(SC_ALMIGHTY);
 	export_constant(SC_ULTIMATECOOK);
 	export_constant(SC_M_DEFSCROLL);
+	export_constant(SC_VIPSTATE);
 	export_constant(SC_INFINITY_DRINK);
 	export_constant(SC_MENTAL_POTION);
 	export_constant(SC_LIMIT_POWER_BOOSTER);
@@ -2745,6 +2746,7 @@
 	export_deprecated_constant2("SI_CHEERUP",992);
 	export_deprecated_constant2("SI_S_MANAPOTION",995);
 	export_deprecated_constant2("SI_M_DEFSCROLL",996);
+	export_deprecated_constant2("SI_VIPSTATE",997);
 
 /// Do not modify code below this, until the end of the API hook, since it will be automatically generated again
 /// @APIHOOK_START(EFST_CONST)
@@ -3727,6 +3729,7 @@
 	export_constant(EFST_GET_CNT_UNREAD_RODEX_GLOBALDB);
 	export_constant(EFST_S_MANAPOTION);
 	export_constant(EFST_M_DEFSCROLL);
+	export_constant(EFST_VIPSTATE);
 	export_constant(EFST_OPEN_REFINING_UI);
 	export_constant(EFST_ALL_LIGHTHALZEN_RECALL);
 	export_constant(EFST_SWAP_EQUIPITEM);
