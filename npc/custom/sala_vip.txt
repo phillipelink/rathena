@@ -751,13 +751,17 @@ hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 	end;
 }
 
--	script	Vip_Icon	-,{
+// -	script	Vip_Icon	-,{
 
-OnPCLoginEvent:
-	if(vip_status(1)) {
-		//Time2Str(vip_status(VIP_STATUS_REMAINING) + gettimetick(2))
-		set .@a, vip_status(2) - gettimetick(2);
-		bonus_script "{}",.@a,8,0,EFST_VIPSTATE;
-		end;
-	}
-}
+// OnPCLoginEvent:
+
+
+// }
+
+// prontera,156,165,1	script	example_addrid	111,{
+	// addrid(0);// will grab everyone on prontera inbetwen those xy and xy
+	// bonus_script "{}",10,1,1,EFST_ROTD_BRUTO;
+// }
+
+
+//bonus_script "{}",604800,2048,0,EFST_VIPSTATE;

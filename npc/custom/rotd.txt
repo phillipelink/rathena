@@ -85,9 +85,7 @@ OnInit:
 		"Demônio",
 		"Humanóide",
 		"Anjo",
-		"Dragão",
-		"MVP",
-		"Não-MVP";
+		"Dragão";
 	set .rotd_size,getarraysize( .rotd$ );
 	for( set .@i,0; .@i < .rotd_size; set .@i,.@i + 1 )
 		set .rotd_menu$,.rotd_menu$ + .rotd$[.@i] +":";
@@ -95,13 +93,127 @@ OnInit:
 
 	// level mínimo do integrante do grupo pra ganhar EXP
 	set .party_level_range,10;
-
+end;
 // reset diário
+
 OnClock0000:
-	set .today_rotd,rand( .rotd_size );
-	set .rotd_exp_bonus,rand( 1,100 );
+OnClock0600:
+OnClock1200:
+OnClock1800:
+
+// OnMinute00:
+// OnMinute02:
+// OnMinute04:
+// OnMinute06:
+// OnMinute08:
+// OnMinute10:
+// OnMinute12:
+// OnMinute14:
+// OnMinute16:
+// OnMinute18:
+// OnMinute20:
+// OnMinute22:
+// OnMinute24:
+// OnMinute26:
+// OnMinute28:
+// OnMinute30:
+// OnMinute32:
+// OnMinute34:
+// OnMinute36:
+// OnMinute38:
+// OnMinute40:
+// OnMinute42:
+// OnMinute44:
+// OnMinute46:
+// OnMinute48:
+// OnMinute50:
+// OnMinute52:
+// OnMinute54:
+// OnMinute56:
+// OnMinute58:
+
+	//Tempo definido em segundos
+	.tempoDaRaca = 14395;
+	.tipoBuff = 8;
+	.rotd_start_time = gettimetick(2);
+	.today_rotd = rand( .rotd_size );
+	.rotd_exp_bonus = rand( 10,100 );
+	
+	announce "[Race of the Day] : "+.rotd$[.today_rotd]+" +"+.rotd_exp_bonus+"% exp",bc_all;
+	addrid(0);
+	if(.rotd$[.today_rotd] == "Amorfo"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_AMORFO;
+	}
+	else if(.rotd$[.today_rotd] == "Morto-Vivo"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_MORTOVIVO;
+	}
+	else if(.rotd$[.today_rotd] == "Bruto"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_BRUTO;
+	}
+	else if(.rotd$[.today_rotd] == "Planta"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_PLANTA;
+	}
+	else if(.rotd$[.today_rotd] == "Inseto"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_INSETO;
+	}
+	else if(.rotd$[.today_rotd] == "Peixe"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_PEIXE;
+	}
+	else if(.rotd$[.today_rotd] == "Demônio"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_DEMONIO;
+	}
+	else if(.rotd$[.today_rotd] == "Humanóide"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_HUMANOIDE;
+	}
+	else if(.rotd$[.today_rotd] == "Anjo"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_ANJO;
+	}
+	else if(.rotd$[.today_rotd] == "Dragão"){
+		bonus_script "{}",.tempoDaRaca,.tipoBuff,0,EFST_ROTD_DRAGAO;
+	}
+
 	delwaitingroom;
-	waitingroom "[RdD]:"+.rotd$[.today_rotd]+" ",0;
+	waitingroom .rotd$[.today_rotd]+" +"+.rotd_exp_bonus+"% exp",0;
+	end;
+	
+	OnPCLoginEvent:
+	.@time_passed = gettimetick(2) - .rotd_start_time;
+
+
+	if (!.rotd_start_time) end;
+
+	if(.@time_passed < .tempoDaRaca){
+		if(.rotd$[.today_rotd] == "Amorfo"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_AMORFO;
+		}
+		else if(.rotd$[.today_rotd] == "Morto-Vivo"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_MORTOVIVO;
+		}
+		else if(.rotd$[.today_rotd] == "Bruto"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_BRUTO;
+		}
+		else if(.rotd$[.today_rotd] == "Planta"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_PLANTA;
+		}
+		else if(.rotd$[.today_rotd] == "Inseto"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_INSETO;
+		}
+		else if(.rotd$[.today_rotd] == "Peixe"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_PEIXE;
+		}
+		else if(.rotd$[.today_rotd] == "Demônio"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_DEMONIO;
+		}
+		else if(.rotd$[.today_rotd] == "Humanóide"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_HUMANOIDE;
+		}
+		else if(.rotd$[.today_rotd] == "Anjo"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_ANJO;
+		}
+		else if(.rotd$[.today_rotd] == "Dragão"){
+			bonus_script "{}",.tempoDaRaca - .@time_passed,.tipoBuff,0,EFST_ROTD_DRAGAO;
+		}
+	}
 	end;
 	
 OnNPCKillEvent:
@@ -130,7 +242,7 @@ if ( getmonsterinfo( killedrid,MOB_RACE ) == .today_rotd ) {
 	else {
 		set BaseExp,( BaseExp + .@mob_base_exp );
 		set JobExp,( JobExp + .@mob_job_exp );
-		dispbottom "[RdD SOLO]: "+.@mob_base_exp+" EXP";
+		dispbottom "[RdD SOLO]: Base EXP = "+.@mob_base_exp+" Classe EXP = " + .@mob_job_exp;
 	}
 	if ( rand( 100 ) < .rotd_item_rate && .rotd_zeny ) 
 		set Zeny,Zeny + rand( .rotd_zeny );
@@ -140,26 +252,3 @@ if ( getmonsterinfo( killedrid,MOB_RACE ) == .today_rotd ) {
 end;
 }
 
-
-prontera,150,150,5	Script	FakeIcon	90,{
-
-    mes "[Fake Icon Stats]";
-    mes "Hey.";
-    switch(select("Receive Fake Icon 1 with 5 seconds (display only)","Receive Icon 2 for 10 seconds (display only)","Disable Icon 1 and 2"))
-    {
-        case 1:
-            fakeIcon(getcharid(0),1,5000,1);
-            break;
-            
-        case 2:
-            fakeIcon(getcharid(0),2,10000,1);
-            break;
-            
-        case 3:
-            fakeIcon(getcharid(0),1,0,0);
-            fakeIcon(getcharid(0),2,0,0);
-
-            break;
-    }
-    close;
-}

@@ -29,22 +29,44 @@ OnInit:
 	bindatcmd("govip",strnpcinfo(0)+"::OnCommand");
 	end;
 	
-OnCommand:
+	OnCommand:
 
-		if (vip_status(1)) 
-		{
-			warp "hero_dun1",109,174; // change map and coords to your VIP Room.
-		}
-		else 
-		{
-			mes "[ ^0000FFSistema VIP^000000 ]";
-			mes "^FF0000Você não é VIP!^000000"; 
-			mes "Faça agora mesmo sua doação!"; 
-			mes "Compre seu Ticket VIP na loja de Cash e receba vários benéficios.";
-			close;
-		}
-		end;
+	if (vip_status(1)) 
+	{
+		warp "hero_dun1",109,174; // change map and coords to your VIP Room.
 	}
+	else 
+	{
+		mes "[ ^0000FFSistema VIP^000000 ]";
+		mes "^FF0000Você não é VIP!^000000"; 
+		mes "Faça agora mesmo sua doação!"; 
+		mes "Compre seu Ticket VIP na loja de Cash e receba vários benéficios.";
+		close;
+	}
+	end;
+}
+
+-	script	command#rates	-1,{
+	
+OnInit:
+	bindatcmd("rates",strnpcinfo(0)+"::OnCommand");
+	end;
+	
+	OnCommand:
+	dispbottom "============================RagnaLinK============================",0xFAC708;
+	dispbottom " • Rates de Experiência:",0xF550ED;
+	dispbottom "  » Base 10.00x  / Classe 10.00x  / Quest 10.00x",0xFBFBFB;
+	dispbottom " • Chance de Drop Normal:",0xF550ED;
+	dispbottom "  » Comum 10.00x / Cura 10.00x / Usavél 10.00x / Equipamento 20.00x / Carta 10.00x",0xFBFBFB;
+	dispbottom " • Chance de Drop de Chefes:",0xF550ED;
+	dispbottom "  » Comum 1.00x / Cura 1.00x / Usavél 1.00x / Equipamento 1.00x / Carta 1.00x",0xFBFBFB;
+	dispbottom " • Chance de Drop de Mini-Chefes:",0xF550ED;
+	dispbottom "  » Comum 20.00x / Cura 20.00x / Usavél 20.00x / Equipamento 10.00x / Carta 1.00x",0xFBFBFB;
+	dispbottom " • Outras Chances de Drop:",0xF550ED;
+	dispbottom "  » Chefe 1.00x / Baseado em Carta 10.00x / Tesouro 1.00x",0xFBFBFB;
+	dispbottom "===============================================================",0xFAC708;
+	end;
+}
 	
 -	script	command#votos	-1,{
 OnCommand:	

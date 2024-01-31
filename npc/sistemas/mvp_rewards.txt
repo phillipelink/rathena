@@ -1,0 +1,7 @@
+-	script	MonsterKill	-1,{
+OnNPCKillEvent:
+	if( getmonsterinfo(killedrid, MOB_MVPEXP) ){
+	set #MVPPoint,#MVPPoint+1;
+	dispbottom "Gained 1 MVP Points. Total : "+ #MVPPoint +" MVP Points.";
+	}
+}

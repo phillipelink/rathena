@@ -11475,6 +11475,16 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_EXPBOOST:
 		case SC_JEXPBOOST:
 		case SC_VIPSTATE:
+		case SC_ROTD_AMORFO:
+		case SC_ROTD_ANJO:
+		case SC_ROTD_BRUTO:
+		case SC_ROTD_DEMONIO:
+		case SC_ROTD_DRAGAO:
+		case SC_ROTD_HUMANOIDE:
+		case SC_ROTD_INSETO:
+		case SC_ROTD_MORTOVIVO:
+		case SC_ROTD_PEIXE:
+		case SC_ROTD_PLANTA:
 		case SC_JP_EVENT04:
 			if (val1 < 0)
 				val1 = 0;

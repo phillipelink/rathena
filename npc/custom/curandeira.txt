@@ -56,6 +56,11 @@
 		specialeffect2 EF_INCAGILITY; sc_start SC_INCREASEAGI,600000,10;
 		specialeffect2 EF_BLESSING; sc_start SC_BLESSING,600000,10;
 		}
+		else if(getgroupid() == 99){			
+		specialeffect2 EF_INCAGILITY; sc_start SC_INCREASEAGI,600000,10;
+		specialeffect2 EF_BLESSING; sc_start SC_BLESSING,600000,10;			
+			close;
+		}
 		//else
 		//{
 		//specialeffect2 EF_INCAGILITY; sc_start SC_INCREASEAGI,120000,10;
@@ -78,46 +83,46 @@
 
 // Duplicates
 //============================================================
-alberta,25,240,6	duplicate(Curandeira)	Curandeira#alb	91
-aldebaran,146,120,4	duplicate(Curandeira)	Curandeira#alde	91
-amatsu,204,96,4	duplicate(Curandeira)	Curandeira#ama	91
-ayothaya,214,169,4	duplicate(Curandeira)	Curandeira#ayo	91
-comodo,193,158,4	duplicate(Curandeira)	Curandeira#com	91
-einbech,57,36,6	duplicate(Curandeira)	Curandeira#einbe	91
-einbroch,69,204,4	duplicate(Curandeira)	Curandeira#einbr	91
-geffen,115,72,6	duplicate(Curandeira)	Curandeira#gef	91
-gonryun,163,122,4	duplicate(Curandeira)	Curandeira#gon	91
-hugel,106,153,4	duplicate(Curandeira)	Curandeira#hug	91
-izlude,134,150,6	duplicate(Curandeira)	Curandeira#izl	91	//Pre-RE: (125,118)
-jawaii,250,139,4	duplicate(Curandeira)	Curandeira#jaw	91
-lighthalzen,167,100,4	duplicate(Curandeira)	Curandeira#lhz	91
-louyang,226,103,4	duplicate(Curandeira)	Curandeira#lou	91
-manuk,272,144,6	duplicate(Curandeira)	Curandeira#man	91
-mid_camp,203,289,6	duplicate(Curandeira)	Curandeira#mid	91
-moc_ruins,72,164,4	duplicate(Curandeira)	Curandeira#moc	91
-morocc,153,97,6	duplicate(Curandeira)	Curandeira#mor	91
-moscovia,231,191,4	duplicate(Curandeira)	Curandeira#mos	91
-niflheim,212,182,4	duplicate(Curandeira)	Curandeira#nif	91
-payon,179,106,4	duplicate(Curandeira)	Curandeira#pay	91
-prontera,162,195,4	duplicate(Curandeira)	Curandeira#prt	91
-rachel,138,113,4	duplicate(Curandeira)	Curandeira#rac	91
-splendide,201,153,4	duplicate(Curandeira)	Curandeira#spl	91
-thor_camp,249,74,4	duplicate(Curandeira)	Curandeira#thor	91
-umbala,96,159,3	duplicate(Curandeira)	Curandeira#umb	91
-veins,225,125,4	duplicate(Curandeira)	Curandeira#ve	91
-xmas,155,135,4	duplicate(Curandeira)	Curandeira#xmas	91
-yuno,148,187,4	duplicate(Curandeira)	Curandeira#yuno	91
+alberta,25,240,6	duplicate(Curandeira)	Curandeira#alb	618
+aldebaran,146,120,4	duplicate(Curandeira)	Curandeira#alde	618
+amatsu,204,96,4	duplicate(Curandeira)	Curandeira#ama	618
+ayothaya,214,169,4	duplicate(Curandeira)	Curandeira#ayo	618
+comodo,193,158,4	duplicate(Curandeira)	Curandeira#com	618
+einbech,57,36,6	duplicate(Curandeira)	Curandeira#einbe	618
+einbroch,69,204,4	duplicate(Curandeira)	Curandeira#einbr	618
+geffen,115,72,6	duplicate(Curandeira)	Curandeira#gef	618
+gonryun,163,122,4	duplicate(Curandeira)	Curandeira#gon	618
+hugel,106,153,4	duplicate(Curandeira)	Curandeira#hug	618
+izlude,134,150,6	duplicate(Curandeira)	Curandeira#izl	618	//Pre-RE: (125,118)
+jawaii,250,139,4	duplicate(Curandeira)	Curandeira#jaw	618
+lighthalzen,167,100,4	duplicate(Curandeira)	Curandeira#lhz	618
+louyang,226,103,4	duplicate(Curandeira)	Curandeira#lou	618
+manuk,272,144,6	duplicate(Curandeira)	Curandeira#man	618
+mid_camp,203,289,6	duplicate(Curandeira)	Curandeira#mid	618
+moc_ruins,72,164,4	duplicate(Curandeira)	Curandeira#moc	618
+morocc,153,97,6	duplicate(Curandeira)	Curandeira#mor	618
+moscovia,231,191,4	duplicate(Curandeira)	Curandeira#mos	618
+niflheim,212,182,4	duplicate(Curandeira)	Curandeira#nif	618
+payon,179,106,4	duplicate(Curandeira)	Curandeira#pay	618
+prontera,162,194,4	duplicate(Curandeira)	Curandeira#prt	618
+rachel,138,113,4	duplicate(Curandeira)	Curandeira#rac	618
+splendide,201,153,4	duplicate(Curandeira)	Curandeira#spl	618
+thor_camp,249,74,4	duplicate(Curandeira)	Curandeira#thor	618
+umbala,96,159,3	duplicate(Curandeira)	Curandeira#umb	618
+veins,225,125,4	duplicate(Curandeira)	Curandeira#ve	618
+xmas,155,135,4	duplicate(Curandeira)	Curandeira#xmas	618
+yuno,148,187,4	duplicate(Curandeira)	Curandeira#yuno	618
 //SALA VIP
-hero_dun1,117,188,4	duplicate(Curandeira)	Curandeira#VIP	91
+hero_dun1,117,188,4	duplicate(Curandeira)	Curandeira#VIP	618
 //campo de treinamento
-new_zone03,92,66,4	duplicate(Curandeira)	Curandeira#Camp	91
+new_zone03,92,66,4	duplicate(Curandeira)	Curandeira#Camp	618
 
 // Duplicates (Renewal)
 //============================================================
-//brasilis,194,221,6	duplicate(Curandeira)	Curandeira#bra	91
-//dewata,195,187,4	duplicate(Curandeira)	Curandeira#dew	91
-//dicastes01,201,194,4	duplicate(Curandeira)	Curandeira#dic	91
-//ecl_in01,45,60,4	duplicate(Curandeira)	Curandeira#ecl	91
-//malangdo,132,114,6	duplicate(Curandeira)	Curandeira#mal	91
-//malaya,227,204,6	duplicate(Curandeira)	Curandeira#ma	91
-//mora,55,152,4	duplicate(Curandeira)	Curandeira#mora	91
+//brasilis,194,221,6	duplicate(Curandeira)	Curandeira#bra	618
+//dewata,195,187,4	duplicate(Curandeira)	Curandeira#dew	618
+//dicastes01,201,194,4	duplicate(Curandeira)	Curandeira#dic	618
+//ecl_in01,45,60,4	duplicate(Curandeira)	Curandeira#ecl	618
+//malangdo,132,114,6	duplicate(Curandeira)	Curandeira#mal	618
+//malaya,227,204,6	duplicate(Curandeira)	Curandeira#ma	618
+//mora,55,152,4	duplicate(Curandeira)	Curandeira#mora	618
