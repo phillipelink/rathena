@@ -81,21 +81,3 @@ OnInit:
 */
 
 
-
--	script	TempoRestanteVip	-1,{
-
-OnPCLoginEvent:
-
-	dispbottom "============RagnaLinK============";
-	dispbottom "  --> " + #CASHPOINTS +"x Cash Points";
-	dispbottom "  --> " + #fidelidade +"x Pontos de Fidelidade";
-	dispbottom "  --> " + #mvp +"x Pontos MVP";
-	dispbottom "  --> " + #evento +"x Pontos de Evento";
-	
-	dispbottom "===============================";
-	// if(vip_status(1))
-	// {		
-		// dispbottom "[ Central VIP ] Faltam " + Time2Str(vip_status(VIP_STATUS_REMAINING) + gettimetick(2));
-	// }
-
-} 

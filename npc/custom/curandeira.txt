@@ -59,7 +59,6 @@
 		else if(getgroupid() == 99){			
 		specialeffect2 EF_INCAGILITY; sc_start SC_INCREASEAGI,600000,10;
 		specialeffect2 EF_BLESSING; sc_start SC_BLESSING,600000,10;			
-			close;
 		}
 		//else
 		//{

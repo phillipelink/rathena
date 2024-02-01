@@ -497,6 +497,24 @@ new_1-1	mapflag	nowarpto
 sec_pri	mapflag	nowarpto
 
 
+-	script	InformacoesPlayer	-1,{
+
+OnPCLoginEvent:
+
+	dispbottom "============Informações do Jogador============",0xFAC708;
+	dispbottom "  --> " + #CASHPOINTS +"x Cash Points",0xFBFBFB;
+	dispbottom "  --> " + #fidelidade +"x Pontos de Fidelidade",0xFBFBFB;
+	dispbottom "  --> " + #mvp +"x Pontos MVP",0xFBFBFB;
+	dispbottom "  --> " + #evento +"x Pontos de Evento",0xFBFBFB;
+	
+	dispbottom "=======================================",0xFAC708;
+	// if(vip_status(1))
+	// {		
+		// dispbottom "[ Central VIP ] Faltam " + Time2Str(vip_status(VIP_STATUS_REMAINING) + gettimetick(2));
+	// }
+
+} 
+
 -	script	Pack_Iniciantes	-1,{
 	
 	// OnPCLoginEvent:
@@ -506,7 +524,7 @@ sec_pri	mapflag	nowarpto
 		// end;
 	// }
 	// else
-	// {
+	// {	
 		// mes "[Pack Boas Vindas] ";
 		// if(gettime(DT_HOUR) < 12){
 		// mes "Bom dia ^00994C"+strcharinfo(0)+"^000000!";
@@ -526,5 +544,6 @@ sec_pri	mapflag	nowarpto
 	// }	
 
 }
+
 
 

@@ -133,7 +133,7 @@ OnClock1800:
 // OnMinute58:
 
 	//Tempo definido em segundos
-	.tempoDaRaca = 14395;
+	.tempoDaRaca = 21600;
 	.tipoBuff = 8;
 	.rotd_start_time = gettimetick(2);
 	.today_rotd = rand( .rotd_size );

@@ -67,6 +67,303 @@ OnInit:
 	dispbottom "===============================================================",0xFAC708;
 	end;
 }
+
+-	script	command#suporte	-1,{
+	
+OnInit:
+	bindatcmd("suporte",strnpcinfo(0)+"::OnCommand");
+	end;
+	
+	OnCommand:
+	mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+	if(gettime(DT_HOUR) < 12)
+	{
+		mes "Bom dia ^00994C"+strcharinfo(0)+"^000000!";
+	}
+	else if(gettime(DT_HOUR) < 18)
+	{
+		mes "Boa tarde ^00994C"+strcharinfo(0)+"^000000!";
+	}
+	else if(gettime(DT_HOUR) >= 18)
+	{
+		mes "Boa Noite ^00994C"+strcharinfo(0)+"^000000!";
+	}
+	mes "^E90000Esta central lida com problemas simples. Para questões mais complexas, sugerimos abrir um ticket em nosso Discord^000000.";
+	next;
+	mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+	mes "Em qual tema você precisa de ajuda?";
+	switch(select(" ^009900[•]^000000 Reportar um Bug: ^009900[•]^000000 Problemas na Doação: ^009900[•]^000000 Dúvidas: ^009900[•]^000000 Sugestões: ^009900[•]^000000 Outros Assuntos: ^FF0000[•]^000000 Sair"))
+	{
+		//Bugs
+		case 1:
+		next;
+		.@titulodasolicitacao$ = "Bug";
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Descreva de forma resumida o Bug:";
+		mes "OBS: O texto só pode conter até ^FF0000255^000000 caracteres";
+		mes "E você pode digitar 2 textos de ^FF0000255^000000 caracteres totalizando ^FF0000510^000000.";
+		input .@descricaosuporte$;
+		next;
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Você deseja digitar mais?";
+		menu "Sim, por favor.",Yes_input_Bug,"Não, já digitei o suficiente.",No_input_Bug;
+		
+		Yes_input_Bug:
+		next;
+		input .@descricaosuporte2$;
+			
+		No_input_Bug:
+		next;
+		
+		.@possible_char$ = "1234567890" + "QWERTYUIOP" + "ASDFGHJKL" + "ZXCVBNM";
+
+		.@size = getstrlen( .@possible_char$ );
+
+		for ( .@i = 0; .@i < 10; .@i++ )
+		.@string$ = .@string$ + charat( .@possible_char$, rand( .@size ) );
+		
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Dados da Solicitação:";
+		mes "^FA7607Código do Suporte^000000: ^615D61" + .@string$ + "^000000";
+		mes "^FA7607Tema^000000: ^615D61" + .@titulodasolicitacao$ + "^000000";
+		mes "^FA7607Data^000000: ^615D61" +gettimestr("%d-%m-%Y %H:%M",21) + "^000000";		
+		mes "^FA7607Personagem^000000: ^615D61" + strcharinfo(0) + "^000000";
+		mes "^FA7607Id da Conta^000000: ^615D61" + getcharid(3) + "^000000";
+		mes "^FA7607Descrição^000000: ^615D61" + .@descricaosuporte$ + " " + .@descricaosuporte2$ + "^000000";
+		.@descricaocompleta$ = .@descricaosuporte$ + " " + .@descricaosuporte2$;
+		switch(select(" ^009900[•]^000000 Enviar Solicitação: ^FF0000[•]^000000 Cancelar"))
+		{
+			case 1:
+			next;
+			query_sql("INSERT INTO `suportes` (`account_id`,`char_name`,`data`,`tema`,`descricao`,`id_suporte`) VALUES ( '" + getcharid(3) + "','" + strcharinfo(0) + "','" + gettimestr("%d-%m-%Y %H:%M",21) + "','" + .@titulodasolicitacao$ + "','" + .@descricaocompleta$ + "','" + .@string$ + "_" + getcharid(3) + "');");
+			mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+			mes "^1A8A01Solicitação criada com sucesso^000000!";
+			mes "Para acompanhar sua solicitação use o código ^F38807" + .@string$ + "^000000 neste npc ou pelo nosso site.";
+			mes "^010DA0Prazo de resposta para Bugs é de no máximo 24 horas^000000.";
+			close;
+			case 2:
+			end;
+		}
+		end;	
+		
+		//Doação
+		case 2:
+		next;
+		.@titulodasolicitacao$ = "Doação";
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Descreva de forma resumida o problema com sua doação:";
+		mes "OBS: O texto só pode conter até ^FF0000255^000000 caracteres";
+		mes "E você pode digitar 2 textos de ^FF0000255^000000 caracteres totalizando ^FF0000510^000000.";
+		input .@descricaosuporte$;
+		next;
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Você deseja digitar mais?";
+		menu "Sim, por favor.",Yes_input_Donate,"Não, já digitei o suficiente.",No_input_Donate;
+		
+		Yes_input_Donate:
+		next;
+		input .@descricaosuporte2$;
+			
+		No_input_Donate:
+		next;
+		
+		.@possible_char$ = "1234567890" + "QWERTYUIOP" + "ASDFGHJKL" + "ZXCVBNM";
+
+		.@size = getstrlen( .@possible_char$ );
+
+		for ( .@i = 0; .@i < 10; .@i++ )
+		.@string$ = .@string$ + charat( .@possible_char$, rand( .@size ) );
+		
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Dados da Solicitação:";
+		mes "^FA7607Código do Suporte^000000: ^615D61" + .@string$ + "^000000";
+		mes "^FA7607Tema^000000: ^615D61" + .@titulodasolicitacao$ + "^000000";
+		mes "^FA7607Data^000000: ^615D61" +gettimestr("%d-%m-%Y %H:%M",21) + "^000000";		
+		mes "^FA7607Personagem^000000: ^615D61" + strcharinfo(0) + "^000000";
+		mes "^FA7607Id da Conta^000000: ^615D61" + getcharid(3) + "^000000";
+		mes "^FA7607Descrição^000000: ^615D61" + .@descricaosuporte$ + " " + .@descricaosuporte2$ + "^000000";
+		.@descricaocompleta$ = .@descricaosuporte$ + " " + .@descricaosuporte2$;
+		switch(select(" ^009900[•]^000000 Enviar Solicitação: ^FF0000[•]^000000 Cancelar"))
+		{
+			case 1:
+			next;
+			query_sql("INSERT INTO `suportes` (`account_id`,`char_name`,`data`,`tema`,`descricao`,`id_suporte`) VALUES ( '" + getcharid(3) + "','" + strcharinfo(0) + "','" + gettimestr("%d-%m-%Y %H:%M",21) + "','" + .@titulodasolicitacao$ + "','" + .@descricaocompleta$ + "','" + .@string$ + "_" + getcharid(3) + "');");
+			mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+			mes "^1A8A01Solicitação criada com sucesso^000000!";
+			mes "Para acompanhar sua solicitação use o código ^F38807" + .@string$ + "^000000 neste npc ou pelo nosso site.";
+			mes "^010DA0Prazo de resposta para problemas com doação é de no máximo 48 horas^000000.";
+			close;
+			case 2:
+			end;
+		}
+		end;	
+		
+		//Dúvidas
+		case 3:
+		next;
+		.@titulodasolicitacao$ = "Dúvidas";
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Descreva de forma resumida sua dúvida:";
+		mes "OBS: O texto só pode conter até ^FF0000255^000000 caracteres";
+		mes "E você pode digitar 2 textos de ^FF0000255^000000 caracteres totalizando ^FF0000510^000000.";
+		input .@descricaosuporte$;
+		next;
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Você deseja digitar mais?";
+		menu "Sim, por favor.",Yes_input_Duvida,"Não, já digitei o suficiente.",No_input_Duvida;
+		
+		Yes_input_Duvida:
+		next;
+		input .@descricaosuporte2$;
+			
+		No_input_Duvida:
+		next;
+		
+		.@possible_char$ = "1234567890" + "QWERTYUIOP" + "ASDFGHJKL" + "ZXCVBNM";
+
+		.@size = getstrlen( .@possible_char$ );
+
+		for ( .@i = 0; .@i < 10; .@i++ )
+		.@string$ = .@string$ + charat( .@possible_char$, rand( .@size ) );
+		
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Dados da Solicitação:";
+		mes "^FA7607Código do Suporte^000000: ^615D61" + .@string$ + "^000000";
+		mes "^FA7607Tema^000000: ^615D61" + .@titulodasolicitacao$ + "^000000";
+		mes "^FA7607Data^000000: ^615D61" +gettimestr("%d-%m-%Y %H:%M",21) + "^000000";		
+		mes "^FA7607Personagem^000000: ^615D61" + strcharinfo(0) + "^000000";
+		mes "^FA7607Id da Conta^000000: ^615D61" + getcharid(3) + "^000000";
+		mes "^FA7607Descrição^000000: ^615D61" + .@descricaosuporte$ + " " + .@descricaosuporte2$ + "^000000";
+		.@descricaocompleta$ = .@descricaosuporte$ + " " + .@descricaosuporte2$;
+		switch(select(" ^009900[•]^000000 Enviar Solicitação: ^FF0000[•]^000000 Cancelar"))
+		{
+			case 1:
+			next;
+			query_sql("INSERT INTO `suportes` (`account_id`,`char_name`,`data`,`tema`,`descricao`,`id_suporte`) VALUES ( '" + getcharid(3) + "','" + strcharinfo(0) + "','" + gettimestr("%d-%m-%Y %H:%M",21) + "','" + .@titulodasolicitacao$ + "','" + .@descricaocompleta$ + "','" + .@string$ + "_" + getcharid(3) + "');");
+			mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+			mes "^1A8A01Solicitação criada com sucesso^000000!";
+			mes "Para acompanhar sua solicitação use o código ^F38807" + .@string$ + "^000000 neste npc ou pelo nosso site.";
+			mes "^010DA0Prazo de resposta para problemas com doação é de no máximo 48 horas^000000.";
+			close;
+			case 2:
+			end;
+		}
+		end;	
+		
+		//Sugestões
+		case 4:
+		next;
+		.@titulodasolicitacao$ = "Sugestão";
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Descreva de forma resumida sua sugestão:";
+		mes "OBS: O texto só pode conter até ^FF0000255^000000 caracteres";
+		mes "E você pode digitar 2 textos de ^FF0000255^000000 caracteres totalizando ^FF0000510^000000.";
+		input .@descricaosuporte$;
+		next;
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Você deseja digitar mais?";
+		menu "Sim, por favor.",Yes_input_Sugestao,"Não, já digitei o suficiente.",No_input_Sugestao;
+		
+		Yes_input_Sugestao:
+		next;
+		input .@descricaosuporte2$;
+			
+		No_input_Sugestao:
+		next;
+		
+		.@possible_char$ = "1234567890" + "QWERTYUIOP" + "ASDFGHJKL" + "ZXCVBNM";
+
+		.@size = getstrlen( .@possible_char$ );
+
+		for ( .@i = 0; .@i < 10; .@i++ )
+		.@string$ = .@string$ + charat( .@possible_char$, rand( .@size ) );
+		
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Dados da Solicitação:";
+		mes "^FA7607Código do Suporte^000000: ^615D61" + .@string$ + "^000000";
+		mes "^FA7607Tema^000000: ^615D61" + .@titulodasolicitacao$ + "^000000";
+		mes "^FA7607Data^000000: ^615D61" +gettimestr("%d-%m-%Y %H:%M",21) + "^000000";		
+		mes "^FA7607Personagem^000000: ^615D61" + strcharinfo(0) + "^000000";
+		mes "^FA7607Id da Conta^000000: ^615D61" + getcharid(3) + "^000000";
+		mes "^FA7607Descrição^000000: ^615D61" + .@descricaosuporte$ + " " + .@descricaosuporte2$ + "^000000";
+		.@descricaocompleta$ = .@descricaosuporte$ + " " + .@descricaosuporte2$;
+		switch(select(" ^009900[•]^000000 Enviar Solicitação: ^FF0000[•]^000000 Cancelar"))
+		{
+			case 1:
+			next;
+			query_sql("INSERT INTO `suportes` (`account_id`,`char_name`,`data`,`tema`,`descricao`,`id_suporte`) VALUES ( '" + getcharid(3) + "','" + strcharinfo(0) + "','" + gettimestr("%d-%m-%Y %H:%M",21) + "','" + .@titulodasolicitacao$ + "','" + .@descricaocompleta$ + "','" + .@string$ + "_" + getcharid(3) + "');");
+			mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+			mes "^1A8A01Solicitação criada com sucesso^000000!";
+			mes "Para acompanhar sua solicitação use o código ^F38807" + .@string$ + "^000000 neste npc ou pelo nosso site.";
+			mes "^010DA0Prazo de resposta para problemas com doação é de no máximo 48 horas^000000.";
+			close;
+			case 2:
+			end;
+		}
+		end;	
+		
+		//Outros assuntos
+		case 5:
+		next;
+		.@titulodasolicitacao$ = "Outros Assuntos";
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Descreva de forma resumida seu assunto:";
+		mes "OBS: O texto só pode conter até ^FF0000255^000000 caracteres";
+		mes "E você pode digitar 2 textos de ^FF0000255^000000 caracteres totalizando ^FF0000510^000000.";
+		input .@descricaosuporte$;
+		next;
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Você deseja digitar mais?";
+		menu "Sim, por favor.",Yes_input_OutrosAssuntos,"Não, já digitei o suficiente.",No_input_OutrosAssuntos;
+		
+		Yes_input_OutrosAssuntos:
+		next;
+		input .@descricaosuporte2$;
+			
+		No_input_OutrosAssuntos:
+		next;
+		
+		.@possible_char$ = "1234567890" + "QWERTYUIOP" + "ASDFGHJKL" + "ZXCVBNM";
+
+		.@size = getstrlen( .@possible_char$ );
+
+		for ( .@i = 0; .@i < 10; .@i++ )
+		.@string$ = .@string$ + charat( .@possible_char$, rand( .@size ) );
+		
+		mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+		mes "Dados da Solicitação:";
+		mes "^FA7607Código do Suporte^000000: ^615D61" + .@string$ + "^000000";
+		mes "^FA7607Tema^000000: ^615D61" + .@titulodasolicitacao$ + "^000000";
+		mes "^FA7607Data^000000: ^615D61" +gettimestr("%d-%m-%Y %H:%M",21) + "^000000";		
+		mes "^FA7607Personagem^000000: ^615D61" + strcharinfo(0) + "^000000";
+		mes "^FA7607Id da Conta^000000: ^615D61" + getcharid(3) + "^000000";
+		mes "^FA7607Descrição^000000: ^615D61" + .@descricaosuporte$ + " " + .@descricaosuporte2$ + "^000000";
+		.@descricaocompleta$ = .@descricaosuporte$ + " " + .@descricaosuporte2$;
+		switch(select(" ^009900[•]^000000 Enviar Solicitação: ^FF0000[•]^000000 Cancelar"))
+		{
+			case 1:
+			next;
+			query_sql("INSERT INTO `suportes` (`account_id`,`char_name`,`data`,`tema`,`descricao`,`id_suporte`) VALUES ( '" + getcharid(3) + "','" + strcharinfo(0) + "','" + gettimestr("%d-%m-%Y %H:%M",21) + "','" + .@titulodasolicitacao$ + "','" + .@descricaocompleta$ + "','" + .@string$ + "_" + getcharid(3) + "');");
+			mes "[^0055FF ::: Central de Suporte ::: ^000000]";
+			mes "^1A8A01Solicitação criada com sucesso^000000!";
+			mes "Para acompanhar sua solicitação use o código ^F38807" + .@string$ + "^000000 neste npc ou pelo nosso site.";
+			mes "^010DA0Prazo de resposta para problemas com doação é de no máximo 48 horas^000000.";
+			close;
+			case 2:
+			end;
+		}
+		end;	
+
+		case 6:
+		end;
+		
+	}
+	end;
+}
+	
+
+
+
 	
 -	script	command#votos	-1,{
 OnCommand:	
