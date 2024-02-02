@@ -71,6 +71,7 @@ do{
 close;
 
 OnInit:
+
 	// min gm level
 	set .gm_level,80;
 
@@ -252,3 +253,13 @@ if ( getmonsterinfo( killedrid,MOB_RACE ) == .today_rotd ) {
 end;
 }
 
+
+
+
+izlude,100,100,4	script	Test	930,{
+	end;
+	
+	OnInit:
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "countitem(501) == 1";
+		end;
+}

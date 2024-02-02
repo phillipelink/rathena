@@ -174,10 +174,10 @@ function	Check_Riding	{
 		mes "Vejo que você já esta forte o suficiente para sair daqui!";
 		next;
 		mes "[Chaos]";
-		mes "Pegue suas poucas coisas e me acompanhe até o ^0000FFParaíso de Asgard^000000!.";
+		mes "Pegue suas poucas coisas e me acompanhe até o ^0000FFParaíso do Edén^000000!.";
 		next;
 		mes "[Chaos]";
-		mes "Não precisa se assustar, quando você chegar vai poder descansar bastante no ^0000FFParaíso de Asgard^000000!";
+		mes "Não precisa se assustar, quando você chegar vai poder descansar bastante no ^0000FFParaíso do Edén^000000!";
 		mes "E entender como ele funciona.";
 		next;
 		mes "[Chaos]";

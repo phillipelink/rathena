@@ -9982,10 +9982,10 @@ izlude,100,100,4	script	Test	844,{
 
 OnInit:
 	// Display an icon if the player has completed the given hunting quest and his/her variable 'unknown_var' is above 0
-	questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(1001,HUNTING) == 2 && unknown_var > 0";
+	questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(1001,HUNTING) == 2 && unknown_var > 0";
 
 	//.. or display an icon if the player didn't start the given quest and he/she has one red potion in inventory
-	questinfo QTYPE_QUEST, QMARK_YELLOW, "!isbegin_quest(1001) && countitem(501) == 1";
+	questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "!isbegin_quest(1001) && countitem(501) == 1";
 	end;
 }
 
