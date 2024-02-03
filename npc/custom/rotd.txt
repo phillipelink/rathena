@@ -1,4 +1,4 @@
-prontera,173,179,3	script	Raça do Dia	556,{
+prontera,177,180,3	script	Raça do Dia	556,{
 set .@gmlevel,getgmlevel();
 
 do{
@@ -97,44 +97,45 @@ OnInit:
 end;
 // reset diário
 
-OnClock0000:
-OnClock0600:
-OnClock1200:
-OnClock1800:
+// OnClock0000:
+// OnClock0600:
+// OnClock1200:
+// OnClock1800:
 
-// OnMinute00:
-// OnMinute02:
-// OnMinute04:
-// OnMinute06:
-// OnMinute08:
-// OnMinute10:
-// OnMinute12:
-// OnMinute14:
-// OnMinute16:
-// OnMinute18:
-// OnMinute20:
-// OnMinute22:
-// OnMinute24:
-// OnMinute26:
-// OnMinute28:
-// OnMinute30:
-// OnMinute32:
-// OnMinute34:
-// OnMinute36:
-// OnMinute38:
-// OnMinute40:
-// OnMinute42:
-// OnMinute44:
-// OnMinute46:
-// OnMinute48:
-// OnMinute50:
-// OnMinute52:
-// OnMinute54:
-// OnMinute56:
-// OnMinute58:
+OnMinute00:
+OnMinute02:
+OnMinute04:
+OnMinute06:
+OnMinute08:
+OnMinute10:
+OnMinute12:
+OnMinute14:
+OnMinute16:
+OnMinute18:
+OnMinute20:
+OnMinute22:
+OnMinute24:
+OnMinute26:
+OnMinute28:
+OnMinute30:
+OnMinute32:
+OnMinute34:
+OnMinute36:
+OnMinute38:
+OnMinute40:
+OnMinute42:
+OnMinute44:
+OnMinute46:
+OnMinute48:
+OnMinute50:
+OnMinute52:
+OnMinute54:
+OnMinute56:
+OnMinute58:
 
 	//Tempo definido em segundos
-	.tempoDaRaca = 21600;
+	//.tempoDaRaca = 21590;
+	.tempoDaRaca = 110;
 	.tipoBuff = 8;
 	.rotd_start_time = gettimetick(2);
 	.today_rotd = rand( .rotd_size );

@@ -1389,7 +1389,7 @@ OnInit:
 	.Satan_Morocc = true;	//	false will enable moc_fild 4,5,6,8,9,10,14,15 while disable moc_fild 20,21,22 Default is true.
 	.OnlyFirstFld = true;	//	true will teleport to the first level of the Fields  Default is false.
 	.OnlyFirstDun = true;	//	true will teleport to the first level of the Dungeons  Default is false.
-	waitingroom "Teletransporte",0;
+	// waitingroom "Teletransporte",0;
 	end;
 }
 

@@ -74,9 +74,9 @@
 		set @HD, gettimetick(2)+.@Delay;
 	}
 	end;
-	OnInit:
-		waitingroom "Curandeira",0;
-	end;
+	// OnInit:
+		// waitingroom "Curandeira",0;
+	// end;
 }
 
 

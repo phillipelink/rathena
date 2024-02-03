@@ -518,7 +518,7 @@ OnInit:
 		.BabySummoner = false;
 	}
 
-	waitingroom "Mestra das Classes",0;
+	// waitingroom "Mestra das Classes",0;
 	end;
 }
 

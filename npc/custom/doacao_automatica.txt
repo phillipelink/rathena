@@ -210,8 +210,8 @@ prontera,148,186,6	script	Doação	10380,{
 		case 4:
 		end;
 	}
-	OnInit:
-		waitingroom "Doação Automatica",0;
-	end;
+	// OnInit:
+		// waitingroom "Doação Automatica",0;
+	// end;
 
 }
