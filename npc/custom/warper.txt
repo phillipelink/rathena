@@ -1424,7 +1424,7 @@ nameless_n,259,213,4	duplicate(Teletransporte)	Teletransporte#nam	612
 niflheim,214,177,4	duplicate(Teletransporte)	Teletransporte#nif	612
 pay_arche,42,134,4	duplicate(Teletransporte)	Teletransporte#arc	612
 payon,182,108,4	duplicate(Teletransporte)	Teletransporte#pay	612
-prontera,158,193,4	duplicate(Teletransporte)	Teletransporte#prt	612
+prontera,158,195,4	duplicate(Teletransporte)	Teletransporte#prt	612
 prt_fild05,279,223,6	duplicate(Teletransporte)	Teletransporte#cul	612
 rachel,135,116,4	duplicate(Teletransporte)	Teletransporte#rac	612
 splendide,205,153,4	duplicate(Teletransporte)	Teletransporte#spl	612

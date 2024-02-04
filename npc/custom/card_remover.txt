@@ -135,8 +135,5 @@ hero_dun1,126,200,4	script	Removedora de Cartas#eAcustom	863,{
 		mes "Muito bem. Volte imediatamente se precisar dos meus serviços.";
 		close;
 	}
-	
-	OnInit:
-	waitingroom "Removedora de Cartas",0;
-	end;
+
 }

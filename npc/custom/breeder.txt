@@ -10,7 +10,7 @@
 //= One-click automatic mount rentals.
 //============================================================
 
-prontera,138,184,6	script	Aluguel	726,{
+prontera,174,197,4	script	Aluguel	726,{
 	if (ismounting()) {
 		message strcharinfo(0),"Você deve primeiro remover sua montaria";
 		end;
@@ -35,9 +35,5 @@ prontera,138,184,6	script	Aluguel	726,{
 		end;
 	}
 	specialeffect2 EF_TEIHIT3;
-	end;
-	
-	OnInit:
-	waitingroom "Aluguel",0;
 	end;
 }

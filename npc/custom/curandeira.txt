@@ -103,7 +103,7 @@ morocc,153,97,6	duplicate(Curandeira)	Curandeira#mor	618
 moscovia,231,191,4	duplicate(Curandeira)	Curandeira#mos	618
 niflheim,212,182,4	duplicate(Curandeira)	Curandeira#nif	618
 payon,179,106,4	duplicate(Curandeira)	Curandeira#pay	618
-prontera,162,194,4	duplicate(Curandeira)	Curandeira#prt	618
+prontera,163,191,4	duplicate(Curandeira)	Curandeira#prt	618
 rachel,138,113,4	duplicate(Curandeira)	Curandeira#rac	618
 splendide,201,153,4	duplicate(Curandeira)	Curandeira#spl	618
 thor_camp,249,74,4	duplicate(Curandeira)	Curandeira#thor	618

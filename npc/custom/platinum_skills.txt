@@ -17,7 +17,7 @@
 //= 3.0 Migrate/Integrate to Global Functions. [mazvi]
 //============================================================
 
-prontera,145,201,6	script	Habilidades de Platina	98,{
+prontera,139,197,6	script	Habilidades de Platina	98,{
 	mes "[^0055FFHabilidades de Platina^000000]";
 	mes "Olá ^FF9900" +strcharinfo(0)+ "^000000!";
 	mes "Eu posso te fornecer habilidades especiais para a sua classe.";
@@ -28,13 +28,10 @@ prontera,145,201,6	script	Habilidades de Platina	98,{
 		mes "Tenha um bom dia!";
 		close;
 	}
-	callfunc "F_GetPlatinumSkills";
+	callfunc "F_GetPlatinumSkills";		
 	mes "[^0055FFHabilidades de Platina^000000]";
 	mes "Pronto! Suas habilidades de platina foram adicionadas com sucesso!";
 	mes "Até mais!";
 	close;
-	
-	OnInit:
-		waitingroom "Habilidades de Platina",0;
-	end;
+
 }

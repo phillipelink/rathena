@@ -46,7 +46,7 @@ hero_dun1,139,199,3	script	Segurança VIP::seguranca_vip2	100,{
 	end;
 }
 
-prontera,146,174,6	script	Recepcionista [VIP]	989,{
+prontera,147,174,6	script	Recepcionista [VIP]	989,{
 	mes "[^0000FFRecepcionista VIP^000000]";
 	mes "Olá Senhor(a) ^FF9900" +strcharinfo(0)+ "^000000!";
 	mes "Deseja ir para a melhor sala do ^0000FFRagnaLinK^000000?";
@@ -754,6 +754,13 @@ hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 // -	script	Vip_Icon	-,{
 
 // OnPCLoginEvent:
+// sleep2 5000;
+	// bonus_script "{}",vip_status(3),-1,0,EFST_VIPSTATE;
+	// end;
+// if(vip_status(VIP_STATUS_ACTIVE))
+// {	
+
+// }
 
 
 // }
@@ -764,4 +771,3 @@ hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 // }
 
 
-//bonus_script "{}",604800,2048,0,EFST_VIPSTATE;

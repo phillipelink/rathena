@@ -1,4 +1,4 @@
-prontera,142,181,5	script	Central Discord	495,{
+prontera,165,173,4	script	Central Discord	495,{
    
 	mes "[^0055FF ::: Central Discord ::: ^000000]";
 	mes "Olá ^FF9900" +strcharinfo(0)+ "^000000!";
@@ -6,8 +6,4 @@ prontera,142,181,5	script	Central Discord	495,{
 	mes "Aqui você pode pedir ajuda, dar sugestões, etc.";
 	mes "<URL>Clique Aqui Para Acessar<INFO>https://www.divine-pride.net/database/item/743</INFO></URL>";
 	end;
-	OnInit:
-		waitingroom "Central Discord",0;
-	end;
-
 }
