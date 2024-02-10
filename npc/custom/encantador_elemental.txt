@@ -199,7 +199,7 @@ sc_end 97;
 goto L_menu;
 }
 
-	OnInit:
-	waitingroom "Encantador Elemental",0;
-	end;
+	// OnInit:
+	// waitingroom "Encantador Elemental",0;
+	// end;
 }

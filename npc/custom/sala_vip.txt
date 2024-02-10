@@ -71,10 +71,10 @@ prontera,147,174,6	script	Recepcionista [VIP]	989,{
 		close;
 	break;
 	
-	OnInit:
+	// OnInit:
 		setcell "hero_dun1",139,199,139,192,cell_walkable,0;
-		waitingroom "Acesso [VIP]",0;
-	end;
+		// waitingroom "Acesso [VIP]",0;
+	// end;
 
 	}
 }
@@ -121,9 +121,7 @@ hero_dun1,131,194,4	script	Loja de Alquimia	754,{
 
 		
 	}
-	OnInit:
-	waitingroom "Loja de Alquimia",0;
-	end;
+
 }
 
 -	shop	LojaAlquimia	-1,7143:-1,7141:-1,7140:-1,7134:-1,1092:-1,1093:-1,7133:-1,7132:-1,7131:-1,7130:-1,7129:-1,7128:-1,7127:-1,7144:-1
@@ -327,9 +325,9 @@ hero_dun1,131,194,4	script	Loja de Alquimia	754,{
 			mes "Muito bem. Retorne imediatamente se precisar dos meus serviços.";
 			close;
 	}
-	OnInit:
-	waitingroom "Transformar Visual",0;
-	end;
+	// OnInit:
+	// waitingroom "Transformar Visual",0;
+	// end;
 }
 // --------------------------------------------------------------------------
 // Use duplicates to put your npc on different cities
@@ -350,7 +348,7 @@ hero_dun1,92,188,6	duplicate(Costume Clown)	Palhaço dos Visuais#1	715
 //=    https://rathena.org/board/files/file/4307-script-command-getskillname/
 //============================================================
 
-hero_dun1,86,193,6	script	Plagiador	747,{
+hero_dun1,86,193,6	script	Plagiador	405,{
 	mes "[ ^FF0000Plagiador^000000 ]";
 	if (.plag_skill && !getskilllv("RG_PLAGIARISM")) {
 		mes "Você não possui a Habilidade de Plágio.";
@@ -396,19 +394,12 @@ hero_dun1,86,193,6	script	Plagiador	747,{
 		setarray .SkillID[0],263,13, 7,14,19,20,21,83,84,85,86,89,90,91,421,534,536,537,540,542;
 		//Skill LV Array
 		setarray .SkillLV[0], 10,10,10,10,10,10,10,10,10,10,10,10,10,5,   7, 10,  5, 10, 19,  5;
-
-		waitingroom "Plagiador",0;
 		end;
-
 }
 
 hero_dun1,91,199,5	script	Torpedo Global	888,{
     doevent "broadcast_main::OnTalk";
 	end;
-	OnInit:
-		waitingroom "Torpedo Global",0;
-	end;
-
 }
  
 -	script	broadcast_main	-1,{
@@ -666,10 +657,6 @@ OnInit:
 hero_dun1,102,200,5	script	Estilista#main	878,{
 	doevent "Stylist::OnTalk";
 	end;
-	
-	OnInit:
-		waitingroom "Estilista",0;
-		end;
 }
 
 
@@ -711,9 +698,6 @@ hero_dun1,133,202,4	script	Refinador de Minérios	58,{
 		end;
 		}
 	}
-		OnInit:
-	waitingroom "Minérios",0;
-	end;
 }
 
 
@@ -744,11 +728,18 @@ hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 		case 2:
 		end;
 	}
-
 	end;
-	OnInit:
-		waitingroom "Kafra [VIP]",0;
-	end;
+	
+	
+// OnNPCKillEvent:
+		// if (killedrid == 1011 && rand(0,10000) > 9950) { // Valkyrie Randgris 0.5%
+			// getmapxy(.@map$,.@x,.@y,BL_PC);
+			// setarray .@OptID[0],RDMOPT_ATTR_TOLERACE_NOTHING,RDMOPT_RACE_TOLERACE_HUMAN;
+			// setarray .@OptVal[0],10,5;
+			// setarray .@OptParam[0],0;
+			// makeitem3 2115,1,.@map$,.@x,.@y,0,0,0,0,0,0,0,.@OptID,.@OptVal,.@OptParam;
+		// }
+		// end;
 }
 
 // -	script	Vip_Icon	-,{
@@ -770,4 +761,22 @@ hero_dun1,117,200,4	script	Kafra RagnaLinK	117,{
 	// bonus_script "{}",10,1,1,EFST_ROTD_BRUTO;
 // }
 
+
+prontera,155,179,5	script	frost_teste	810,{
+end;
+	
+OnMy:
+	input .@number;
+	hateffect .@number,true;
+	end;
+	
+OnMy2:
+hateffect 90,true;
+end;
+	
+OnInit:
+	bindatcmd "efc",strnpcinfo(3)+"::OnMy";
+	bindatcmd "ef",strnpcinfo(3)+"::OnMy2";
+	
+}
 

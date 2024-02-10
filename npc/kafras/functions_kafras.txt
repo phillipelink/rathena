@@ -116,22 +116,22 @@ function	script	F_Kafra	{
 			// Storage only
 			case 2:	setarray .@K_Menu0$[0],"Abrir Armazem","Cancelar"; break;
 			// No Teleport (Common)
-			case 3: setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Alugue um Carrinho de Mão","Verificar Outras Informações","Cancelar"; break;
+			case 3: setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Cancelar"; break;
 			// Case 4 is Einbroch no tele message.
 			// No Salvar, or teleport. (Common)
-			case 5:	setarray .@K_Menu0$[0],"Abrir Armazem","Alugue um Carrinho de Mão","Verificar Outras Informações","Cancelar"; break;
+			case 5:	setarray .@K_Menu0$[0],"Abrir Armazem","Cancelar"; break;
 			// Storage and Verificar Outras Informações only.
-			case 6:	setarray .@K_Menu0$[0],"Abrir Armazem","Verificar Outras Informações","Cancelar"; break;
+			case 6:	setarray .@K_Menu0$[0],"Abrir Armazem","Cancelar"; break;
 			// Salvar, Storage, and Pushcart only (Kafra Warehouse)
-			case 7:	setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Alugue um Carrinho de Mão","Cancelar"; break;
+			case 7:	setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Cancelar"; break;
 			// Salvar, Storage, Other Check information. (Turbo track)
-			case 8: setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Verificar Outras Informações","Cancelar"; break;
+			case 8: setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Cancelar"; break;
 			// No Salvar (Rune Knight)
-			case 9: setarray .@K_Menu0$[0],"Abrir Armazem","Alugue um Carrinho de Mão","Serviço de Teleporte","Verificar Outras Informações","Cancelar"; break;
+			case 9: setarray .@K_Menu0$[0],"Abrir Armazem","Cancelar"; break;
 			// Storage, Salvar, and Pushcart (Dewata, reorder of case 7)
-			case 10: setarray .@K_Menu0$[0],"Abrir Armazem","Salvar","Alugue um Carrinho de Mão","Cancelar"; break;
+			case 10: setarray .@K_Menu0$[0],"Abrir Armazem","Salvar","Cancelar"; break;
 			// Default message (obsolete)
-			default: setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Serviço de Teleporte","Alugue um Carrinho de Mão","Verificar Outras Informações","Cancelar"; break;
+			default: setarray .@K_Menu0$[0],"Salvar","Abrir Armazem","Cancelar"; break;
 		}
 	}
 	.@menu$ = implode(.@K_Menu0$,":");

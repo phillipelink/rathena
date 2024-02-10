@@ -132,10 +132,7 @@ hero_dun1,126,188,4	script	Assinatura de Itens	47,{
 	getitem2 .@id,1,1,.@ref,0,254,0,getcharid(0)&0xffff,(getcharid(0)>>16)&0xffff;
 	equip .@id;
 	close;
-	
-	OnInit:
-	waitingroom "Assinador de Itens",0;
-	end;
+
 }
 
 

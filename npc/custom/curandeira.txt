@@ -92,7 +92,7 @@ einbroch,69,204,4	duplicate(Curandeira)	Curandeira#einbr	618
 geffen,115,72,6	duplicate(Curandeira)	Curandeira#gef	618
 gonryun,163,122,4	duplicate(Curandeira)	Curandeira#gon	618
 hugel,106,153,4	duplicate(Curandeira)	Curandeira#hug	618
-izlude,134,150,6	duplicate(Curandeira)	Curandeira#izl	618	//Pre-RE: (125,118)
+izlude,134,150,4	duplicate(Curandeira)	Curandeira#izl	618	//Pre-RE: (125,118)
 jawaii,250,139,4	duplicate(Curandeira)	Curandeira#jaw	618
 lighthalzen,167,100,4	duplicate(Curandeira)	Curandeira#lhz	618
 louyang,226,103,4	duplicate(Curandeira)	Curandeira#lou	618
