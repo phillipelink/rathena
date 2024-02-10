@@ -10,7 +10,7 @@
 //= v1.0 thanks to QM
 //============================================================
 
-geffen,128,54,4	script	O Sinal	47,{
+geffen,128,54,4	script	O Sinal	10381,{
 	
 	if(countitem(743) >= 1 && countitem(2278) >= 1 && countitem(914) >= 100 && countitem(7033) >= 50 && countitem(904) >= 30 && countitem(930) >= 20 && countitem(1038) >= 15 && countitem(1092) >= 10 && countitem(610) >= 2 && countitem(511) >= 10 && countitem(526) >= 10 && countitem(518) >= 20 && countitem(948) >= 30 && countitem(520) >= 1 && countitem(708) >= 1 && countitem(713) >= 1 && countitem(612) >= 5 && countitem(615) >= 2 && countitem(988) >= 1 && countitem(1097) >= 10 && countitem(2203) >= 1 && countitem(907) >= 4 && countitem(953) >= 12 && countitem(7013) >= 375 &&  Zeny >= 2000000)
 	{
@@ -275,6 +275,19 @@ geffen,128,54,4	script	O Sinal	47,{
 		}
 end;
 OnInit:
-		waitingroom "O Sinal (Quest)",0;
-	end;
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "BaseLevel > 10";
+		end;
 }
+
+
+
+
+
+
+// izlude,100,100,4	script	Test	930,{
+	// end;
+	
+	// OnInit:
+		// questinfo QTYPE_QUEST, QMARK_YELLOW, "countitem(501) == 1";
+		// end;
+// }

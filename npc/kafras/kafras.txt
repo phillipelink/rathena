@@ -146,7 +146,7 @@ xmas,143,136,6	script	Kafra_Employee#kaf_xmas	113,{
 
 // Geffen
 //============================================================
-geffen,120,62,0	script	Funcionária Kafra::kaf_geffen	115,{
+geffen,112,63,6	script	Funcionária Kafra::kaf_geffen	115,{
     cutin "kafra_03",2;
     callfunc "F_KafSet";
     mes "[Funcionária da Kafra]";
@@ -181,7 +181,7 @@ geffen,203,123,2	script	Funcionária Kafra::geffen2	114,{
 
 // Morocc
 //============================================================
-morocc,156,97,4	script	Funcionária Kafra::kaf_morocc	113,{
+morocc,154,101,6	script	Funcionária Kafra::kaf_morocc	113,{
     cutin "kafra_05",2;
     callfunc "F_KafSet";
     mes "[Funcionária da Kafra]";
@@ -217,7 +217,7 @@ morocc,160,258,4	script	Funcionária Kafra::kaf_morocc2	114,{
 
 // Payon
 //============================================================
-payon,181,104,4	script	Funcionária Kafra::kaf_payon	113,{
+payon,175,110,6	script	Funcionária Kafra::kaf_payon	113,{
 	cutin "kafra_05",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";
@@ -403,7 +403,7 @@ yuno,277,221,4	script	Funcionária Kafra::kaf_yuno3	861,{
 
 // Alberta
 //============================================================
-alberta,28,229,0	script	Funcionária Kafra::kaf_alberta	116,{
+alberta,23,244,6	script	Funcionária Kafra::kaf_alberta	116,{
 	cutin "kafra_02",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";
@@ -435,7 +435,7 @@ alberta,113,60,6	script	Funcionária Kafra::kaf_alberta2	112,{
 
 // Comodo
 //============================================================
-comodo,184,158,6	script	Funcionária Kafra::kaf_comodo	721,{
+comodo,184,158,6	script	Funcionária Kafra::kaf_comodo	861,{
 	cutin "kafra_07",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";
@@ -450,7 +450,7 @@ comodo,184,158,6	script	Funcionária Kafra::kaf_comodo	721,{
 	// end;
 }
 
-cmd_fild07,136,134,4	script	Funcionária Kafra::kaf_cmd_fild07	721,{
+cmd_fild07,136,134,4	script	Funcionária Kafra::kaf_cmd_fild07	861,{
 	cutin "kafra_07",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";
@@ -718,7 +718,7 @@ louyang,210,104,5	script	Funcionária Kafra::kaf_louyang	4_F_KAFRA2,{
 
 // Umbala
 //============================================================
-umbala,87,160,4	script	Funcionária Kafra::kaf_umbala	721,{
+umbala,87,160,4	script	Funcionária Kafra::kaf_umbala	861,{
 	cutin "kafra_07",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";

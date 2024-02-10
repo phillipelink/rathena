@@ -1434,7 +1434,7 @@ OnInit:
 // --------------------------------------------------
 prontera,158,195,4	duplicate(Teletransporte)	Teletransporte#prt	612
 alb2trea,57,70,6	duplicate(Teletransporte)	Teletransporte#tre	612
-alberta,28,240,4	duplicate(Teletransporte)	Teletransporte#alb	612
+alberta,37,240,4	duplicate(Teletransporte)	Teletransporte#alb	612
 aldebaran,144,117,4	duplicate(Teletransporte)	Teletransporte#alde	612
 amatsu,202,91,4	duplicate(Teletransporte)	Teletransporte#ama	612
 ayothaya,209,169,4	duplicate(Teletransporte)	Teletransporte#ayo	612
@@ -1455,12 +1455,12 @@ manuk,274,146,6	duplicate(Teletransporte)	Teletransporte#man	612
 mid_camp,216,288,4	duplicate(Teletransporte)	Teletransporte#mid	612
 mjolnir_02,85,364,4	duplicate(Teletransporte)	Teletransporte#mjo	612
 moc_ruins,64,164,4	duplicate(Teletransporte)	Teletransporte#moc	612
-morocc,159,97,4	duplicate(Teletransporte)	Teletransporte#mor	612
+morocc,165,97,4	duplicate(Teletransporte)	Teletransporte#mor	612
 moscovia,228,194,4	duplicate(Teletransporte)	Teletransporte#mos	612
 nameless_n,259,213,4	duplicate(Teletransporte)	Teletransporte#nam	612
 niflheim,214,177,4	duplicate(Teletransporte)	Teletransporte#nif	612
 pay_arche,42,134,4	duplicate(Teletransporte)	Teletransporte#arc	612
-payon,182,108,4	duplicate(Teletransporte)	Teletransporte#pay	612
+payon,190,105,4	duplicate(Teletransporte)	Teletransporte#pay	612
 prt_fild05,279,223,6	duplicate(Teletransporte)	Teletransporte#cul	612
 rachel,135,116,4	duplicate(Teletransporte)	Teletransporte#rac	612
 splendide,205,153,4	duplicate(Teletransporte)	Teletransporte#spl	612

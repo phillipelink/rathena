@@ -3,12 +3,12 @@ prontera,144,197,6	shop	Loja de Utilidades	790,501:50,502:200,503:550,504:1200,5
 
 
 
-alberta,32,240,4	duplicate(Loja de Utilidades)	Loja de Utilidades#alb	790
+alberta,32,244,4	duplicate(Loja de Utilidades)	Loja de Utilidades#alb	790
 geffen,128,63,4	duplicate(Loja de Utilidades)	Loja de Utilidades#gef	790
 //alberta,32,240,4	duplicate(Loja de Utilidades)	Loja de Utilidades#aldbaran	790
 morocc,162,101,4	duplicate(Loja de Utilidades)	Loja de Utilidades#morocc	790
 yuno,139,187,6	duplicate(Loja de Utilidades)	Loja de Utilidades#yuno	790
-payon,175,104,6	duplicate(Loja de Utilidades)	Loja de Utilidades#payon	790
+payon,193,110,4	duplicate(Loja de Utilidades)	Loja de Utilidades#payon	790
 izlude,121,150,6	duplicate(Loja de Utilidades)	Loja de Utilidades#izlude	790
 aldebaran,132,114,6	duplicate(Loja de Utilidades)	Loja de Utilidades#aldebaran	790
 xmas,139,135,6	duplicate(Loja de Utilidades)	Loja de Utilidades#xmas	790

@@ -82,7 +82,7 @@
 
 // Duplicates
 //============================================================
-alberta,25,240,6	duplicate(Curandeira)	Curandeira#alb	618
+alberta,18,240,6	duplicate(Curandeira)	Curandeira#alb	618
 aldebaran,146,120,4	duplicate(Curandeira)	Curandeira#alde	618
 amatsu,204,96,4	duplicate(Curandeira)	Curandeira#ama	618
 ayothaya,214,169,4	duplicate(Curandeira)	Curandeira#ayo	618
@@ -99,10 +99,10 @@ louyang,226,103,4	duplicate(Curandeira)	Curandeira#lou	618
 manuk,272,144,6	duplicate(Curandeira)	Curandeira#man	618
 mid_camp,203,289,6	duplicate(Curandeira)	Curandeira#mid	618
 moc_ruins,72,164,4	duplicate(Curandeira)	Curandeira#moc	618
-morocc,153,97,6	duplicate(Curandeira)	Curandeira#mor	618
+morocc,151,97,6	duplicate(Curandeira)	Curandeira#mor	618
 moscovia,231,191,4	duplicate(Curandeira)	Curandeira#mos	618
 niflheim,212,182,4	duplicate(Curandeira)	Curandeira#nif	618
-payon,179,106,4	duplicate(Curandeira)	Curandeira#pay	618
+payon,178,105,6	duplicate(Curandeira)	Curandeira#pay	618
 prontera,163,191,4	duplicate(Curandeira)	Curandeira#prt	618
 rachel,138,113,4	duplicate(Curandeira)	Curandeira#rac	618
 splendide,201,153,4	duplicate(Curandeira)	Curandeira#spl	618
