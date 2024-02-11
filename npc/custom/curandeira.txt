@@ -83,9 +83,9 @@
 // Duplicates
 //============================================================
 alberta,18,240,6	duplicate(Curandeira)	Curandeira#alb	618
-aldebaran,146,120,4	duplicate(Curandeira)	Curandeira#alde	618
+aldebaran,133,120,6	duplicate(Curandeira)	Curandeira#alde	618
 amatsu,204,96,4	duplicate(Curandeira)	Curandeira#ama	618
-ayothaya,214,169,4	duplicate(Curandeira)	Curandeira#ayo	618
+ayothaya,217,172,4	duplicate(Curandeira)	Curandeira#ayo	618
 comodo,193,158,4	duplicate(Curandeira)	Curandeira#com	618
 einbech,57,36,6	duplicate(Curandeira)	Curandeira#einbe	618
 einbroch,69,204,4	duplicate(Curandeira)	Curandeira#einbr	618
@@ -95,7 +95,7 @@ hugel,106,153,4	duplicate(Curandeira)	Curandeira#hug	618
 izlude,134,150,4	duplicate(Curandeira)	Curandeira#izl	618	//Pre-RE: (125,118)
 jawaii,250,139,4	duplicate(Curandeira)	Curandeira#jaw	618
 lighthalzen,167,100,4	duplicate(Curandeira)	Curandeira#lhz	618
-louyang,226,103,4	duplicate(Curandeira)	Curandeira#lou	618
+louyang,226,104,4	duplicate(Curandeira)	Curandeira#lou	618
 manuk,272,144,6	duplicate(Curandeira)	Curandeira#man	618
 mid_camp,203,289,6	duplicate(Curandeira)	Curandeira#mid	618
 moc_ruins,72,164,4	duplicate(Curandeira)	Curandeira#moc	618
@@ -109,8 +109,8 @@ splendide,201,153,4	duplicate(Curandeira)	Curandeira#spl	618
 thor_camp,249,74,4	duplicate(Curandeira)	Curandeira#thor	618
 umbala,96,159,3	duplicate(Curandeira)	Curandeira#umb	618
 veins,225,125,4	duplicate(Curandeira)	Curandeira#ve	618
-xmas,155,135,4	duplicate(Curandeira)	Curandeira#xmas	618
-yuno,148,187,4	duplicate(Curandeira)	Curandeira#yuno	618
+xmas,155,134,4	duplicate(Curandeira)	Curandeira#xmas	618
+yuno,138,189,6	duplicate(Curandeira)	Curandeira#yuno	618
 //SALA VIP
 hero_dun1,117,188,4	duplicate(Curandeira)	Curandeira#VIP	618
 //campo de treinamento

@@ -150,8 +150,10 @@ prontera,148,191,6	script	Doação::donate	10380,{
 		
 			if (@HDDonate > gettimetick(2)) 
 			{
+				.@temporestante = @HDDonate - gettimetick(2);
 				mes "[^0055FF ::: Sistema de Doação ::: ^000000]";
 				mes "Você só pode consultar seu historico de doação a cada ^FF00005 minutos ^000000.";
+				mes "Faltam ^0031E9"+ .@temporestante + "^000000 segundos.";
 				mes "Volte depois!";
 				end;
 			}
@@ -245,3 +247,14 @@ geffen,120,67,5	duplicate(donate)	Doação#donate2	10380
 payon,184,103,5	duplicate(donate)	Doação#donate3	10380
 alberta,28,240,5	duplicate(donate)	Doação#donate4	10380
 izlude,128,153,5	duplicate(donate)	Doação#donate5	10380
+aldebaran,140,121,5	duplicate(donate)	Doação#donate6	10380
+xmas,140,129,5	duplicate(donate)	Doação#donate7	10380
+comodo,189,162,5	duplicate(donate)	Doação#donate8	10380
+yuno,143,186,5	duplicate(donate)	Doação#donate9	10380
+amatsu,198,94,5	duplicate(donate)	Doação#donate10	10380
+gonryun,159,119,5	duplicate(donate)	Doação#donate11	10380
+umbala,86,153,5	duplicate(donate)	Doação#donate12	10380
+louyang,218,104,5	duplicate(donate)	Doação#donate13	10380
+ayothaya,207,169,5	duplicate(donate)	Doação#donate14	10380
+einbroch,64,202,5	duplicate(donate)	Doação#donate15	10380
+lighthalzen,159,101,5	duplicate(donate)	Doação#donate16	10380

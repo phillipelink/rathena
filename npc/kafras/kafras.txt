@@ -109,7 +109,7 @@ aldeba_in,96,181,4	script	Kafra_Service	113,{
 }
 
 
-aldebaran,135,117,6	script	Kafra_Employee#kaf_aldebaran	113,{
+aldebaran,146,114,4	script	Kafra_Employee#kaf_aldebaran	113,{
     cutin "kafra_05",2;
     callfunc "F_KafSet";
     mes "[Funcionária da Kafra]";
@@ -127,7 +127,7 @@ aldebaran,135,117,6	script	Kafra_Employee#kaf_aldebaran	113,{
 
 //xmas lutie
 
-xmas,143,136,6	script	Kafra_Employee#kaf_xmas	113,{
+xmas,143,135,6	script	Kafra_Employee#kaf_xmas	113,{
     cutin "kafra_05",2;
     callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";
@@ -356,7 +356,7 @@ prontera,168,197,4	script	Funcionária Kafra::kaf_prontera6	117,{
 
 // Juno
 //============================================================
-yuno,152,187,4	script	Funcionária Kafra::kaf_yuno	860,{
+yuno,150,184,4	script	Funcionária Kafra::kaf_yuno	860,{
 	cutin "kafra_08",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";
@@ -532,7 +532,7 @@ amatsu,193,91,6	script	Funcionária Kafra::kaf_amatsu	116,{
 
 // Ayothaya
 //============================================================
-ayothaya,200,169,5	script	Funcionária Kafra::kaf_ayothaya	116,{
+ayothaya,200,168,5	script	Funcionária Kafra::kaf_ayothaya	116,{
 	cutin "kafra_02",2;
 	mes "[^0000FFFuncionária Kafra^000000]";
 	mes "Olá ^FF9900" +strcharinfo(0)+ "^000000!";
@@ -578,7 +578,7 @@ einbroch,242,205,5	script	Funcionária Kafra#ein2::kaf_einbroch	860,{
 	// end;
 }
 
-einbroch,57,204,6	script	Funcionária Kafra#ein1::kaf_einbroch2	861,{
+einbroch,58,204,6	script	Funcionária Kafra#ein1::kaf_einbroch2	861,{
 	cutin "kafra_09",2;
 	mes "[^0000FFFuncionária Kafra^000000]";
 	mes "Olá ^FF9900" +strcharinfo(0)+ "^000000!";
@@ -718,7 +718,7 @@ louyang,210,104,5	script	Funcionária Kafra::kaf_louyang	4_F_KAFRA2,{
 
 // Umbala
 //============================================================
-umbala,87,160,4	script	Funcionária Kafra::kaf_umbala	861,{
+umbala,87,160,6	script	Funcionária Kafra::kaf_umbala	861,{
 	cutin "kafra_07",2;
 	callfunc "F_KafSet";
 	mes "[^0000FFFuncionária Kafra^000000]";

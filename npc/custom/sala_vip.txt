@@ -224,7 +224,9 @@ hero_dun1,131,194,4	script	Loja de Alquimia	754,{
 -	script	Costume Clown	-1,{
 	mes "[^0000FFPalhaço dos Visuais^000000]";
 	mes "Aqui você pode converter seus equipamentos de cabeça em um Equipamento de Cabeça Visual ou restaurá-los à sua forma original.";
-	switch(select("Eu quero converter.:Eu quero restaurar.:Não, obrigado.")) {
+	next;
+	switch(select("Eu quero converter.:Não, obrigado.")) {
+
 	case 1:
 			next;
 			mes "[^0000FFPalhaço dos Visuais^000000]";
@@ -272,55 +274,55 @@ hero_dun1,131,194,4	script	Loja de Alquimia	754,{
 			mes "Pronto, seu equipamento foi transformado em visual.";
 			mes "Até mais!";
 			close;
-	case 2:
-			next;
-			mes "[^0000FFPalhaço dos Visuais^000000]";
-			mes "Por favor, selecione o que deseja restaurar.";
-			mes "^ff0000Alerta!";
-			mes "-------------------";
-			mes "Lembre-se, eu só vou restaurá-lo sem refinamento e sem cartas.^000000";
-			next;
-				setarray .@Position$[1],"Top","Mid","Low";
-				setarray .@Position[1],     13,    12,   11;
-				set .@Menu$,"";
-			for( set .@i, 1; .@i < 5; set .@i, .@i + 1 )
-			{
-				if( getequipisequiped(.@Position[.@i]) )
-				set .@Menu$, .@Menu$ + .@Position$[.@i] + "-" + "[" + getequipname(.@Position[.@i]) + "]";
-				set .@Menu$, .@Menu$ + ":";
-			}
-			set .@Part, .@Position[ select(.@Menu$) ];
-			if( !getequipisequiped(.@Part) )
-			{
-				mes "[^0000FFPalhaço dos Visuais^000000]";
-				mes "Você não tem nenhum visual equipado...";
-				close;
-			}
-			mes "[^0000FFPalhaço dos Visuais^000000]";
-			mes "Você deseja restaurar o visual:  ^ff0000" + getitemname(getequipid(.@Part)) + "^000000?";
-			next;
-				if( select("Sim, Prosseguir:Não, Obrigado.") == 2 )
-			{
-				mes "[^0000FFPalhaço dos Visuais^000000]";
-				mes "Precisa de um tempo para pensar, né?";
-				mes "Tudo bem, eu entendo.";
-				close;
-			}
-			if (Countitem(617)<1) 
-			{ 
-			mes "[^0000FFPrincesa dos Visuais^000000]";
-			mes "Você não possui o Ticket de Visual! Compre agora mesmo na nossa loja de Cash."; 
-			close; 
-			}
-			a = getequipid(.@Part);
-			delitem 617,1;			
-			delitem a,1;
-			getitem a,1;
+	// case 2:
+			// next;
+			// mes "[^0000FFPalhaço dos Visuais^000000]";
+			// mes "Por favor, selecione o que deseja restaurar.";
+			// mes "^ff0000Alerta!";
+			// mes "-------------------";
+			// mes "Lembre-se, eu só vou restaurá-lo sem refinamento e sem cartas.^000000";
+			// next;
+				// setarray .@Position$[1],"Top","Mid","Low";
+				// setarray .@Position[1],     13,    12,   11;
+				// set .@Menu$,"";
+			// for( set .@i, 1; .@i < 5; set .@i, .@i + 1 )
+			// {
+				// if( getequipisequiped(.@Position[.@i]) )
+				// set .@Menu$, .@Menu$ + .@Position$[.@i] + "-" + "[" + getequipname(.@Position[.@i]) + "]";
+				// set .@Menu$, .@Menu$ + ":";
+			// }
+			// set .@Part, .@Position[ select(.@Menu$) ];
+			// if( !getequipisequiped(.@Part) )
+			// {
+				// mes "[^0000FFPalhaço dos Visuais^000000]";
+				// mes "Você não tem nenhum visual equipado...";
+				// close;
+			// }
+			// mes "[^0000FFPalhaço dos Visuais^000000]";
+			// mes "Você deseja restaurar o visual:  ^ff0000" + getitemname(getequipid(.@Part)) + "^000000?";
+			// next;
+				// if( select("Sim, Prosseguir:Não, Obrigado.") == 2 )
+			// {
+				// mes "[^0000FFPalhaço dos Visuais^000000]";
+				// mes "Precisa de um tempo para pensar, né?";
+				// mes "Tudo bem, eu entendo.";
+				// close;
+			// }
+			// if (Countitem(617)<1) 
+			// { 
+			// mes "[^0000FFPrincesa dos Visuais^000000]";
+			// mes "Você não possui o Ticket de Visual! Compre agora mesmo na nossa loja de Cash."; 
+			// close; 
+			// }
+			// a = getequipid(.@Part);
+			// delitem 617,1;			
+			// delitem a,1;
+			// getitem a,1;
 			
-				mes "[^0000FFPalhaço dos Visuais^000000]";
-				mes "Feito, aproveite seu equipamento de cabeça restaurado.";
-			close;
-	case 3:
+				// mes "[^0000FFPalhaço dos Visuais^000000]";
+				// mes "Feito, aproveite seu equipamento de cabeça restaurado.";
+			// close;
+	case 2:
 			mes "[^0000FFPalhaço dos Visuais^000000]";
 			mes "Muito bem. Retorne imediatamente se precisar dos meus serviços.";
 			close;

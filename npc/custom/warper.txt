@@ -1435,22 +1435,22 @@ OnInit:
 prontera,158,195,4	duplicate(Teletransporte)	Teletransporte#prt	612
 alb2trea,57,70,6	duplicate(Teletransporte)	Teletransporte#tre	612
 alberta,37,240,4	duplicate(Teletransporte)	Teletransporte#alb	612
-aldebaran,144,117,4	duplicate(Teletransporte)	Teletransporte#alde	612
+aldebaran,146,120,4	duplicate(Teletransporte)	Teletransporte#alde	612
 amatsu,202,91,4	duplicate(Teletransporte)	Teletransporte#ama	612
-ayothaya,209,169,4	duplicate(Teletransporte)	Teletransporte#ayo	612
-comodo,194,155,4	duplicate(Teletransporte)	Teletransporte#com	612
+ayothaya,215,168,4	duplicate(Teletransporte)	Teletransporte#ayo	612
+comodo,194,154,4	duplicate(Teletransporte)	Teletransporte#com	612
 einbech,59,38,6	duplicate(Teletransporte)	Teletransporte#einbe	612
 einbroch,70,198,4	duplicate(Teletransporte)	Teletransporte#einbr	612
 gef_fild10,71,339,4	duplicate(Teletransporte)	Teletransporte#orc	612
 geffen,124,72,4	duplicate(Teletransporte)	Teletransporte#gef	612
 glast_01,372,308,4	duplicate(Teletransporte)	Teletransporte#glh	612
-gonryun,165,116,4	duplicate(Teletransporte)	Teletransporte#gon	612
+gonryun,168,116,4	duplicate(Teletransporte)	Teletransporte#gon	612
 hugel,101,151,4	duplicate(Teletransporte)	Teletransporte#hug	612
 izlu2dun,110,92,4	duplicate(Teletransporte)	Teletransporte#izd	612
 izlude,131,147,4	duplicate(Teletransporte)	Teletransporte#izl	612	//Pre-RE: (132,120)
 jawaii,253,138,4	duplicate(Teletransporte)	Teletransporte#jaw	612
 lighthalzen,163,104,4	duplicate(Teletransporte)	Teletransporte#lhz	612
-louyang,223,100,4	duplicate(Teletransporte)	Teletransporte#lou	612
+louyang,227,100,4	duplicate(Teletransporte)	Teletransporte#lou	612
 manuk,274,146,6	duplicate(Teletransporte)	Teletransporte#man	612
 mid_camp,216,288,4	duplicate(Teletransporte)	Teletransporte#mid	612
 mjolnir_02,85,364,4	duplicate(Teletransporte)	Teletransporte#mjo	612
@@ -1467,8 +1467,8 @@ splendide,205,153,4	duplicate(Teletransporte)	Teletransporte#spl	612
 thor_camp,249,76,4	duplicate(Teletransporte)	Teletransporte#thor	612
 umbala,99,156,3	duplicate(Teletransporte)	Teletransporte#umb	612
 veins,223,122,4	duplicate(Teletransporte)	Teletransporte#ve	612
-xmas,150,136,6	duplicate(Teletransporte)	Teletransporte#xmas	612
-yuno,143,187,4	duplicate(Teletransporte)	Teletransporte#yuno	612
+xmas,150,135,4	duplicate(Teletransporte)	Teletransporte#xmas	612
+yuno,148,189,4	duplicate(Teletransporte)	Teletransporte#yuno	612
 hero_dun1,102,188,6	duplicate(Teletransporte)	Teletransporte#VIP	612
 
 // --------------------------------------------------
