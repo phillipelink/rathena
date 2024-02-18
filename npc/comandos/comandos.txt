@@ -23,28 +23,32 @@
     // }	
 // }
 
--	script	command#govip	-1,{
+// -	script	command#govip	-1,{
 	
-OnInit:
-	bindatcmd("govip",strnpcinfo(0)+"::OnCommand");
-	end;
+// OnInit:
+	// bindatcmd("govip",strnpcinfo(0)+"::OnCommand");
+	// end;
 	
-	OnCommand:
+	// OnCommand:
 
-	if (vip_status(1)) 
-	{
-		warp "hero_dun1",109,174; // change map and coords to your VIP Room.
-	}
-	else 
-	{
-		mes "[ ^0000FFSistema VIP^000000 ]";
-		mes "^FF0000Você não é VIP!^000000"; 
-		mes "Faça agora mesmo sua doação!"; 
-		mes "Compre seu Ticket VIP na loja de Cash e receba vários benéficios.";
-		close;
-	}
-	end;
-}
+	// if (vip_status(1)) 
+	// {
+		// warp "hero_dun1",109,174; // change map and coords to your VIP Room.
+	// }
+	// if(getgroupid() == 99)
+	// {
+		// warp "hero_dun1",109,174;	
+	// }
+	// else 
+	// {
+		// mes "[ ^0000FFSistema VIP^000000 ]";
+		// mes "^FF0000Você não é VIP!^000000"; 
+		// mes "Faça agora mesmo sua doação!"; 
+		// mes "Compre seu Ticket VIP na loja de Cash e receba vários benéficios.";
+		// close;
+	// }
+	// end;
+// }
 
 -	script	command#rates	-1,{
 	

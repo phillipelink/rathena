@@ -29,18 +29,15 @@ moc_para01,36,38,3	script	Missões [10 - 25]#Tuto	4_BOARD3,{
 	for( .@i = 11114; .@i < 11124; .@i++ ) {
 		.@j = checkquest(.@i,HUNTING);
 		if (.@j == 2) {
-			mes " - You must collect your - ";
-			mes " - reward before starting - ";
-			mes " - a new mission. - ";
-			mes " ";
-			mes " - Manager : Spike - ";
+			mes "[^6959CDQuadro de Missões^000000]";
+			mes "^DF0D3AAtenção ^000000!!";
+			mes "Antes de iniciar uma nova missão você precisa pegar sua recompensa.";
+			mes "Fale imediatamente com a Gerente Spike localizada nessa sala.";
 			close;
 		}
 		else if (.@j >= 0) {
-			mes " - You can only request - ";
-			mes " - one mission at a time. - ";
-			mes " ";
-			mes " - Manager : Spike - ";
+			mes "[^6959CDQuadro de Missões^000000]";
+			mes "Você só pode solicitar uma missão de cada vez.";
 			close;
 		}
 	}
@@ -60,82 +57,211 @@ moc_para01,36,38,3	script	Missões [10 - 25]#Tuto	4_BOARD3,{
 	mes "^FF1493Missões de Caça Para Iniciantes^000000";
 	mes "^708090Quadro Negro com várias Missões para aventureiros novatos.^000000";
 	mes "Recomendado para: ^6959CDNível 10 ~ 25^000000";
-	mes "Recompensa: 1x Medalha do Edén";
-	
+	mes "Recompensa: ^0483DB1x Medalha do Edén^000000";
+	mes "Recompensa: ^0483DBExp de Base^000000";
 
+	//Verificar Quest Caça aos Hornets
+	.@quest_status1 = checkquest(11114+10,PLAYTIME);
+	if (.@quest_status1 == 0 || .@quest_status1 == 1) 
+	{
+		.@questHornet$ = "^009900[•]^000000 ^DC6401Caça aos Hornets^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questHornet$ = "^009900[•]^000000 ^DC6401Caça aos Hornets^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Caça aos Condors
+	.@quest_status2 = checkquest(11115+10,PLAYTIME);
+	if (.@quest_status2 == 0 || .@quest_status2 == 1) 
+	{
+		.@questCondor$ = "^009900[•]^000000 ^DC6401Caça aos Condors^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questCondor$ = "^009900[•]^000000 ^DC6401Caça aos Condors^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Caça as Pernas de Gafanhoto
+	.@quest_status3 = checkquest(11116+10,PLAYTIME);
+	if (.@quest_status3 == 0 || .@quest_status3 == 1) 
+	{
+		.@questGafanhoto$ = "^009900[•]^000000 ^DC6401Caça aos Gafanhotos^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questGafanhoto$ = "^009900[•]^000000 ^DC6401Caça aos Gafanhotos^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Caça aos Vermes
+	.@quest_status4 = checkquest(11117+10,PLAYTIME);
+	if (.@quest_status4 == 0 || .@quest_status4 == 1) 
+	{
+		.@questCaudaVerme$ = "^009900[•]^000000 ^DC6401Caça aos Vermes^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questCaudaVerme$ = "^009900[•]^000000 ^DC6401Caça aos Vermes^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Caça aos Esporos
+	.@quest_status5 = checkquest(11118+10,PLAYTIME);
+	if (.@quest_status5 == 0 || .@quest_status5 == 1) 
+	{
+		.@questEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Controle de Pragas
+	.@quest_status6 = checkquest(11119+10,PLAYTIME);
+	if (.@quest_status6 == 0 || .@quest_status6 == 1) 
+	{
+		.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Caça aos Mukas
+	.@quest_status7 = checkquest(11120+10,PLAYTIME);
+	if (.@quest_status7 == 0 || .@quest_status7 == 1) 
+	{
+		.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Caça aos Familiares
+	.@quest_status8 = checkquest(11121+10,PLAYTIME);
+	if (.@quest_status8 == 0 || .@quest_status8 == 1) 
+	{
+		.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Coletar Penas
+	.@quest_status9 = checkquest(11122+10,PLAYTIME);
+	if (.@quest_status9 == 0 || .@quest_status9 == 1) 
+	{
+		.@questPena$ = "^009900[•]^000000 ^DC6401Coletar Penas^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questPena$ = "^009900[•]^000000 ^DC6401Coletar Penas^000000 - ^FF0000Pendente^000000";
+	}
+	
+	//Verificar Quest Coletar Esporos Venenosos
+	.@quest_status10 = checkquest(11123+10,PLAYTIME);
+	if (.@quest_status10 == 0 || .@quest_status10 == 1) 
+	{
+		.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Coletar Esporos Venenosos^000000 - ^3B8706Concluida^000000";
+	}
+	else
+	{
+		.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Coletar Esporos Venenosos^000000 - ^FF0000Pendente^000000";
+	}
+	
 	next;
-	switch(select("Hornet Hunting:Condor Hunting:Grasshopper's Leg:Worm Tail Hunting:Spore Hunting:Pest Control:Muka Hunting:Familiar Hunting:Collect Feathers:Collect Poison Spores:Cancel")) {
-		case 1: callsub L_Quest,11114,"Hornet Hunting"," - Hunt 10 ^4d4dff'Hornets'^000000 - "," - northwest of Prontera. - ";
-		case 2: callsub L_Quest,11115,"Condor Hunting"," - Hunt 20 ^4d4dff'Condors'^000000 - "," - south of Morocc. - ";
-		case 3: callsub L_Quest,11116,"Grasshopper's Leg"," - Hunt 10 ^4d4dff'Rockers'^000000 - "," - southwest of Prontera and - "," - bring 10 ^4d4dffGrasshopper's Legs^000000. - ";
-		case 4: callsub L_Quest,11117,"Worm Tail Hunting"," - Hunt 20 ^4d4dff'Worm Tails'^000000 - "," - southeast of Payon.- ";
-		case 5: callsub L_Quest,11118,"Spore Hunting"," - Hunt 30 ^4d4dff'Spores'^000000 - "," - around Payon. - ";
-		case 6: callsub L_Quest,11119,"Pest Control"," - Hunt 20 ^4d4dffThief Bug Eggs^000000 - "," - in the Prontera Culvert - "," - and bring 10 ^4d4dffChrysalis^000000. - ";
-		case 7: callsub L_Quest,11120,"Muka Hunting"," - Hunt 20 ^4d4dff'Muka'^000000 - "," - south of Prontera. - ";
-		case 8: callsub L_Quest,11121,"Familiar Hunting"," - Hunt 20 ^4d4dffFamiliar^000000 - "," - in the Culvert Sewers - "," - west of Prontera. - ";
-		case 9: callsub L_Quest,11122,"Collect Feathers"," - Hunt 30 ^4d4dff'Peco Pecos'^000000 - "," - south of Prontera. - ";
-		case 10: callsub L_Quest,11123,"Collect Poison Spores"," - Hunt 30 ^4d4dffPoison Spores^000000 - "," - inside the Geffen Tower and - "," - bring 5 ^4d4dffPoison Spores^000000. - ";
+	switch(select(.@questHornet$ + ":" + .@questCondor$ + ":" + .@questGafanhoto$ + ":" + .@questCaudaVerme$ + ":" + .@questEsporos$ + ":" + .@questControlePragas$ + ":" + .@questMuka$ + ":" + .@questFamiliar$ + ":" + .@questPena$ + ":" + .@questColetarEsporos$ + ":^FF0000[•]^000000 Sair ")) {
+		case 1: callsub L_Quest,11114,"Caça aos Hornets", " - Caçar 10 ^4d4dff'Hornets'^000000 - ", " - ao noroeste de Prontera. - ";
+		case 2: callsub L_Quest,11115,"Caça aos Condors"," - Caçar 20 ^4d4dff'Condors'^000000 - "," - ao Sul de Morocc. - ";
+		case 3: callsub L_Quest,11116,"Caça aos Gafanhotos", " - Caçar 10 ^4d4dff'Rockers'^000000 - ", " - ao sudoeste de Prontera e - ", " - trazer 10 ^4d4dffPernas de Gafanhoto^000000. - ";
+		case 4: callsub L_Quest,11117,"Caça aos Vermes"," - Caçar 20 ^4d4dff'Caudas de Verme'^000000 - "," - sudeste de Payon.- ";
+		case 5: callsub L_Quest,11118,"Caça aos Esporos"," - Caçar 30 ^4d4dff'Esporos'^000000 - "," - ao redor de Payon. - ";
+		case 6: callsub L_Quest,11119,"Controle de Pragas"," - Caçar 20 ^4d4dff'Ovos de Besouro Ladrão'^000000 - "," - nos esgotos de Prontera - "," - e trazer 10 ^4d4dffCrisalida^000000. - ";
+		case 7: callsub L_Quest,11120,"Caça aos Mukas"," - Caçar 20 ^4d4dff'Mukas'^000000 - "," - ao Sul de Prontera. - ";
+		case 8: callsub L_Quest,11121,"Caça aos Familiares"," - Caçar 20 ^4d4dffFamiliares^000000 - "," - nos Esgotos - "," - a oeste de Prontera. - ";
+		case 9: callsub L_Quest,11122,"Coletar Penas"," - Caçar 30 ^4d4dff'Peco Pecos'^000000 - "," - ao Sul de Prontera. - ";
+		case 10: callsub L_Quest,11123,"Coletar Esporos Venenosos"," - Caçar 30 ^4d4dffEsporos Venenosos^000000 - "," - dentro da Torre de Geffen e - "," - traga 5 ^4d4dffEsporos Venenosos^000000. - ";
 		case 11:
-			mes " - Stop reading the bulletin board. - ";
+			mes "[^6959CDQuadro de Missões^000000]";
+			mes "Tudo bem, volte quando tiver interesse.";
 			close;
 	}
 
 L_Quest:
 	.@quest_status = checkquest(getarg(0)+10,PLAYTIME);
 	if (.@quest_status == 0 || .@quest_status == 1) {
-		mes " - Mission ^4d4dff"+ getarg(1) +"^000000 - ";
-		mes " - is already finished for today. - ";
-		mes " ";
-		mes " - Manager : Spike - ";
+		mes "[^6959CDQuadro de Missões^000000]";
+		//mes " - Missão: ^4d4dff"+ getarg(1) +"^000000 - ";
+		mes "Esta missão já foi concluida por hoje.";
+		mes "Tente outras missões.";
 		close;
 	}
-	mes " - Mission '"+ getarg(1) +"' - ";
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes " - Missão '"+ getarg(1) +"' - ";
 	for ( .@i = 2; .@i < getargcount(); .@i++ )
 		mes getarg(.@i);
-	mes " ";
-	mes " - Manager : Spike - ";
 	next;
-	if (select("I will do this mission.:Look for other missions.") == 2) {
-		mes " - Let's search for -";
-		mes " - other missions. - ";
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes "Quando finalizar esta missão falar com a ^F76105Gerente Spike^000000 para pegar sua recompensa.";
+	next;
+	if (select("Eu farei esta missão.:Não quero essa missão.") == 2) {
+		mes "[^6959CDQuadro de Missões^000000]";
+		mes "Tudo bem, volte quando decidir qual missão deseja realizar.";
 		close;
 	}
+	mes "[^6959CDQuadro de Missões^000000]";
 	for ( .@i = 2; .@i < getargcount(); .@i++ )
 		mes getarg(.@i);
 	setquest getarg(0);
 	close;
+	end;
+	
+	
+	OnInit:
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11114+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11115+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11116+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11117+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11118+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11119+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11120+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11121+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11122+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11123+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		end;
 }
 
-moc_para01,32,30,6	script	Spike	4_F_CHILD,{
+moc_para01,33,36,6	script	Gerente Spike	10383,{
 	for( .@i = 11114; .@i < 11124; .@i++ ) {
 		.@j = checkquest(.@i,HUNTING);
 		if (.@j == 2) {
 			switch(.@i) {
-				case 11114: callsub L_Quest,.@i,"Hornet Hunting",900;
-				case 11115: callsub L_Quest,.@i,"Condor Hunting",1800;
-				case 11116: callsub L_Quest,.@i,"Grasshopper's Leg",1400,940,10;
-				case 11117: callsub L_Quest,.@i,"Worm Tail Hunting",2600;
-				case 11118: callsub L_Quest,.@i,"Spore Hunting",3900;
-				case 11119: callsub L_Quest,.@i,"Extirpate Insects",2900,915,10;
-				case 11120: callsub L_Quest,.@i,"Muka Hunting",3200;
-				case 11121: callsub L_Quest,.@i,"Familiar Hunting",3200;
-				case 11122: callsub L_Quest,.@i,"Collect Feathers",5400;
-				case 11123: callsub L_Quest,.@i,"Collect Poison Spores",6000,7033,5;
+				case 11114: callsub L_Quest,.@i,"Caça aos Hornets",900;
+				case 11115: callsub L_Quest,.@i,"Caça aos Condors",1800;
+				case 11116: callsub L_Quest,.@i,"Caça aos Gafanhotos",1400,940,10;
+				case 11117: callsub L_Quest,.@i,"Caça aos Vermes",2600;
+				case 11118: callsub L_Quest,.@i,"Caça aos Esporos",3900;
+				case 11119: callsub L_Quest,.@i,"Controle de Pragas",2900,915,10;
+				case 11120: callsub L_Quest,.@i,"Caça aos Mukas",3200;
+				case 11121: callsub L_Quest,.@i,"Caça aos Familiares",3200;
+				case 11122: callsub L_Quest,.@i,"Coletar Penas",5400;
+				case 11123: callsub L_Quest,.@i,"Coletar Esporos Venenosos",6000,7033,5;
 			}
 		}
 		else if (.@j >= 0) {
-			mes "[Spike]";
-			mes "You haven't finished your mission yet.";
-			mes "Keep up the good work. You are almost done.";
+			mes "[^3562DCGerente Spike^000000]";
+			mes "Você ainda não terminou sua missão.";
+			mes "Continue o bom trabalho. Você está quase lá.";
 			close;
 		}
 	}
-	mes "[Spike]";
-	mes "Are you looking for a job?";
-	mes "We always have lots of work to do.";
+	mes "[^3562DCGerente Spike^000000]";
+	mes "Você está procurando por um emprego?";
+	mes "Nós sempre temos muito trabalho para fazer.";
 	next;
-	mes "[Spike]";
-	mes "Why don't you look around and find some interesting tasks?";
+	mes "[^3562DCGerente Spike^000000]";
+	mes "Por que você não dá uma olhada por aí e encontra algumas tarefas interessantes?";
 	close;
 
 L_Quest:
@@ -145,20 +271,20 @@ L_Quest:
 		.@req_amount = getarg(4,0);
 		if (.@item_req) {
 			if (countitem(.@item_req) < .@req_amount) {
-				mes "[Spike]";
-				mes "You don't have enough "+ getitemname(.@item_req) +".";
-				mes "You need to bring "+ .@req_amount +" "+ getitemname(.@item_req) +".";
+				mes "[^3562DCGerente Spike^000000]";
+				mes "Você não tem o suficiente "+ getitemname(.@item_req) +".";
+				mes "Você precisa trazer "+ .@req_amount +" "+ getitemname(.@item_req) +".";
 				close;
 			}
 		}
-		mes "[Spike]";
-		mes "Hmm... let me see~";
-		mes "You have completed the '"+ getarg(1) +"' mission.";
+		mes "[^3562DCGerente Spike^000000]";
+		mes "Hmm... Deixa me ver -_-";
+		mes "Você completou a missão ^036C0C"+ getarg(1) +"^000000.";
 		next;
-		mes "[Spike]";
-		mes "Good work~!!";
-		mes "Our client is so happy with your work. He will appreciate what you have done.";
-		mes "Please help us again. Thanks!";
+		mes "[^3562DCGerente Spike^000000]";
+		mes "Bom trabalho~!!";
+		mes "Nosso cliente está muito feliz com seu trabalho. Ele irá apreciar o que você fez.";
+		mes "Por favor, nos ajude novamente. Obrigado!";
 		if (.@item_req)
 			delitem .@item_req,.@req_amount;
 		erasequest .@quest_id;

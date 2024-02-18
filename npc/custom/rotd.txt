@@ -142,7 +142,7 @@ OnClock2200:
 // OnMinute58:
 
 	//Tempo definido em segundos total são 1hora59minutos55segundos
-	.tempoDaRaca = 7100;
+	.tempoDaRaca = 7180;
 	//.tempoDaRaca = 110;
 	.tipoBuff = 8;
 	.rotd_start_time = gettimetick(2);

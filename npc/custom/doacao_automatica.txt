@@ -167,7 +167,7 @@ prontera,148,191,6	script	Doação::donate	10380,{
 				for (.@i = 0; .@i < .@query_select_list_pagamentos; .@i++) 
 				{
 					mes .@contador++ + ". Id:" + .@id_transacao$[.@i];
-					mes "Data: ^006600" + .@data$[.@i] + ",00^000000";
+					mes "Data: ^006600" + .@data$[.@i] + ".00^000000";
 					if(.@status$[.@i] == "Processado")
 					{
 						mes "Status: ^CC0066"  + .@status$[.@i] + "^000000";

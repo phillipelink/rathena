@@ -40,6 +40,10 @@
 		{
 			warp "hero_dun1",109,174; // change map and coords to your VIP Room.
 		}
+		if(getgroupid() == 99)
+		{
+			warp "hero_dun1",109,174;	
+		}
 		else 
 		{
 			mes "[ ^0000FFSistema VIP^000000 ]";

@@ -18,16 +18,21 @@
 
 moc_para01,38,38,3	script	Mission [26 - 40]	857,{
 	if (!callfunc("F_HasEdenGroupMark")) {
+		mes "[^6959CDQuadro de Missões^000000]";
 		mes "Você não faz parte do grupo do Éden!";
-		mes "Fale com o Secretário do Eden para fazer parte do grupo.";
+		mes "Fale com o Secretário do Eden para fazer parte do grupo.";		
 		close;
 	}
-	mes "[26 ~ 40 Lv. Mission Board]";
-	mes "- Many missions are -";
-	mes "- on the bulletin board. -";
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes "^708090Quadro Negro com várias Missões para aventureiros novatos.^000000";
+	mes "Recomendado para: ^6959CDNível 26 ~ 40^000000";
+	mes "Recompensa: ^0483DB1x Medalha do Edén^000000";
+	mes "Recompensa: ^0483DBExp de Base^000000";
 	next;
 	if ((BaseLevel < 26) || (BaseLevel > 40)) {
-		mes "Your level is not qualified. You can not use the bulletin board.";
+		mes "[^6959CDQuadro de Missões^000000]";
+		mes "Você esta acima do nível de base requerido para fazer as missões.";
+		mes "Procure um quadro apropriado para o seu nível de base.";
 		close;
 	}
 	switch(select("Hunting Mission:Delivery Mission:Gathering Mission:Escort Mission")) {
