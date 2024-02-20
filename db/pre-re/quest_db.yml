@@ -4149,52 +4149,52 @@ Body:
     Title: Until radering is functioning
     TimeLimit: +23h
   - Id: 11114
-    Title: "Request : Hunt Honet"
+    Title: "Solicitação : Caça as Hornets"
     Targets:
       - Mob: HORNET
         Count: 10
   - Id: 11115
-    Title: "Request : Hunt Condor"
+    Title: "Solicitação : Caça aos Condors"
     Targets:
       - Mob: CONDOR
         Count: 20
   - Id: 11116
-    Title: "Request : Hunt Grasshopper's Leg"
+    Title: "Solicitação : Caça aos Gafanhotos"
     Targets:
       - Mob: ROCKER
         Count: 10
   - Id: 11117
-    Title: "Request : Hunt Worm tail"
+    Title: "Solicitação : Caça aos Vermes"
     Targets:
       - Mob: WORM_TAIL
         Count: 20
   - Id: 11118
-    Title: "Request : Hunt Spore"
+    Title: "Solicitação : Caça aos Esporos"
     Targets:
       - Mob: SPORE
         Count: 30
   - Id: 11119
-    Title: "Request : Pest Control"
+    Title: "Solicitação : Controle de Pragas"
     Targets:
       - Mob: THIEF_BUG_EGG
         Count: 20
   - Id: 11120
-    Title: "Request : Hunt Muka"
+    Title: "Solicitação : Caça as Mukas"
     Targets:
       - Mob: MUKA
         Count: 20
   - Id: 11121
-    Title: "Request : Hunt Farmiliar"
+    Title: "Solicitação : Caça aos Familiars"
     Targets:
       - Mob: FARMILIAR
         Count: 20
   - Id: 11122
-    Title: "Request : Collect Feather"
+    Title: "Solicitação : Caça aos Peco-Pecos"
     Targets:
       - Mob: PECOPECO
         Count: 30
   - Id: 11123
-    Title: "Request : Collect Poison Spore"
+    Title: "Solicitação : Caça aos Esporos Venenosos"
     Targets:
       - Mob: POISON_SPORE
         Count: 30
@@ -7103,3 +7103,11 @@ Body:
   - Id: 62238
     Title: Midgardian Mercenary timer
     TimeLimit: +1h
+  - Id: 62239
+    Title: "Request : Caça Poeira"
+    Targets:
+      - Mob: DUSTINESS
+        Count: 10
+  - Id: 62249
+    Title: "Solicitação : Caça Poeira - Completa"
+    TimeLimit: +1d

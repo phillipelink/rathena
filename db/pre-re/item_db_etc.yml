@@ -21161,3 +21161,9 @@ Body:
     Locations:
       Ammo: true
     EquipLevelMin: 99
+  - Id: 25050
+    AegisName: Medalha_Eden
+    Name: Medalha do Eden
+    Type: Etc
+    Buy: 1
+    Weight: 1

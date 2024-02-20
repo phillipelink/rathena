@@ -59,7 +59,7 @@ OnInit:
 	OnCommand:
 	dispbottom "============================RagnaLinK============================",0xFAC708;
 	dispbottom " • Rates de Experiência:",0xF550ED;
-	dispbottom "  » Base 10.00x  / Classe 10.00x  / Quest 10.00x",0xFBFBFB;
+	dispbottom "  » Base 10.00x  / Classe 10.00x  / Quest 1.00x",0xFBFBFB;
 	dispbottom " • Chance de Drop Normal:",0xF550ED;
 	dispbottom "  » Comum 10.00x / Cura 10.00x / Usavél 10.00x / Equipamento 20.00x / Carta 10.00x",0xFBFBFB;
 	dispbottom " • Chance de Drop de Chefes:",0xF550ED;
