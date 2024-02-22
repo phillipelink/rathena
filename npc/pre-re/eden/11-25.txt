@@ -47,14 +47,14 @@ moc_para01,36,38,3	script	Missões [10 - 25]#Tuto	4_BOARD3,{
 	mes "^FF1493Missões de Caça Para Iniciantes^000000";
 	mes "^708090Quadro Negro com várias Missões para aventureiros novatos.^000000";
 	mes "Recomendado para: ^6959CDNível 10 ~ 25^000000";
-	mes "^388108Recompensa^000000: ^0483DB1x Medalha do Edén, Exp Base, e Exp Classe^000000";
+	mes "^388108Recompensa^000000: ^0483DB1x Medalha do Edén, Exp Base, e Exp Classe.^000000";
 
 
 
 	//Verificar Quest Caça aos Hornets
    .@quest_status_paralela1 = checkquest(11114+10);
    
-   //Quest foi iniciada
+   //Quest foi finalizada então ele cria a quest com 10 digitos a mais pra contabilizar
 	if(.@quest_status_paralela1 == 1)
 	{
 		.@questHornet$ = "^009900[•]^000000 ^DC6401Caça aos Hornets^000000 - ^3B8706Concluida^000000";
@@ -197,166 +197,166 @@ moc_para01,36,38,3	script	Missões [10 - 25]#Tuto	4_BOARD3,{
 		}
 	}
 
-	//Verificar Quest Controle de Pragas
-	.@quest_status_paralela6 = checkquest(11119+10);
+	// Verificar Quest Controle de Pragas
+	// .@quest_status_paralela6 = checkquest(11119+10);
 	
-	if(.@quest_status_paralela6 == 1)
-	{
-		.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status6 = checkquest(11119);
+	// if(.@quest_status_paralela6 == 1)
+	// {
+		// .@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";
+	// }
+	// else
+	// {
+		// .@quest_status6 = checkquest(11119);
 		
-		if (.@quest_status6 == -1) 
-		{
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^FF0000Pendente^000000";	
-		}
-		else if (.@quest_status6 == 0) 
-		{
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";	
-		}
-		else if (.@quest_status6 == 1) 
-		{		
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^1C3A9EEm Andamento^000000";
-		}
-		else if(.@quest_status6 == 2)
-		{
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";	
-		}
-	}
+		// if (.@quest_status6 == -1) 
+		// {
+			// .@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^FF0000Pendente^000000";	
+		// }
+		// else if (.@quest_status6 == 0) 
+		// {
+			// .@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";	
+		// }
+		// else if (.@quest_status6 == 1) 
+		// {		
+			// .@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^1C3A9EEm Andamento^000000";
+		// }
+		// else if(.@quest_status6 == 2)
+		// {
+			// .@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";	
+		// }
+	// }
 	
-		//Verificar Quest Caça aos Mukas
-	.@quest_status_paralela7 = checkquest(11120+10);
+		// Verificar Quest Caça aos Mukas
+	// .@quest_status_paralela7 = checkquest(11120+10);
 	
-	if(.@quest_status_paralela7 == 1)
-	{
-		.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status7 = checkquest(11120);
+	// if(.@quest_status_paralela7 == 1)
+	// {
+		// .@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";
+	// }
+	// else
+	// {
+		// .@quest_status7 = checkquest(11120);
 		
-		if (.@quest_status7 == -1) 
-		{
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^FF0000Pendente^000000";
-		}
-		else if (.@quest_status7 == 0) 
-		{
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";	
-		}
-		else if (.@quest_status7 == 1) 
-		{		
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^1C3A9EEm Andamento^000000";
-		}
-		else if(.@quest_status7 == 2)
-		{
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";	
-		}
-	}
+		// if (.@quest_status7 == -1) 
+		// {
+			// .@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^FF0000Pendente^000000";
+		// }
+		// else if (.@quest_status7 == 0) 
+		// {
+			// .@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";	
+		// }
+		// else if (.@quest_status7 == 1) 
+		// {		
+			// .@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^1C3A9EEm Andamento^000000";
+		// }
+		// else if(.@quest_status7 == 2)
+		// {
+			// .@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";	
+		// }
+	// }
 	
 	
-	//Verificar Quest Caça aos Familiares
-	.@quest_status_paralela8 = checkquest(11121+10);
+	// Verificar Quest Caça aos Familiares
+	// .@quest_status_paralela8 = checkquest(11121+10);
 	
-	if(.@quest_status_paralela8 == 1)
-	{
-		.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status8 = checkquest(11121);
+	// if(.@quest_status_paralela8 == 1)
+	// {
+		// .@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
+	// }
+	// else
+	// {
+		// .@quest_status8 = checkquest(11121);
 		
-		if (.@quest_status8 == -1) 
-		{
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^FF0000Pendente^000000";
-		}
-		else if (.@quest_status8 == 0) 
-		{
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
-		}
-		else if (.@quest_status8 == 1) 
-		{		
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^1C3A9EEm Andamento^000000";
-		}
-		else if(.@quest_status8 == 2)
-		{
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
-		}
-	}
+		// if (.@quest_status8 == -1) 
+		// {
+			// .@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^FF0000Pendente^000000";
+		// }
+		// else if (.@quest_status8 == 0) 
+		// {
+			// .@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
+		// }
+		// else if (.@quest_status8 == 1) 
+		// {		
+			// .@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^1C3A9EEm Andamento^000000";
+		// }
+		// else if(.@quest_status8 == 2)
+		// {
+			// .@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
+		// }
+	// }
 
 	
-	//Verificar Quest Coletar Penas
-	.@quest_status_paralela9 = checkquest(11122+10);
+	// Verificar Quest Coletar Penas
+	// .@quest_status_paralela9 = checkquest(11122+10);
 	
-	if(.@quest_status_paralela9 == 1)
-	{
-		.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status9 = checkquest(11122);
+	// if(.@quest_status_paralela9 == 1)
+	// {
+		// .@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
+	// }
+	// else
+	// {
+		// .@quest_status9 = checkquest(11122);
 		
-		if (.@quest_status9 == -1) 
-		{
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^FF0000Pendente^000000";
-		}
-		else if (.@quest_status9 == 0) 
-		{
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
-		}
-		else if (.@quest_status9 == 1) 
-		{		
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^1C3A9EEm Andamento^000000";
-		}
-		else if(.@quest_status9 == 2)
-		{
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
-		}
-	}
+		// if (.@quest_status9 == -1) 
+		// {
+			// .@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^FF0000Pendente^000000";
+		// }
+		// else if (.@quest_status9 == 0) 
+		// {
+			// .@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
+		// }
+		// else if (.@quest_status9 == 1) 
+		// {		
+			// .@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^1C3A9EEm Andamento^000000";
+		// }
+		// else if(.@quest_status9 == 2)
+		// {
+			// .@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
+		// }
+	// }
 	
-	//Verificar Quest Coletar Esporos Venenosos
-	.@quest_status_paralela10 = checkquest(11123+10);
+	// Verificar Quest Coletar Esporos Venenosos
+	// .@quest_status_paralela10 = checkquest(11123+10);
 	
-	if(.@quest_status_paralela10 == 1)
-	{
-		.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status10 = checkquest(11123);
+	// if(.@quest_status_paralela10 == 1)
+	// {
+		// .@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
+	// }
+	// else
+	// {
+		// .@quest_status10 = checkquest(11123);
 		
-		if (.@quest_status10 == -1) 
-		{
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^FF0000Pendente^000000";
-		}
-		else if (.@quest_status10 == 0) 
-		{
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
-		}
-		else if (.@quest_status10 == 1) 
-		{		
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^1C3A9EEm Andamento^000000";
-		}
-		else if(.@quest_status10 == 2)
-		{
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
-		}
-	}
+		// if (.@quest_status10 == -1) 
+		// {
+			// .@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^FF0000Pendente^000000";
+		// }
+		// else if (.@quest_status10 == 0) 
+		// {
+			// .@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
+		// }
+		// else if (.@quest_status10 == 1) 
+		// {		
+			// .@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^1C3A9EEm Andamento^000000";
+		// }
+		// else if(.@quest_status10 == 2)
+		// {
+			// .@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
+		// }
+	// }
 
 	next;
-	switch(select(.@questHornet$ + ":" + .@questCondor$ + ":" + .@questGafanhoto$ + ":" + .@questCaudaVerme$ + ":" + .@questEsporos$ + ":" + .@questControlePragas$ + ":" + .@questMuka$ + ":" + .@questFamiliar$ + ":" + .@questPena$ + ":" + .@questColetarEsporos$ + ":^FF0000[•]^000000 Sair ")) {
+	switch(select(.@questHornet$ + ":" + .@questCondor$ + ":" + .@questGafanhoto$ + ":" + .@questCaudaVerme$ + ":" + .@questEsporos$ + ":^FF0000[•]^000000 Sair ")) {
 		case 1: callsub L_Quest,11114,"Caça aos Hornets", "^766A56Objetivo: ^000000 ^3CB006Derrotar 10 Hornets^000000", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
 		case 2: callsub L_Quest,11115,"Caça aos Condors","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Condors", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
 		case 3: callsub L_Quest,11116,"Caça aos Gafanhotos", "^766A56Objetivo: ^000000 ^3CB006Derrotar 10 Rockers", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
 		case 4: callsub L_Quest,11117,"Caça aos Vermes","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Caudas de Verme", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
 		case 5: callsub L_Quest,11118,"Caça aos Esporos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Esporos ", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 6: callsub L_Quest,11119,"Controle de Pragas","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Ovos de Besouro Ladrão", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 7: callsub L_Quest,11120,"Caça aos Mukas","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Mukas", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 8: callsub L_Quest,11121,"Caça aos Familiares","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Familiares", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 9: callsub L_Quest,11122,"Caça aos Peco-Pecos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Peco Pecos", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 10: callsub L_Quest,11123,"Caça aos Esporos Venenosos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Esporos Venenosos", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 11:
+		// case 6: callsub L_Quest,11119,"Controle de Pragas","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Ovos de Besouro Ladrão", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
+		// case 7: callsub L_Quest,11120,"Caça aos Mukas","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Mukas", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
+		// case 8: callsub L_Quest,11121,"Caça aos Familiares","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Familiares", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
+		// case 9: callsub L_Quest,11122,"Caça aos Peco-Pecos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Peco Pecos", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
+		// case 10: callsub L_Quest,11123,"Caça aos Esporos Venenosos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Esporos Venenosos", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
+		case 6:
 			mes "[^6959CDQuadro de Missões^000000]";
 			mes "Tudo bem, volte quando tiver interesse.";
 			close;
@@ -462,11 +462,11 @@ L_Quest:
 		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11116+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
 		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11117+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
 		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11118+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11119+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11120+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11121+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11122+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11123+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		// questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11119+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		// questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11120+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		// questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11121+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		// questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11122+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
+		// questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11123+10,PLAYTIME) == -1 && BaseLevel >= 10 && BaseLevel <= 25";
 		end;
 }
 
@@ -475,19 +475,30 @@ moc_para01,33,36,6	script	Gerente Spike	10383,{
 		.@j = checkquest(.@i,HUNTING);
 		if (.@j == 2) {
 			switch(.@i) {
-				case 11114: callsub L_Quest,.@i,"Caça aos Hornets",900,1000;
-				case 11115: callsub L_Quest,.@i,"Caça aos Condors",1800,2000;
-				case 11116: callsub L_Quest,.@i,"Caça aos Gafanhotos",1400,1500;
-				case 11117: callsub L_Quest,.@i,"Caça aos Vermes",2600,2800;
-				case 11118: callsub L_Quest,.@i,"Caça aos Esporos",3900,4200;
-				case 11119: callsub L_Quest,.@i,"Controle de Pragas",2900,3200;
-				case 11120: callsub L_Quest,.@i,"Caça aos Mukas",3200,3400;
-				case 11121: callsub L_Quest,.@i,"Caça aos Familiares",3200,3400;
-				case 11122: callsub L_Quest,.@i,"Caça aos Peco-Pecos",5400,5800;
-				case 11123: callsub L_Quest,.@i,"Caça aos Esporos Venenosos",6000,7000;
+				case 11114: callsub L_Quest,.@i,"Caça aos Hornets",900,1000,6495,1;
+				case 11115: callsub L_Quest,.@i,"Caça aos Condors",1800,2000,6495,1;
+				case 11116: callsub L_Quest,.@i,"Caça aos Gafanhotos",1400,1500,6495,1;
+				case 11117: callsub L_Quest,.@i,"Caça aos Vermes",2600,2800,6495,1;
+				case 11118: callsub L_Quest,.@i,"Caça aos Esporos",3900,4200,6495,1;
+				case 11119: callsub L_Quest,.@i,"Controle de Pragas",2900,3200,6495,3;
+				case 11120: callsub L_Quest,.@i,"Caça aos Mukas",3200,3400,6495,3;
+				case 11121: callsub L_Quest,.@i,"Caça aos Familiares",3200,3400,6495,3;
+				case 11122: callsub L_Quest,.@i,"Caça aos Peco-Pecos",5400,5800,6495,3;
+				case 11123: callsub L_Quest,.@i,"Caça aos Esporos Venenosos",6000,7000,6495,3;
+				case 62239: callsub L_Quest,.@i,"Caças as Poeiras",6500,7200,6495,5;
 			}
 		}
 	}
+	
+		for( .@i = 62239; .@i < 62249; .@i++ ) {
+		.@j = checkquest(.@i,HUNTING);
+		if (.@j == 2) {
+			switch(.@i) {
+				case 62239: callsub L_Quest,.@i,"Caças as Poeiras",6500,7200;
+			}
+		}
+	}
+	
 	mes "[^3562DCGerente Spike^000000]";
 	mes "Você está procurando por um emprego?";
 	mes "Nós sempre temos muito trabalho para fazer.";

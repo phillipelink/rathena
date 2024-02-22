@@ -40,7 +40,13 @@ function Go; function Disp; function Pick; function Restrict;
 	if (lastwarp$ == "")
 		message strcharinfo(0),"Você ainda não se teletransportou para nenhum lugar.";
 	else
+	{
+		specialeffect2 EF_READYPORTAL;
+		specialeffect2 EF_TELEPORTATION;
+		specialeffect2 EF_PORTAL;
+		next;
 		warp lastwarp$,lastwarpx,lastwarpy;
+	}
 	end;
 	
 	
@@ -92,6 +98,10 @@ function Go {
 				set lastwarp$, getarg(0);
 				set lastwarpx, getarg(1,0);
 				set lastwarpy, getarg(2,0);
+				specialeffect2 EF_READYPORTAL;
+				specialeffect2 EF_TELEPORTATION;
+				specialeffect2 EF_PORTAL;
+				next;
 				warp getarg(0),getarg(1,0),getarg(2,0);
 				end;
 			}
@@ -103,6 +113,10 @@ function Go {
 	set lastwarp$, getarg(0);
 	set lastwarpx, getarg(1,0);
 	set lastwarpy, getarg(2,0);
+	specialeffect2 EF_READYPORTAL;
+	specialeffect2 EF_TELEPORTATION;
+	specialeffect2 EF_PORTAL;
+	next;
 	warp getarg(0),getarg(1,0),getarg(2,0);
 	end;
 }
@@ -172,7 +186,8 @@ menu	"Prontera",T1, "Alberta",T2, "Aldebaran",T3, "Amatsu",T4, "Ayothaya",T5,
 		"Niflheim",T33, "Payon",T34, "Rachel",T35,
 		"Umbala",T40, "Veins",T42;
 
-		T1: Go("prontera",155,183);
+		T1:Go("prontera",155,183);
+
 		T2: Go("alberta",28,234);
 		T3: Go("aldebaran",140,131);
 		T4: Go("amatsu",198,84);
@@ -1470,6 +1485,7 @@ veins,223,122,4	duplicate(Teletransporte)	Teletransporte#ve	612
 xmas,150,135,4	duplicate(Teletransporte)	Teletransporte#xmas	612
 yuno,148,189,4	duplicate(Teletransporte)	Teletransporte#yuno	612
 hero_dun1,102,188,6	duplicate(Teletransporte)	Teletransporte#VIP	612
+moc_para01,37,22,4	duplicate(Teletransporte)	Teletransporte#Eden	612
 
 // --------------------------------------------------
 //	Duplicates (Renewal):

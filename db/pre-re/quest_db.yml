@@ -4149,52 +4149,52 @@ Body:
     Title: Until radering is functioning
     TimeLimit: +23h
   - Id: 11114
-    Title: "Solicitação : Caça as Hornets"
+    Title: "Request : Caça as Hornets"
     Targets:
       - Mob: HORNET
         Count: 10
   - Id: 11115
-    Title: "Solicitação : Caça aos Condors"
+    Title: "Request : Caça aos Condors"
     Targets:
       - Mob: CONDOR
         Count: 20
   - Id: 11116
-    Title: "Solicitação : Caça aos Gafanhotos"
+    Title: "Request : Caça aos Gafanhotos"
     Targets:
       - Mob: ROCKER
         Count: 10
   - Id: 11117
-    Title: "Solicitação : Caça aos Vermes"
+    Title: "Request : Caça aos Vermes"
     Targets:
       - Mob: WORM_TAIL
         Count: 20
   - Id: 11118
-    Title: "Solicitação : Caça aos Esporos"
+    Title: "Request : Caça aos Esporos"
     Targets:
       - Mob: SPORE
         Count: 30
   - Id: 11119
-    Title: "Solicitação : Controle de Pragas"
+    Title: "Request : Controle de Pragas"
     Targets:
       - Mob: THIEF_BUG_EGG
         Count: 20
   - Id: 11120
-    Title: "Solicitação : Caça as Mukas"
+    Title: "Request : Caça as Mukas"
     Targets:
       - Mob: MUKA
         Count: 20
   - Id: 11121
-    Title: "Solicitação : Caça aos Familiars"
+    Title: "Request : Caça aos Familiars"
     Targets:
       - Mob: FARMILIAR
         Count: 20
   - Id: 11122
-    Title: "Solicitação : Caça aos Peco-Pecos"
+    Title: "Request : Caça aos Peco-Pecos"
     Targets:
       - Mob: PECOPECO
         Count: 30
   - Id: 11123
-    Title: "Solicitação : Caça aos Esporos Venenosos"
+    Title: "Request : Caça aos Esporos Venenosos"
     Targets:
       - Mob: POISON_SPORE
         Count: 30
@@ -7108,6 +7108,11 @@ Body:
     Targets:
       - Mob: DUSTINESS
         Count: 10
+  - Id: 62240
+    Title: "Request : Caça Poeira"
+    Targets:
+      - Mob: DUSTINESS
+        Count: 10
   - Id: 62249
-    Title: "Solicitação : Caça Poeira - Completa"
+    Title: "Request : Caça Poeira - Completa"
     TimeLimit: +1d

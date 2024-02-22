@@ -115,6 +115,8 @@ yuno,138,189,6	duplicate(Curandeira)	Curandeira#yuno	618
 hero_dun1,117,188,4	duplicate(Curandeira)	Curandeira#VIP	618
 //campo de treinamento
 new_zone03,92,66,4	duplicate(Curandeira)	Curandeira#Camp	618
+//Paraiso do Eden
+moc_para01,24,22,5	duplicate(Curandeira)	Curandeira#Eden	618
 
 // Duplicates (Renewal)
 //============================================================
