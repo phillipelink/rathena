@@ -517,31 +517,31 @@ OnPCLoginEvent:
 
 -	script	Pack_Iniciantes	-1,{
 	
-	// OnPCLoginEvent:
-	// if(#packrecebido == 1) 
-	// {
-		// cutin "kafra_08",2;
-		// end;
-	// }
-	// else
-	// {	
-		// mes "[Pack Boas Vindas] ";
-		// if(gettime(DT_HOUR) < 12){
-		// mes "Bom dia ^00994C"+strcharinfo(0)+"^000000!";
-		// }
-		// else if(gettime(DT_HOUR) < 18){
-			// mes "Boa tarde ^00994C"+strcharinfo(0)+"^000000!";
-		// }
-		// else if(gettime(DT_HOUR) >= 18){
-			// mes "Boa Noite ^00994C"+strcharinfo(0)+"^000000!";
-		// }
-		// mes "É um prazer tê-lo em nosso servidor!";
-		// mes "Aproveite os benefícios do Pack de Iniciante.";
-		// mes "Boa Aventura!";
-		// mes "Let's Play!";
-		// getitem 40001,1;
-		// set #packrecebido,1;
-	// }	
+	OnPCLoginEvent:
+	if(#PACKBOASVINDAS == 1) 
+	{
+		cutin "kafra_08",2;
+		end;
+	}
+	else
+	{	
+		mes "[^B907E5Pack Boas Vindas^000000] ";
+		if(gettime(DT_HOUR) < 12){
+		mes "Bom dia ^00994C"+strcharinfo(0)+"^000000!";
+		}
+		else if(gettime(DT_HOUR) < 18){
+			mes "Boa tarde ^00994C"+strcharinfo(0)+"^000000!";
+		}
+		else if(gettime(DT_HOUR) >= 18){
+			mes "Boa Noite ^00994C"+strcharinfo(0)+"^000000!";
+		}
+		mes "É um prazer tê-lo em nosso servidor!";
+		mes "Aproveite os benefícios do Pack de Iniciante.";
+		mes "Boa Aventura!";
+		mes "^00994CLet's Play!^000000";
+		getitem 12623,1;
+		set #PACKBOASVINDAS,1;
+	}	
 
 }
 

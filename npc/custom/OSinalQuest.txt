@@ -60,6 +60,7 @@ geffen,128,54,4	script	O Sinal	10381,{
 			delitem 7013,375;
 			set Zeny, Zeny - 2000000;
 			getitem 7025,1;
+			getitem 2644,1;
 			close;
 				break;
 		
@@ -291,3 +292,63 @@ OnInit:
 		// questinfo QTYPE_QUEST, QMARK_YELLOW, "countitem(501) == 1";
 		// end;
 // }
+
+
+
+gefenia01,47,106,4	script	Abençoado	10388,{
+	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
+		mes "[^0055FF ::: Abençoado ::: ^000000]";
+		mes "Você esta carregando muito peso, por favor guarde alguns itens no inventário antes de falar comigo.";
+		close;
+	}
+	
+	if(countitem(7025) < 1){
+			mes "[^0055FF ::: Abençoado ::: ^000000]";
+			mes "Você não possui a Quest O Sinal.";
+			mes "Apenas jogadores que finalizaram a quest tem acesso.";
+			close;
+	}
+	
+	
+	mes "[^0055FF ::: Abençoado ::: ^000000]";
+	mes "Olá Senhor(a) ^FF9900" +strcharinfo(0)+ "^000000!";
+	mes "Deseja trocar suas garrafas vazias por água amaldiçoadas?";
+	switch(select("^009900[•]^000000 Sim, por favor!:^FF0000[•]^000000 Cancelar.")){
+		case 1:
+		next;
+		mes "[^0055FF ::: Abençoado ::: ^000000]";
+		mes "Digite a quantidade de Garrafas Vazia que deseja troca:";
+		mes "^F50606Limite de 50 Garrafas por Vez^000000!!";
+		input .@qtdItem;
+		next;
+		if(.@qtdItem > 50){
+			mes "[^0055FF ::: Abençoado ::: ^000000]";
+			mes "^F50606Só posso trocar 50 garrafas por vez^000000!";
+			close;
+		}
+		if(.@qtdItem <= 0){
+			mes "[^0055FF ::: Abençoado ::: ^000000]";
+			mes "Digite um valor valido.";
+			close;
+		}
+
+		if(countitem(713) < .@qtdItem){
+			mes "[^0055FF ::: Abençoado ::: ^000000]";
+			mes "Você não possui a quantidade de Garrafas Vazias que digitou.";
+			close;
+		}
+		mes "[^0055FF ::: Abençoado ::: ^000000]";
+		mes "Aqui estão suas garrafas!";
+		mes "Volte quando precisar.";
+		delitem 713,.@qtdItem;
+		getitem 12020,.@qtdItem;
+		case 2:
+		end;
+	}
+	
+	end;
+		OnInit:
+		waitingroom "Abençoado",0;
+		end;
+
+}

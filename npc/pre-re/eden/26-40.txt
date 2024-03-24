@@ -19,171 +19,116 @@
 
 moc_para01,38,38,3	script	Missões [26 - 40]#Tuto2	4_BOARD3,{
 	if (!callfunc("F_HasEdenGroupMark")) {
-		mes "[^6959CDQuadro de Missões^000000]";
-		mes "Você não faz parte do grupo do Éden!";
-		mes "Fale com o Secretário do Eden para fazer parte do grupo.";		
-		close;
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes "Você não faz parte do grupo do Éden!";
+	mes "Fale com o Secretário do Eden para fazer parte do grupo.";		
+	close;
 	}
 
 	mes "[^6959CDQuadro de Missões^000000]";
 	mes "^FF1493Missões de Caça Para Iniciantes^000000";
 	mes "^708090Quadro Negro com várias Missões para aventureiros novatos.^000000";
 	mes "Recomendado para: ^6959CDNível 26 ~ 40^000000";
-	mes "^388108Recompensa^000000: ^0483DB3x Medalhas do Edén, Exp de Base, e Exp de Classe.^000000";
+	mes "^388108Recompensa^000000: ^0483DB1x Medalha do Edén, Exp Base, e Exp Classe.^000000";
 
-	//Verificar Quest Controle de Pragas
-	.@quest_status_paralela6 = checkquest(11119+10);
-	
-	if(.@quest_status_paralela6 == 1)
-	{
-		.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status6 = checkquest(11119);
-		
-		if (.@quest_status6 == -1) 
+		.@quest_status1 = checkquest(11119);
+		 if(.@quest_status1 == -1)
 		{
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^FF0000Pendente^000000";	
+			.@questPragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^FF0000Pendente^000000";
 		}
-		else if (.@quest_status6 == 0) 
+		else if (.@quest_status1 == 0)
 		{
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";	
+			.@questPragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";		
 		}
-		else if (.@quest_status6 == 1) 
-		{		
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^1C3A9EEm Andamento^000000";
+		else if(.@quest_status1 == 1){
+			.@questPragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^1C3A9EEm Andamento^000000";		
 		}
-		else if(.@quest_status6 == 2)
+		else if(.@quest_status1 == 2)
 		{
-			.@questControlePragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";	
+			.@questPragas$ = "^009900[•]^000000 ^DC6401Controle de Pragas^000000 - ^3B8706Concluida^000000";
 		}
-	}
-	
-		//Verificar Quest Caça aos Mukas
-	.@quest_status_paralela7 = checkquest(11120+10);
-	
-	if(.@quest_status_paralela7 == 1)
-	{
-		.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status7 = checkquest(11120);
-		
-		if (.@quest_status7 == -1) 
-		{
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^FF0000Pendente^000000";
-		}
-		else if (.@quest_status7 == 0) 
-		{
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";	
-		}
-		else if (.@quest_status7 == 1) 
-		{		
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^1C3A9EEm Andamento^000000";
-		}
-		else if(.@quest_status7 == 2)
-		{
-			.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Mukas^000000 - ^3B8706Concluida^000000";	
-		}
-	}
-	
-	
-	//Verificar Quest Caça aos Familiares
-	.@quest_status_paralela8 = checkquest(11121+10);
-	
-	if(.@quest_status_paralela8 == 1)
-	{
-		.@questMuka$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status8 = checkquest(11121);
-		
-		if (.@quest_status8 == -1) 
-		{
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^FF0000Pendente^000000";
-		}
-		else if (.@quest_status8 == 0) 
-		{
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
-		}
-		else if (.@quest_status8 == 1) 
-		{		
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^1C3A9EEm Andamento^000000";
-		}
-		else if(.@quest_status8 == 2)
-		{
-			.@questFamiliar$ = "^009900[•]^000000 ^DC6401Caça aos Familiares^000000 - ^3B8706Concluida^000000";
-		}
-	}
 
-	//Verificar Quest Coletar Penas
-	.@quest_status_paralela9 = checkquest(11122+10);
-	
-	if(.@quest_status_paralela9 == 1)
-	{
-		.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status9 = checkquest(11122);
-		
-		if (.@quest_status9 == -1) 
+		.@quest_status2 = checkquest(11120);
+		if (.@quest_status2 == -1) 
 		{
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^FF0000Pendente^000000";
+			.@questMukas$ = "^009900[•]^000000 ^DC6401Caça as Mukas^000000 - ^FF0000Pendente^000000";	
 		}
-		else if (.@quest_status9 == 0) 
+		else if (.@quest_status2 == 0) 
 		{
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
+			.@questMukas$ = "^009900[•]^000000 ^DC6401Caça as Mukas^000000 - ^3B8706Concluida^000000";		
 		}
-		else if (.@quest_status9 == 1) 
+		else if (.@quest_status2 == 1) 
 		{		
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^1C3A9EEm Andamento^000000";
+			.@questMukas$ = "^009900[•]^000000 ^DC6401Caça as Mukas^000000 - ^1C3A9EEm Andamento^000000";	
 		}
-		else if(.@quest_status9 == 2)
+		else if(.@quest_status2 == 2)
 		{
-			.@questPena$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
+			.@questMukas$ = "^009900[•]^000000 ^DC6401Caça as Mukas^000000 - ^3B8706Concluida^000000";
 		}
-	}
-	
-	//Verificar Quest Coletar Esporos Venenosos
-	.@quest_status_paralela10 = checkquest(11123+10);
-	
-	if(.@quest_status_paralela10 == 1)
-	{
-		.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
-	}
-	else
-	{
-		.@quest_status10 = checkquest(11123);
-		
-		if (.@quest_status10 == -1) 
+
+		.@quest_status3 = checkquest(11121);
+		if (.@quest_status3 == -1) 
 		{
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^FF0000Pendente^000000";
+			.@questFamilars$ = "^009900[•]^000000 ^DC6401Caça aos Familiars^000000 - ^FF0000Pendente^000000";		
 		}
-		else if (.@quest_status10 == 0) 
+		else if (.@quest_status3 == 0) 
 		{
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
+			.@questFamilars$ = "^009900[•]^000000 ^DC6401Caça aos Familiars^000000 - ^3B8706Concluida^000000";		
 		}
-		else if (.@quest_status10 == 1) 
+		else if (.@quest_status3 == 1) 
 		{		
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^1C3A9EEm Andamento^000000";
+			.@questFamilars$ = "^009900[•]^000000 ^DC6401Caça aos Familiars^000000 - ^1C3A9EEm Andamento^000000";
 		}
-		else if(.@quest_status10 == 2)
+		else if(.@quest_status3 == 2)
 		{
-			.@questColetarEsporos$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";
+			.@questFamilars$ = "^009900[•]^000000 ^DC6401Caça aos Familiars^000000 - ^3B8706Concluida^000000";
 		}
-	}
+
+		.@quest_status4 = checkquest(11122);
+		
+		if (.@quest_status4 == -1) 
+		{
+			.@questPecoPecos$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^FF0000Pendente^000000";				
+		}
+		else if (.@quest_status4 == 0) 
+		{
+			.@questPecoPecos$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";	
+		}
+		else if (.@quest_status4 == 1) 
+		{		
+			.@questPecoPecos$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^1C3A9EEm Andamento^000000";
+		}
+		else if(.@quest_status4 == 2)
+		{
+			.@questPecoPecos$ = "^009900[•]^000000 ^DC6401Caça aos Peco-Pecos^000000 - ^3B8706Concluida^000000";
+		}
+
+		.@quest_status5 = checkquest(11123);
+		
+		if (.@quest_status5 == -1) 
+		{
+			.@questEsporosVenenoso$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^FF0000Pendente^000000";	
+		}
+		else if (.@quest_status5 == 0) 
+		{
+			.@questEsporosVenenoso$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";	
+		}
+		else if (.@quest_status5 == 1) 
+		{		
+			.@questEsporosVenenoso$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^1C3A9EEm Andamento^000000";
+		}
+		else if(.@quest_status5 == 2)
+		{
+			.@questEsporosVenenoso$ = "^009900[•]^000000 ^DC6401Caça aos Esporos Venenosos^000000 - ^3B8706Concluida^000000";	
+		}
 
 	next;
-	switch(select(.@questControlePragas$ + ":" + .@questMuka$ + ":" + .@questFamiliar$ + ":" + .@questPena$ + ":" + .@questColetarEsporos$ + ":^FF0000[•]^000000 Sair ")) {
-		case 1: callsub L_Quest,11119,"Controle de Pragas","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Ovos de Besouro Ladrão", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 2: callsub L_Quest,11120,"Caça aos Mukas","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Mukas", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 3: callsub L_Quest,11121,"Caça aos Familiares","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Familiares", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 4: callsub L_Quest,11122,"Caça aos Peco-Pecos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Peco Pecos", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
-		case 5: callsub L_Quest,11123,"Caça aos Esporos Venenosos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Esporos Venenosos", "^766A56Delay:^000000 ^0838DB1 Dia^000000";
+	switch(select(.@questPragas$ + ":" + .@questMukas$ + ":" + .@questFamilars$ + ":" + .@questPecoPecos$ + ":" + .@questEsporosVenenoso$ + ":^FF0000[•]^000000 Sair ")) {
+		case 1: callsub L_Quest,11119,"Controle de Pragas", "^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Ovos de Besouro Ladrão^000000", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 2: callsub L_Quest,11120,"Caça as Mukas","^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Mukas", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 3: callsub L_Quest,11121,"Caça aos Familiars", "^766A56Objetivo: ^000000 ^3CB006Derrotar 20 Familiars", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 4: callsub L_Quest,11122,"Caça aos Peco-Pecos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Peco-Pecos", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 5: callsub L_Quest,11123,"Caça aos Esporos Venenosos","^766A56Objetivo: ^000000 ^3CB006Derrotar 30 Esporos Venenosos", "^766A56Delay:^000000 ^0838DB0^000000";
 		case 6:
 			mes "[^6959CDQuadro de Missões^000000]";
 			mes "Tudo bem, volte quando tiver interesse.";
@@ -194,33 +139,16 @@ L_Quest:
 
 	next;
 
-	.@quest_status_paralel = checkquest(getarg(0)+10);
-	if(.@quest_status_paralel == 1)
-	{
-			
-			.@query_select_quests = query_sql("select time from `quest` where char_id = '" + getcharid(0) + "' and quest_id ='"+ (getarg(0)+10)+ "'", .@time$);
-		   
-		// .@quest_status = checkquest(getarg(0)+10);
-		// if (.@quest_status == 0) {
-			mes "[^6959CDQuadro de Missões^000000]";
-			//mes " - Missão: ^4d4dff"+ getarg(1) +"^000000 - ";
-			mes "^F79107Esta missão já foi concluida por hoje.^000000";
-			mes "Reseta dia ^0838DB" + gettimestr("%d-%m-%Y as %H:%M",21,.@time$[0]) + "^000000.";
-			mes "Tente outras missões.";
-			close;
-		// }		
-	}
-	else
-	{
-		.@quest_status = checkquest(getarg(0));
-		if(.@quest_status == 1)
+	.@quest_status = checkquest(getarg(0));
+	if(.@quest_status == 1)
 	{
 		mes "[^6959CDQuadro de Missões^000000]";
 		mes "Olá Senhor(a) ^FF9900" +strcharinfo(0)+ "^000000!";
 		mes "Vejo que está em uma missão ainda não finalizada, muito bem!";
 		mes "Você precisa de alguma ajuda?";
 		next;
-		switch(select("^3B8706[•] Estou bem Obrigado!^000000:^FF0000[•] Quero desistir da missão^000000.")){
+		switch(select("^3B8706[•] Estou bem Obrigado!^000000:^FF0000[•] Quero desistir da missão^000000."))
+		{
 			case 1:
 			mes "[^6959CDQuadro de Missões^000000]";
 			mes "Muito bem!Continue dando duro, tenho certeza que você consegue!";
@@ -232,7 +160,8 @@ L_Quest:
 			mes "Se você fizer isso perde todo progresso que já fez nela até agora.";
 			mes "Você tem certeza que deseja desistir da sua missão?";
 			next;
-			switch(select("^FF0000[•] Sim, quero desistir da missão!^000000:^3B8706[•] Não, quero continuar a missão!^000000")){
+			switch(select("^FF0000[•] Sim, quero desistir da missão!^000000:^3B8706[•] Não, quero continuar a missão!^000000"))
+			{
 				case 1:
 				mes "[^6959CDQuadro de Missões^000000]";
 				mes "Tudo bem.";
@@ -243,8 +172,7 @@ L_Quest:
 				case 2:
 				end;				
 			}
-		}
-	}
+	    }
 	}
 	
 	if (BaseLevel < 26) {
@@ -285,11 +213,10 @@ L_Quest:
 	
 	
 	OnInit:
-		// questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(62239+10,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11119+10,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11120+10,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11121+10,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11122+10,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
-		questinfo QTYPE_DAILYQUEST, QMARK_YELLOW, "checkquest(11123+10,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(11119,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(11120,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(11121,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(11122,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(11123,PLAYTIME) == -1 && BaseLevel >= 26 && BaseLevel <= 40";
 		end;
 }

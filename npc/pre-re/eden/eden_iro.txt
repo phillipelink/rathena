@@ -407,19 +407,20 @@ moc_para01,163,51,7	script	Izaac#edco	86,{
 
 // Safe to 7 Certificate Exchanger
 //============================================================
-moc_para01,50,39,4	script	Eve Natalia	882,{
-	mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+moc_para01,52,38,4	script	Baú dos Pergaminhos	10405,{
+	mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 	mes "So estou na cidade por um tempo para ver se consigo estabelecer algum comércio com os caçadores de MVP!";
 	next;
-	mes "[^0055FF ::: Eve Natalia ::: ^000000]";
-	mes "Estou disposta a pegar alguns equipamentos de MVP e dar a você esses Certificados de Melhoria que tenho em troca;";
+	mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
+	mes "Estou disposto a pegar alguns ^DC2DDFEquipamentos de MVP^000000 e dar em troca esses ^DC2DDFPergaminhos de Refino +7^000000 a você.";
+	mes "Lembrando que eles vem de forma aleatoria para (Armas/Armaduras).";
 	next;
-	mes "[^0055FF ::: Eve Natalia ::: ^000000]";
-	mes "Então, você tem algum dos equipamentos que estou procurando para obter alguns ^DC2DDFCertificados de Segurança para Nível 7^000000 Aleatorios?";
+	mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
+	mes "Então, você tem algum dos equipamentos que estou procurando para obter alguns ^DC2DDFPergaminhos de Refino +7^000000 Aleatorios?";
 	next;
 	switch(select("^009900[•]^000000 Que equipamento você está procurando?:^009900[•]^000000 Sim, eu tenho!:^FF0000[•]^000000 Infelizmente Não!")) {
 	case 1:
-		mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+		mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 		mes "<URL>^06CB3FPedaço de Pele do Guardião^000000<INFO>https://www.divine-pride.net/database/item/2554</INFO></URL>";
 		mes "<URL>^06CB3FEscudo da Valquiria^000000<INFO>https://www.divine-pride.net/database/item/2115</INFO></URL>";
 		mes "<URL>^06CB3FArmadura da Valquiria^000000<INFO>https://www.divine-pride.net/database/item/2357</INFO></URL>";
@@ -431,10 +432,10 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 		mes "<URL>^06CB3FLamina Gemea Vermelha^000000<INFO>https://www.divine-pride.net/database/item/13413</INFO></URL>";
 		close;
 	case 2:
-		mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+		mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 		mes "Qual peça de equipamento você deseja trocar, por favor, verifique se é o equipamento que você deseja realmente trocar.";
 		next;
-		mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+		mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 		mes "^CC0000^CC0000Atenção, caso o equipamento esteja com cartas, melhorias, encantamentos, etc, serão perdidos.^000000^000000";
 		next;
 		set .@i, select("^FF0000[•]^000000 Vou pensar a respeito!:^009900[•]^000000 Pedaço de Pele do Guardião - ^D35E02Ganha 4^000000:^009900[•]^000000 Escudo da Valquiria - ^D35E02Ganha 4^000000:^009900[•]^000000 Armadura da Valquiria - ^D35E02Ganha 5^000000:^009900[•]^000000 Manto de Diabolus - ^D35E02Ganha 5^000000:^009900[•]^000000 Armadura de Diabolus - ^D35E02Ganha 2^000000:^009900[•]^000000 Botas de Diabolus - ^D35E02Ganha 2^000000:^009900[•]^000000 Manteau de Diabolus - ^D35E02Ganha 4^000000:^009900[•]^000000 Lamina Gemea Azul - ^D35E02Ganha 2^000000:^009900[•]^000000 Lamina Gemea Vermelha - ^D35E02Ganha 2^000000")-2;
@@ -448,27 +449,27 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 		set .@amount, .@tickets[.@i];
 
 		if(countitem(.@item) == 0){
-			mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+			mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 			mes "Você nem sequer tem 1... pare de desperdiçar meu tempo..";
 			close;
 		}
 		next;
-		mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+		mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 		mes "Então, você quer trocar o seu item: ^FF0000" + getitemname(.@item) + "^000000";
 		mes "por";
-		mes "^1F8E02 "+.@amount+" Certificados de Segurança Aleatórios até o Nível +7^000000?";
+		mes "^1F8E02 "+.@amount+" Pergaminhos de Refino Aleatórios +7^000000?";
 		// mes "Informe ^00AEFF 1 se sim^000000, ou ^DD0C0C 0  para cancelar..^000000";
 		switch(select("^009900[•]^000000 Sim, Por favor!:^FF0000[•]^000000 Não, quero desistir!")){
 			case 1:
 		if (countitem(.@item) == 0) {
 			next;
-			mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+			mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 			mes "Você nem sequer tem 1... pare de desperdiçar meu tempo..";
 			close;
 		}
 		next;
-		mes "[^0055FF ::: Eve Natalia ::: ^000000]";
-		mes "Oh, perfeito, você ganhou ^CC0000" + .@amount + "^000000 Certificados de Segurança Aleatórios até o Nível +7!";
+		mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
+		mes "Oh, perfeito, você ganhou ^CC0000" + .@amount + "^000000 Pergaminhos de Refino  +7 Aleatórios!";
 		delitem .@item,1;
 		for(set .@i,0; .@i<.@amount; set .@i,.@i+1) {
 			// Note: iRO lists item 6235 as "Safe to 7 Headgear Certificate", but it's Guarantee_Armor_6Up in our database.
@@ -480,7 +481,7 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 		close;
 			case 2:
 			next;
-			mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+			mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 			mes "Justo o suficiente, se você tiver negócios comigo no futuro, não hesite em me procurar!";
 			end;
 			
@@ -489,7 +490,7 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 	case 3:
 		break;
 	}
-	mes "[^0055FF ::: Eve Natalia ::: ^000000]";
+	mes "[^0055FF ::: Baú dos Pergaminhos ::: ^000000]";
 	mes "Justo o suficiente, se você tiver negócios comigo no futuro, não hesite em me procurar!";
 	close;
 }
@@ -1022,25 +1023,26 @@ L_Exchange:
 //============================================================
 /* Due to the irregularity of iRO's databases, some of these sprites may not display properly. */
 
-moc_para01,32,171,6	cashshop	Kafra Headgears#eden1	115,14024:500,14098:150,17081:300,14097:500,14094:1000,14017:400,14099:300
-moc_para01,35,174,2	cashshop	Kafra Dye Shop#dyes2	114,6287:150
-moc_para01,37,170,2	cashshop	Kafra Consumables#eden3	112,13810:5,14167:400,16556:100,14111:75,14075:25,14107:70,14104:50,14112:25,14082:30,14091:60,14088:30,14085:60,14169:40,14170:40,14172:40,14173:40,14171:40,14174:40,14159:100,14160:100,14161:100,14162:100,14163:100:14164:100
-moc_para01,32,174,2	cashshop	Kafra Rental Items#eden	721,16683:150,16682:50,14126:250,14125:250,14137:250,14127:250,14118:250,14119:250,14132:250,14124:250,14133:250,14130:250,14136:250,14122:250,14135:250,14134:250,14138:250,14139:250,14131:250
-moc_para01,37,172,2	cashshop	Kafra Costume#eden5	860,16974:300,16972:600,16973:150,16975:150,16977:150,17014:150,17015:150
-moc_para01,35,168,1	cashshop	Kafra Utility Shop#eden	113,16677:25,13990:400,16396:100,16394:100,17106:500,6241:10,6240:10,6225:15,6226:15,14002:5,6294:500,7776:50,7619:30,7620:30,12208:40,14156:400,12210:40,14158:400,14042:50,14044:50,14046:50,14048:50,14114:50,14166:40,14165:100,14157:100,14178:100
+moc_para01,28,179,4	cashshop	Kafra Headgears#eden1	115,14024:500,14098:150,17081:300,14097:500,14094:1000,14017:400,14099:300
+// moc_para01,16,179,6	cashshop	Kafra Headgears#eden2	115,14024:500,14098:150,17081:300,14097:500,14094:1000,14017:400,14099:300
+moc_para01,16,179,6	cashshop	Kafra Dye Shop#dyes2	114,6287:150
+moc_para01,20,179,6	cashshop	Kafra Consumables#eden3	112,13810:5,14167:400,16556:100,14111:75,14075:25,14107:70,14104:50,14112:25,14082:30,14091:60,14088:30,14085:60,14169:40,14170:40,14172:40,14173:40,14171:40,14174:40,14159:100,14160:100,14161:100,14162:100,14163:100:14164:100
+moc_para01,32,179,4	cashshop	Kafra Rental Items#eden	721,16683:150,16682:50,14126:250,14125:250,14137:250,14127:250,14118:250,14119:250,14132:250,14124:250,14133:250,14130:250,14136:250,14122:250,14135:250,14134:250,14138:250,14139:250,14131:250
+moc_para01,24,179,4	cashshop	Kafra Costume#eden5	860,16974:300,16972:600,16973:150,16975:150,16977:150,17014:150,17015:150
+moc_para01,12,179,6	cashshop	Kafra Utility Shop#eden	113,16677:25,13990:400,16396:100,16394:100,17106:500,6241:10,6240:10,6225:15,6226:15,14002:5,6294:500,7776:50,7619:30,7620:30,12208:40,14156:400,12210:40,14158:400,14042:50,14044:50,14046:50,14048:50,14114:50,14166:40,14165:100,14157:100,14178:100
 
 // Duplicate NPCs
 //============================================================
 /* Technically these NPC names are different, but it's not worth editing the original scripts. */
 
 // Weapon/Armor Refiner "Normalson" (merchants/refine.txt)
-moc_para01,14,185,4	script	Normalson#ed	826,{
-	callfunc "refinemain","Normalson",0;
-	end;
-}
+// moc_para01,14,185,4	script	Normalson#ed	826,{
+	// callfunc "refinemain","Normalson",0;
+	// end;
+// }
 
 // Advanced Refiner "Suhnmi" (merchants/advanced_refiner.txt)
-moc_para01,26,185,4	duplicate(Suhnbi#cash)	Suhnmi#eden	85
+moc_para01,26,185,4	duplicate(Suhnbi#cash)	Refinador Enriquecido#eden	85
 
 // HD Refiner "Blacksmith Mighty Hammer" (re/merchants/hd_refiner.txt)
 // A combination of the +7~9 and +10 and up refiner, currently a placeholder.
@@ -1052,8 +1054,8 @@ OnInit:
 	initnpctimer;
 	end;
 OnTimer5000:
-	specialeffect EF_REFINEOK,AREA,"Suhnmi#eden";
-	//specialeffect EF_REFINEOK,AREA,"Mighty Hammer#ed";
+	specialeffect EF_REFINEOK,AREA,"Refinador Enriquecido#eden";
+	specialeffect EF_REFINEOK,AREA,"Mestre do Refino";
 	initnpctimer;
 	end;
 }
@@ -1063,11 +1065,11 @@ moc_para01,33,162,6	duplicate(Ripped Cabus#GymPass)	Ripped Callus#ed	899
 
 // RWC 2012 Enchanter "Goldenthiefberg" (events/RWC_2012.txt)
 // A combination of the slotter and enchanter, currently a placeholder.
-moc_para01,27,179,4	script	RWC Enchanter#new10	87,{ end; }
+// moc_para01,27,179,4	script	RWC Enchanter#new10	87,{ end; }
 
 // Cash Headgear Dyer "Alora" (merchants/cashheadgear_dye.txt)
 // Also converts some +8 and up headgears into costumes, currently a placeholder.
-moc_para01,21,185,4	duplicate(Alora)	Alora#headgear_dye2	862
+// moc_para01,21,185,4	duplicate(Alora)	Alora#headgear_dye2	862
 
 // Stylist "Dinorah Lacostt" (?)
 // Dyes clothing for an Omni Clothing Dye, currently a placeholder.
@@ -1121,7 +1123,7 @@ moc_para01,174,33,3	script	Bathory#2012spirits	1102,{
 	}
 }
 
-moc_para01,26,174,4	script	Grandma Boxter#boxx	840,{ end; }
+// moc_para01,26,174,4	script	Grandma Boxter#boxx	840,{ end; }
 
 // Mail Annex Station
 //============================================================

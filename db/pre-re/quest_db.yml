@@ -4200,7 +4200,7 @@ Body:
         Count: 30
   - Id: 11124
     Title: "Request : Hunt Honet - Complete"
-    TimeLimit: +1d
+    TimeLimit: +10mn
   - Id: 11125
     Title: "Request : Hunt Condor - Complete"
     TimeLimit: +1d
@@ -7116,3 +7116,78 @@ Body:
   - Id: 62249
     Title: "Request : Caça Poeira - Completa"
     TimeLimit: +1d
+  - Id: 62250
+    Title: "Request : Caça aos Pitmans"
+    Targets:
+      - Mob: PITMAN
+        Count: 40
+  - Id: 62251
+    Title: "Request : Caça aos Grand Orcs"
+    Targets:
+      - Mob: HIGH_ORC
+        Count: 40
+  - Id: 62252
+    Title: "Request : Caça aos Antique Firelocks"
+    Targets:
+      - Mob: ANTIQUE_FIRELOCK
+        Count: 40
+  - Id: 62253
+    Title: "Request : Caça aos Carats"
+    Targets:
+      - Mob: CARAT
+        Count: 40
+  - Id: 62254
+    Title: "Request : Caça aos Zumbis Prisioneiros"
+    Targets:
+      - Mob: ZOMBIE_PRISONER
+        Count: 40
+  - Id: 62255
+    Title: "Request : Caça as Focas"
+    Targets:
+      - Mob: FUR_SEAL
+        Count: 50
+  - Id: 62256
+    Title: "Request : Caça aos Mimicos"
+    Targets:
+      - Mob: MIMIC
+        Count: 50
+  - Id: 62257
+    Title: "Request : Caça aos Druidas Malignos"
+    Targets:
+      - Mob: EVIL_DRUID
+        Count: 50
+  - Id: 62258
+    Title: "Request : Caça as Alizas"
+    Targets:
+      - Mob: ALIZA
+        Count: 50
+  - Id: 62259
+    Title: "Request : Caça aos Ferus(Verde)"
+    Targets:
+      - Mob: FERUS_
+        Count: 50
+  - Id: 62260
+    Title: "Request : Caça aos Rybios"
+    Targets:
+      - Mob: RYBIO
+        Count: 50
+  - Id: 62261
+    Title: "Request : Caça aos Zumbis Slaughter"
+    Targets:
+      - Mob: ZOMBIE_SLAUGHTER
+        Count: 50
+  - Id: 62262
+    Title: "Request : Caça aos Anubis"
+    Targets:
+      - Mob: ANUBIS
+        Count: 50
+  - Id: 62263
+    Title: "Request : Caça aos Venatus Azuis"
+    Targets:
+      - Mob: VENATU_4
+        Count: 50
+  - Id: 62264
+    Title: "Request : Caça as Banshees"
+    Targets:
+      - Mob: BANSHEE
+        Count: 50

@@ -16,76 +16,206 @@
 //= 1.4 Added use of F_HasEdenGroupMark function. [Ragno]
 //============================================================
 
-moc_para01,40,38,3	script	Mission [41 - 55]	857,{
+moc_para01,40,38,3	script	Missões [41 - 55]	857,{
 	if (!callfunc("F_HasEdenGroupMark")) {
-		mes "You are not an Eden group member. You are not qualified to access the bulletin board.";
-		close;
-	}
-	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 1000) {
-		mes "^008800Wait a sec!!";
-		mes "You cannot receive any more items because you're carrying too many items. Please try again after you lighten up.^000000";
-		close;
-	}
-	if (checkquest(12088) == -1) {
-		if (BaseLevel < 41 || BaseLevel > 55) {
-			mes "Mission bulletin board for Lv41~55 adventurers.";
-			close;
-		}
-		mes "[Mission Board]";
-		mes "Mission bulletin board.";
-		next;
-		if(select("Check the Missions.:Cancel.") == 2) {
-			mes "^000077Ok. Let's check the missions next time.^000000.";
-			close;
-		}
-		switch(select("Thara Frog Hunting:Cruiser Hunting:Kukre Hunting:Orc Baby Hunting:Orc Warrior Hunting:Vadon Hunting:Megalodon Hunting:Marse Hunting:Cornutus Hunting:Myst Hunting:Shellfish Hunting:Marine Sphere Hunting")) {
-			case 1: callsub L_Quest,12072,"Have you seen a red frog? It is called Thara Frog and it's very rare. We are trying to verify where it inhabits. So please hunt 20 Thara Frogs.";
-			case 2: callsub L_Quest,12073,"I heard of some toys attacking people. It is ridiculous! Let's show them our power! We have to hunt 15 Cruisers!";
-			case 3: callsub L_Quest,12074,"Someone got robbed near the beach! The possible suspect is a criminal monster called Kukre. Please hunt 30 Kukre.";
-			case 4: callsub L_Quest,12075,"Orc Babies are getting more violent these days. Please hunt 15 Orc Babies.";
-			case 5: callsub L_Quest,12076,"Orc Warriors are increasing their aggression. Please hunt 20 Orc Warriors.";
-			case 6: callsub L_Quest,12077,"Have you seen crabs with thick shells? They are Vadons. Please hunt 15 Vadons.";
-			case 7: callsub L_Quest,12078,"Dead fish are all around the beach and it is getting worse. Please hunt 30 Megalodon.";
-			case 8: callsub L_Quest,12079,"Can you hunt Marse? I need 15 Marse for my study. Please help me.";
-			case 9: callsub L_Quest,12080,"An idiot Cornutus bit the Mayor's foot. The Mayor is upset so we need to hunt 20 Cornutus to make him happy!";
-			case 10: callsub L_Quest,12081,"People are freaking out because of Myst. It looks like a ghost so, it scares people. Please hunt 15 Myst.";
-			case 11: callsub L_Quest,12082,"Don't ask why, but please hunt 30 Shellfish. It is a secret mission!";
-			case 12: callsub L_Quest,12083,"Marine Sphere? Do you know what a Marine Sphere is? I got a mission for you to hunt 15 Marine Sphere, so please do so.";
-			case 13: callsub L_Quest,12084,"The mayor wants to eat a delicious fish dish. Phen will be the perfect ingredient for it. Please hunt 20 Phen!";
-			case 14: callsub L_Quest,12085,"Dead Orc monsters got back to our town and they've revived as Orc Skeletons. We are in chaos! Please hunt 15 Orc Skeleton.";
-			case 15: callsub L_Quest,12086,"Some weird monsters called Zenorc are attacking us. Please hunt 30 Zenorc.";
-			case 16: callsub L_Quest,12087,"Be prepared! It is a cruel mission! Hunt 15 Mummies!! I tried once, but I couldn't succeed. It is too scary!";
-		}
-		end;
-	}
-	setarray .@Exp[0],9600,7200,15750,7875,11100,8550,17100,9000,12300,9900,20250,10350,13800,11025,22500,11250;
-	for(set .@i,0; .@i<16; set .@i,.@i+1)
-		if (checkquest(12072+.@i,HUNTING) == 2) {
-			mes "[Mission Board]";
-			mes "You have completed the mission.";
-			mes "Here is your reward.";
-			erasequest 12088;
-			erasequest 12072+.@i;
-			specialeffect2 EF_STEAL;
-			getexp .@Exp[.@i],0;
-			close;
-		}
-	if ((checkquest(12072,HUNTING) == 0) && (checkquest(12073,HUNTING) == 0) && (checkquest(12074,HUNTING) == 0) && (checkquest(12075,HUNTING) == 0) && (checkquest(12076,HUNTING) == 0) && (checkquest(12077,HUNTING) == 0) && (checkquest(12078,HUNTING) == 0) && (checkquest(12079,HUNTING) == 0) && (checkquest(12080,HUNTING) == 0) && (checkquest(12081,HUNTING) == 0) && (checkquest(12082,HUNTING) == 0) && (checkquest(12083,HUNTING) == 0) && (checkquest(12084,HUNTING) == 0) && (checkquest(12085,HUNTING) == 0) && (checkquest(12086,HUNTING) == 0) && (checkquest(12087,HUNTING) == 0)) {
-		mes "You may now view the bulletin board.";
-		erasequest 12088;
-		close;
-	}
-	mes "There is nothing special to do.";
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes "você não faz parte do grupo do Éden!";
+	mes "Fale com o Secretário do Eden para fazer parte do grupo.";		
 	close;
-L_Quest:
-	mes "[Mission Board Memo]";
-	mes getarg(1);
+	}
+
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes "^FF1493Missões de Caça Para Iniciantes^000000";
+	mes "^708090Quadro Negro com várias Missões para aventureiros novatos.^000000";
+	mes "Recomendado para: ^6959CDNível 41 ~ 55^000000";
+	mes "^388108Recompensa^000000: ^0483DB1x Medalha do Éden, Exp Base, e Exp Classe.^000000";
+
+		.@quest_status1 = checkquest(62250);
+		 if(.@quest_status1 == -1)
+		{
+			.@questPitmans$ = "^009900[•]^000000 ^DC6401Caça aos Pitmans^000000 - ^FF0000Pendente^000000";
+		}
+		else if (.@quest_status1 == 0)
+		{
+			.@questPitmans$ = "^009900[•]^000000 ^DC6401Caça aos Pitmans^000000 - ^3B8706Concluida^000000";		
+		}
+		else if(.@quest_status1 == 1){
+			.@questPitmans$ = "^009900[•]^000000 ^DC6401Caça aos Pitmans^000000 - ^1C3A9EEm Andamento^000000";		
+		}
+		else if(.@quest_status1 == 2)
+		{
+			.@questPitmans$ = "^009900[•]^000000 ^DC6401Caça aos Pitmans^000000 - ^3B8706Concluida^000000";
+		}
+
+		.@quest_status2 = checkquest(62251);
+		if (.@quest_status2 == -1) 
+		{
+			.@questGrandOrcs$ = "^009900[•]^000000 ^DC6401Caça aos Grand Orcs^000000 - ^FF0000Pendente^000000";	
+		}
+		else if (.@quest_status2 == 0) 
+		{
+			.@questGrandOrcs$ = "^009900[•]^000000 ^DC6401Caça aos Grand Orcs^000000 - ^3B8706Concluida^000000";		
+		}
+		else if (.@quest_status2 == 1) 
+		{		
+			.@questGrandOrcs$ = "^009900[•]^000000 ^DC6401Caça aos Grand Orcs^000000 - ^1C3A9EEm Andamento^000000";	
+		}
+		else if(.@quest_status2 == 2)
+		{
+			.@questGrandOrcs$ = "^009900[•]^000000 ^DC6401Caça aos Grand Orcs^000000 - ^3B8706Concluida^000000";
+		}
+
+		.@quest_status3 = checkquest(62252);
+		if (.@quest_status3 == -1) 
+		{
+			.@questAntiqueFirelocks$ = "^009900[•]^000000 ^DC6401Caça aos Antique Firelocks^000000 - ^FF0000Pendente^000000";		
+		}
+		else if (.@quest_status3 == 0) 
+		{
+			.@questAntiqueFirelocks$ = "^009900[•]^000000 ^DC6401Caça aos Antique Firelocks^000000 - ^3B8706Concluida^000000";		
+		}
+		else if (.@quest_status3 == 1) 
+		{		
+			.@questAntiqueFirelocks$ = "^009900[•]^000000 ^DC6401Caça aos Antique Firelocks^000000 - ^1C3A9EEm Andamento^000000";
+		}
+		else if(.@quest_status3 == 2)
+		{
+			.@questAntiqueFirelocks$ = "^009900[•]^000000 ^DC6401Caça aos Antique Firelocks^000000 - ^3B8706Concluida^000000";
+		}
+
+		.@quest_status4 = checkquest(62253);
+		
+		if (.@quest_status4 == -1) 
+		{
+			.@questCarats$ = "^009900[•]^000000 ^DC6401Caça aos Carats^000000 - ^FF0000Pendente^000000";				
+		}
+		else if (.@quest_status4 == 0) 
+		{
+			.@questCarats$ = "^009900[•]^000000 ^DC6401Caça aos Carats^000000 - ^3B8706Concluida^000000";	
+		}
+		else if (.@quest_status4 == 1) 
+		{		
+			.@questCarats$ = "^009900[•]^000000 ^DC6401Caça aos Carats^000000 - ^1C3A9EEm Andamento^000000";
+		}
+		else if(.@quest_status4 == 2)
+		{
+			.@questCarats$ = "^009900[•]^000000 ^DC6401Caça aos Carats^000000 - ^3B8706Concluida^000000";
+		}
+
+		.@quest_status5 = checkquest(62254);
+		
+		if (.@quest_status5 == -1) 
+		{
+			.@questZumbisPrisioneiros$ = "^009900[•]^000000 ^DC6401Caça aos Zumbis Prisioneiros^000000 - ^FF0000Pendente^000000";	
+		}
+		else if (.@quest_status5 == 0) 
+		{
+			.@questZumbisPrisioneiros$ = "^009900[•]^000000 ^DC6401Caça aos Zumbis Prisioneiros^000000 - ^3B8706Concluida^000000";	
+		}
+		else if (.@quest_status5 == 1) 
+		{		
+			.@questZumbisPrisioneiros$ = "^009900[•]^000000 ^DC6401Caça aos Zumbis Prisioneiros^000000 - ^1C3A9EEm Andamento^000000";
+		}
+		else if(.@quest_status5 == 2)
+		{
+			.@questZumbisPrisioneiros$ = "^009900[•]^000000 ^DC6401Caça aos Zumbis Prisioneiros^000000 - ^3B8706Concluida^000000";	
+		}
+
 	next;
-	if(select("Accept the mission.:Cancel.") == 1) {
-		mes "[Mission Board]";
-		mes "You have accepted the mission. For more details, please press 'alt + u' keys, you can get information from the Quest Window.";
-		setquest 12088;
-		setquest getarg(0);
+	switch(select(.@questPitmans$ + ":" + .@questGrandOrcs$ + ":" + .@questAntiqueFirelocks$ + ":" + .@questCarats$ + ":" + .@questZumbisPrisioneiros$ + ":^FF0000[•]^000000 Sair ")) {
+		case 1: callsub L_Quest,62250,"Caça aos Pitmans", "^766A56Objetivo: ^000000 ^3CB006Derrotar 40 Pitmans^000000", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 2: callsub L_Quest,62251,"Caça aos Grand Orcs","^766A56Objetivo: ^000000 ^3CB006Derrotar 40 Grand Orcs", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 3: callsub L_Quest,62252,"Caça aos Antique Firelocks", "^766A56Objetivo: ^000000 ^3CB006Derrotar 40 Antique Firelocks", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 4: callsub L_Quest,62253,"Caça aos Carats","^766A56Objetivo: ^000000 ^3CB006Derrotar 40 Carats", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 5: callsub L_Quest,62254,"Caça aos Zumbis Prisioneiros","^766A56Objetivo: ^000000 ^3CB006Derrotar 40 Zumbis Prisioneiros", "^766A56Delay:^000000 ^0838DB0^000000";
+		case 6:
+			mes "[^6959CDQuadro de Missões^000000]";
+			mes "Tudo bem, volte quando tiver interesse.";
+			close;
 	}
+
+L_Quest:
+
+	next;
+
+	.@quest_status = checkquest(getarg(0));
+	if(.@quest_status == 1)
+	{
+		mes "[^6959CDQuadro de Missões^000000]";
+		mes "Olá Senhor(a) ^FF9900" +strcharinfo(0)+ "^000000!";
+		mes "Vejo que está em uma missão ainda não finalizada, muito bem!";
+		mes "você precisa de alguma ajuda?";
+		next;
+		switch(select("^3B8706[•] Estou bem Obrigado!^000000:^FF0000[•] Quero desistir da missão^000000."))
+		{
+			case 1:
+			mes "[^6959CDQuadro de Missões^000000]";
+			mes "Muito bem!Continue dando duro, tenho certeza que você consegue!";
+			close;
+			end;
+			case 2:
+			mes "[^6959CDQuadro de Missões^000000]";
+			mes "Desistir?";
+			mes "Se você fizer isso perde todo progresso que já fez nela até agora.";
+			mes "você tem certeza que deseja desistir da sua missão?";
+			next;
+			switch(select("^FF0000[•] Sim, quero desistir da missão!^000000:^3B8706[•] não, quero continuar a missão!^000000"))
+			{
+				case 1:
+				mes "[^6959CDQuadro de Missões^000000]";
+				mes "Tudo bem.";
+				mes "Ã‰ importante saber o seu limite";
+				mes "As Missões não irão a lugar nenhum.";
+				mes "não perca as esperanças e volte quando se sentir mais confiante.";
+				erasequest getarg(0);
+				case 2:
+				end;				
+			}
+	    }
+	}
+	
+	if (BaseLevel < 41) {
+		mes "[^6959CDQuadro de Missões^000000]";
+		mes "^FF0000você esta muito fraco para realizar as Missões dessa fase^000000.";
+		mes "^FF8C00Chegue ao Nível 41 de Base^000000!";
+		close;
+	}
+	if (BaseLevel > 55) {
+		mes "[^6959CDQuadro de Missões^000000]";
+		mes "você esta acima do Nível de base requerido para fazer as Missões.";
+		mes "Procure um quadro apropriado para o seu Nível de base.";
+		close;
+	}
+	
+		
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes "^884205=======================^000000";
+	mes "^766A56missão:^000000 ^D908FA"+ getarg(1)+ "^000000";
+	for ( .@i = 2; .@i < getargcount(); .@i++ )
+		mes getarg(.@i);
+		mes "^884205=======================^000000";
+	next;
+	mes "[^6959CDQuadro de Missões^000000]";
+	mes "Quando finalizar esta missão falar com a ^F76105Gerente Spike^000000 para pegar sua recompensa.";
+	next;
+	if (select("Eu farei esta missão.:não quero essa missão.") == 2) {
+		mes "[^6959CDQuadro de Missões^000000]";
+		mes "Tudo bem, volte quando decidir qual missão deseja realizar.";
+		close;
+	}
+	mes "[^6959CDQuadro de Missões^000000]";
+	for ( .@i = 2; .@i < getargcount(); .@i++ )
+		mes getarg(.@i);
+	setquest getarg(0);
 	close;
+	end;
+	
+	
+	OnInit:
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(62250,PLAYTIME) == -1 && BaseLevel >= 41 && BaseLevel <= 55";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(62251,PLAYTIME) == -1 && BaseLevel >= 41 && BaseLevel <= 55";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(62252,PLAYTIME) == -1 && BaseLevel >= 41 && BaseLevel <= 55";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(62253,PLAYTIME) == -1 && BaseLevel >= 41 && BaseLevel <= 55";
+		questinfo QTYPE_QUEST, QMARK_YELLOW, "checkquest(62254,PLAYTIME) == -1 && BaseLevel >= 41 && BaseLevel <= 55";
+		end;
 }

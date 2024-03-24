@@ -2755,3 +2755,13 @@ Body:
       Script: " specialeffect2 EF_INCAGILITY; sc_start SC_INCREASEAGI,30000,10; "
       TitleId: 1024
     Score: 10
+  - Id: 120395
+    Group: Battle
+    Name: Drops
+    Reward:
+      TitleID: 1029
+    Target:
+      - Id: 0
+        MobID: 1113
+        Count: 20
+    Score: 10

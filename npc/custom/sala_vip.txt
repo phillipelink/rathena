@@ -666,6 +666,12 @@ hero_dun1,102,200,5	script	Estilista#main	878,{
 
 hero_dun1,133,202,4	script	Refinador de Minérios	58,{
 	
+	if (checkweight(1201,1) == 0 || (MaxWeight - Weight) < 2000) {
+		mes "[^0055FF ::: Refinador de Minérios ::: ^000000]";
+		mes "Você esta carregando muito peso, por favor guarde alguns itens no inventário antes de falar comigo.";
+		close;
+	}
+	
 	mes "[^0055FF ::: Refinador de Minérios ::: ^000000]";
 	mes "Você deseja refinar seus minérios de Oridecon ou de Elunium?";
 	next;
@@ -782,3 +788,49 @@ OnInit:
 	
 }
 
+prontera,0,0,0	script	gdfjfhadh	444,{
+	function cutin2;
+	
+	OnMinute19:
+	announce("test 1",BC_ALL);
+	cutin2("prontera","kafra_01",2);
+	sleep 3000;
+	announce("test 2",BC_ALL);
+	cutin2("prontera","",255);
+	sleep 3000;
+	announce("test 3",BC_ALL);
+	cutin2("prontera","kafra_01",2);
+	sleep 3000;
+	announce("test 4",BC_ALL);
+	cutin2("prontera","",255);
+end;
+
+//for map
+	//cutin2(<"map">,"<filename>",<position>);
+	function	cutin2	{
+		freeloop(true);
+		.@map$ = getarg(0);
+		.@filename$ = getarg(1);
+		.@position = getarg(2);
+		.@s = getmapunits(BL_PC,.@map$,.@SD);
+		for(.@i=0;.@i<.@s;.@i++){
+			if((.@cid = convertpcinfo(.@SD[.@i],CPC_CHAR)))
+				cutin(.@filename$,.@position,.@cid);
+		}
+		return;
+	}
+	
+	//whole server
+	//cutin3("<filename>",<position>);
+	function	cutin3	{
+		freeloop(true);
+		.@filename$ = getarg(0);
+		.@position = getarg(1);
+		.@s = getunits(BL_PC,.@SD);
+		for(.@i=0;.@i<.@s;.@i++){
+			if((.@cid = convertpcinfo(.@SD[.@i],CPC_CHAR)))
+				cutin(.@filename$,.@position,.@cid);
+		}
+		return;
+	}
+}
